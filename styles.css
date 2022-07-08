@@ -1,0 +1,199 @@
+body {
+    background-image: linear-gradient(to bottom right, #5874DC, #E06C78);
+    font-family: sans-serif, Courier, monospace;
+}
+
+/* Fonts */
+h1, h2, h3, p, a, footer {
+    font-weight: 900;
+    font-style: normal;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: left;
+    font-size: 5rem;
+    line-height: 1em;
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 1.1em;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: .5em;
+}
+
+/* Image & Video */
+iframe {
+    background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
+    padding: 10px 10px 10px 10px;
+    border: 5px solid #000;
+    border-bottom: 20px solid #000;
+    max-width: 96.75%;
+  }
+
+/* Image Gallery */
+div.gallery {
+    background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
+    border: 5px solid #000;
+    box-shadow: 0px 5px #000;
+  }
+  
+  div.gallery:hover {
+    text-decoration: 3px line-through;
+    box-shadow: none;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive {
+    padding: 10px 10px;
+    float: left;
+    width: 24.99999%;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+
+/* Clearfix??? */
+.clearfix:after {
+    padding: 10px 10px;
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Intro Banner */
+header {
+    background-image: linear-gradient(to bottom right, #6AAB9C, #5874DC);
+    padding: 0px 50px 60px 50px;
+    border: 5px solid #000;
+    border-bottom: 20px solid #000;
+    display: grid;
+}
+
+#intro a {
+    color:#000;
+    font-size: 6rem;
+    font-family: sans-serif;
+    line-height: 1.1em;
+    text-decoration: underline;
+}
+
+#intro a:hover {
+    font-size: 6.5rem;
+    text-decoration: line-through;
+    transition: ease-in-out 0.1s;
+    cursor:pointer;
+}
+
+/* Anchors/buttons */
+#anchors a {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: .5em;
+    color:#000;
+    margin: 15px 15px;
+    display: inline-flex;
+    background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
+    padding: 10px 20px;
+    box-shadow: 0px 5px #000;
+    border: 3px solid black;
+    transition: ease-in-out 0.1s;
+}
+
+#anchors a:hover {
+    color: antiquewhite;
+    box-shadow: 0px 0px black;
+    transition: top ease 0.1s;
+    top: 5px;
+    background-color: black;
+    cursor:pointer;
+    text-decoration: line-through;
+}
+
+/* Ue5 Section */
+.ue5, .ue4, .substance, .resume, .coding {
+    background-image: linear-gradient(to bottom right, #6AAB9C, #5874DC);
+    padding: 50px 50px 50px 50px;
+    border: 5px solid #000;
+    border-bottom: 20px solid #000;
+    display: grid;
+}
+
+/* Dotted border */
+hr.dotted {
+    margin: 40px 0px 40px 0px;
+    border-top: 5px dotted #000;
+}
+
+/* Footer */
+footer {
+    background-image: linear-gradient(to bottom right, #5874DC, #6AAB9C);
+    border: 5px solid #000;
+    border-top: 20px solid #000;
+    padding: 10px 50px 10px 50px;
+    margin: 40px 0px 40px 0px;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 640px) {
+
+    /* Padding change for Top Banner, Tags Section, Attributes Section, Table Code Section  */
+    header,
+    #tags,
+    #attributes,
+    #tablecode {
+        padding: 10px;
+    }
+
+    #blkbx {
+        margin: 10px;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    #anchors a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Footer padding */
+    footer {
+        padding: 0px 20px;
+    }
+}
