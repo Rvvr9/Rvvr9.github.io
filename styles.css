@@ -1,200 +1,162 @@
 body {
-    background-color: antiquewhite;
-    font-family: sans-serif, Courier, monospace;
+  background-color: antiquewhite;
+  font-family: sans-serif, Courier, monospace;
 }
 
 /* Fonts */
-h1, h2, h3, p, a, footer {
-    font-weight: 900;
-    font-style: normal;
-    text-align: center;
+h1,
+h2,
+h3,
+p,
+footer {
+  font-weight: 900;
+  font-style: normal;
 }
 
-h1 {
-    text-align: left;
-    font-size: 8vw;
-    line-height: 1em;
+h1,
+a {
+  font-size: 6vw;
+  line-height: 1em;
+  width: 75%;
 }
 
 h2 {
-    font-size: 3vw;
-    line-height: 1.1em;
+  font-size: 3vw;
+  line-height: 1.1em;
 }
 
 h3 {
-    font-size: 3vw;
-    line-height: .5em;
+  font-size: 2.5vw;
+  line-height: .5em;
 }
 
 /* Image & Video */
 iframe {
-    background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
-    padding: 10px 10px 10px 10px;
-    border: 5px solid #000;
-    border-bottom: 20px solid #000;
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
-  }
+  background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
+  padding: 10px 10px 10px 10px;
+  border: 5px solid #000;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
 
 /* Image Gallery */
 div.gallery {
-    margin: 5px;
-    background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
-    border: 5px solid #000;
-    box-shadow: 0px 5px #000;
-  }
-  
-  div.gallery:hover {
-    text-decoration: 3px line-through;
-    box-shadow: none;
-  }
-  
-  div.gallery img {
-    width: 100%;
-    height: auto;
-  }
-  
-  div.desc {
-    padding: 15px;
-    text-align: center;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
+  margin: 5px;
+  background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
+  border: 5px solid #000;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 10px 10px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
   .responsive {
-    padding: 10px 10px;
-    float: left;
-    width: 24.99999%;
+    width: 49.99999%;
+    margin: 6px 0;
   }
-  
-  @media only screen and (max-width: 700px) {
-    .responsive {
-      width: 49.99999%;
-      margin: 6px 0;
-    }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
   }
-  
-  @media only screen and (max-width: 500px) {
-    .responsive {
-      width: 100%;
-    }
-  }
+}
 
 /* Clearfix??? */
 .clearfix:after {
-    padding: 10px 10px;
-    content: "";
-    display: table;
-    clear: both;
+  padding: 10px 10px;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Intro Banner */
 header {
-    background-image: linear-gradient(to bottom right, #6AAB9C, #5874DC);
-    padding: 0px 50px 60px 50px;
-    border: 5px solid #000;
-    border-bottom: 20px solid #000;
-    display: grid;
+  background-image: linear-gradient(to bottom right, #6AAB9C, #5874DC);
+  border: 5px solid #000;
+  border-bottom: 20px solid #000;
 }
 
 #intro a {
-    color:#000;
-    font-family: sans-serif;
-    line-height: 1.1em;
-    text-decoration: underline;
+  text-align: left;
+  width: 60%;
+  color: #000;
+  font-family: sans-serif;
+  line-height: 1.1em;
+  text-decoration: underline;
 }
 
 #intro a:hover {
-    text-decoration: line-through;
-    transition: ease-in-out 0.1s;
-    cursor:pointer;
+  text-decoration: line-through;
+  transition: ease-in-out 0.1s;
+  cursor: pointer;
 }
 
 /* Anchors/buttons */
 #anchors a {
-    text-decoration: none;
-    font-family: sans-serif;
-    font-size: 1rem;
-    line-height: .5em;
-    color:#000;
-    margin: 2vw auto;
-    display: inline-block;
-    background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
-    padding: 1vw;
-    box-shadow: 0px 5px #000;
-    border: 3px solid black;
-    transition: ease-in-out 0.1s;
-    max-width: max-content;
+  text-decoration: none;
+  font-family: sans-serif;
+  color: #000;
+  margin: 2vw 2vw;
+  display: inline-block;
+  background-image: linear-gradient(to bottom right, #E06C78, #FA9284);
+  box-shadow: 0px 5px #000;
+  border: 5px solid black;
+  transition: ease-in-out 0.1s;
+  max-width: max-content;
 }
 
 #anchors a:hover {
-    color: antiquewhite;
-    box-shadow: 0px 0px black;
-    transition: top ease 0.1s;
-    top: 5px;
-    background-color: black;
-    cursor:pointer;
-    text-decoration: line-through;
+  color: antiquewhite;
+  box-shadow: 0px 0px black;
+  transition: top ease 0.1s;
+  top: 5px;
+  background-color: black;
+  cursor: pointer;
+  text-decoration: line-through;
 }
 
 /* Ue5 Section */
-.ue5, .ue4, .substance, .resume, .coding {
-    background-image: linear-gradient(to bottom right, #6AAB9C, #5874DC);
-    padding: 50px 50px 50px 50px;
-    border: 5px solid #000;
-    border-bottom: 20px solid #000;
-    display: grid;
+.ue5,
+.ue4,
+.substance,
+.resume,
+.coding {
+  background-image: linear-gradient(to bottom right, #6AAB9C, #5874DC);
+  padding: 5px 50px 5apx 50px;
+  border: 5px solid #000;
+  display: grid;
+  margin: 1% auto;
 }
 
 /* Dotted border */
 hr.dotted {
-    margin: 40px 0px 40px 0px;
-    border-top: 5px dotted #000;
+  margin: 40px 0px 40px 0px;
+  border-top: 5px dotted #000;
 }
 
 /* Footer */
 footer {
-    background-image: linear-gradient(to bottom right, #5874DC, #6AAB9C);
-    border: 5px solid #000;
-    border-top: 20px solid #000;
-    padding: 10px 50px 10px 50px;
-    margin: 40px 0px 40px 0px;
-}
-
-/* Mobile Styles */
-@media only screen and (max-width: 640px) {
-
-    /* Padding change for Top Banner, Tags Section, Attributes Section, Table Code Section  */
-    header,
-    #tags,
-    #attributes,
-    #tablecode {
-        padding: 10px;
-    }
-
-    #blkbx {
-        margin: 10px;
-    }
-
-    header h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-
-    h2 h3 {
-        font-size: 2rem;
-    }
-
-    #anchors a {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    /* Footer padding */
-    footer {
-        padding: 0px 20px;
-    }
+  background-image: linear-gradient(to bottom right, #5874DC, #6AAB9C);
+  border: 5px solid #000;
+  padding-left: 2%;
+  margin: 10px 0px;
 }
