@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Monoton&family=Righteous&display=swap');
+
 body {
-  font-family: 'Nunito Sans', sans-serif;
   margin: 0 15%;
   width: auto;
   height: 100vh;
@@ -10,17 +11,17 @@ body {
 
 .header-curved {
   background-color: white;
-  height: 300px;
+  height: 600px;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   text-align: center;
   border: .1em solid black;
-  padding: 0px 0px 20px 0px;
+  padding: -60px 0px 80px 0px;
   margin: .3em 0px 30px 0px;
   box-shadow: .1em .1em #000;
-  font-weight: 1600;
+  font-weight: 1200;
   font-size: 2.75vw;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Monoton',cursive , sans-serif;
 }
 
 .bubble-container {
@@ -34,14 +35,14 @@ body {
   box-shadow: .3em .3em #000;
   border-radius: 50%;
   text-align: center;
-  font-size: 2vw;
+  font-size: medium;
   font-weight: 700;
-  line-height: 100px;
+  line-height: 50px;
 }
 
 .container {
   border: .3em solid black;
-  padding: 50px;
+  padding: 100px 50px 50px 50px;
   margin: 100px auto;
   background-color: white;
   box-shadow: .3em .3em #000;
@@ -111,34 +112,47 @@ body {
   font-weight: 700;
 }
 
-.nunito-sans {
-  font-family: 'Nunito Sans', sans-serif;
+.monoton {
+  font-family: 'Monoton', cursive, monospace;
 }
 
-.source-code-pro {
-  font-family: 'Source Code Pro', monospace;
+.modak {
+  font-family: 'Modak', cursive, sans-serif;
 }
 
-.poppins {
-  font-family: 'Poppins', sans-serif;
+.righteous {
+  font-family: 'Righteous', cursive, sans-serif;
 }
 
 .text-panel h1 {
   font-weight: 700;
   font-size: 32px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Monoton', cursive, sans-serif;
 }
 
 .text-panel h2 {
   font-weight: 500;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Modak', cursive, sans-serif;
 }
 
 .text-panel p {
   font-weight: 400;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Righteous', cursive, sans-serif;
+}
+
+h1 {
+  font-family: 'Monoton', cursive, monospace;
+}
+
+h2 {
+  font-family: 'Righteous', cursive, sans-serif;
+  size: 4vw;
+}
+
+p, li{
+  font-family: 'Righteous', cursive, sans-serif;
 }
 
 
