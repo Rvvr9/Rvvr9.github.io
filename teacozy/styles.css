@@ -12,91 +12,115 @@ body {
 .navigation {
     position: fixed;
     top: 0;
+    left: 0;
+    height: 69px;
     width: 100%;
-    display: flex;
-    flex-flow: row;
-    list-style: none;
     margin: 0 0;
+    display: inline-flex;
+    flex-flow: row;
     background: black;
-    list-style-type: none;
     border-bottom: 1px solid seashell;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo img {
     height: 50px;
-    margin: 10px;
-    justify-content: flex-start;
+    margin: 0px 10px;
+}
+
+ul {
+    display: inline-flex;
+    list-style-type: none;
+    justify-content: space-between;
 }
 
 a {
+    margin: 10px;
     font-family: Helvetica;
     text-decoration: underline;
-    display: inline-block;
     color: seashell;
-    align-items: center;
-  }
+}
 
 /*Jumbotron Section*/
 
 .jumbotron {
-    max-width: 100%;
-    margin: 60px auto;
-    height: 700px;
-    width: 1200px;
-    border: 2px solid chartreuse;
+    margin-top: 70px 0px 50px 0px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .jumbotron .container {
-    background-color: #000;
-    border: 2px solid red;
+    background-image: url("resources/images/img-mission-background.jpg");
+    height: 700px;
+    width: 1200px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/*Banner Section*/
+.jumbotron .banner {
+    display: inline-flex;
+    flex-flow: column;
+    min-width:100%;
+    background-color: #000;
+}
+
+/*Tea of the month*/
 .banner {
     color: seashell;
-    width: 1000px;
-}
-
-/*Expertise Section*/
-.gallery .container {
-    border: 2px solid red;
+    width: 1200px;
+    margin: 50px;
 }
 
 .cards {
+    margin: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border: 2px solid red;
 }
 
 .cards img {
     height: 200px;
     width: 300px;
-    border: 2px solid red;
 }
 
-#expertise {
-    padding: 20px;
-    background-color: #ffc200;
-    margin: 0;
-    text-align: center;
-    border: 2px solid red;
+/*Locations Section*/
+
+.locations {
+    margin-top: 70px 0px 50px 0px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.locations-main {
+    background-image: url("resources/images/img-locations-background.jpg");
+    background-position: center;
+    margin-top: 70px 0px 50px 0px;
+    height: 500px;
+    width: 1200px;
+}
+
+.locations-cards{
+    display: inline-flex;
+    justify-content: center;
+}
+
+.locations-cards div{
+    flex-basis: auto;
+    margin: 20px 20px;
+    width: 300px;
+    background-color: #000;
+    opacity: 1;
 }
 
 /*Footer Section*/
 .footer {
-    padding: 60px 0px;
-    background-color: #000;
-    color: #fff;
-}
-
-.footer h3 {
-    font-size: 20px;
+    text-align: left;
     margin-left: 20px;
-}
-
-.footer p {
-    font-size: 12px;
-    margin-bottom: 0;
-    margin-left: 20px;
+    color: seashell;
 }
