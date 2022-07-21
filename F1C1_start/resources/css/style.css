@@ -302,23 +302,29 @@ header .mobile {
   .feature h3 {
     font-size: .875rem;
     line-height: 1.4;
+    margin-bottom: 30px;
   }
 }
 
 @media only screen and (max-width: 760px) {
   #features-section {
+    margin-top: 16px;
     flex-flow: column;
     padding: 0;
   }
 
   .feature .image-container {
-    height: auto;
-    width: auto;
+    height: 65%;
+    width: 90%;
+    margin-top: 16px;
+  }
+
+  .feature .center {
+    margin-top: 0;
   }
 
   .feature {
     margin: 0;
-    padding: 1.25rem 1rem 0 1rem;
   }
 }
 
