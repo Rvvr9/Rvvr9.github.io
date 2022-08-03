@@ -1,9 +1,9 @@
 body {
   margin: 0;
   color: white;
-  font-family: 'Indie Flower', cursive;
-  background: linear-gradient(to top right, rgb(243,243,236) 0%, rgb(255,169,151) 30%, rgb(251,169,214) 60%, rgb(35, 71, 248) 100%);
-  background-color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  /* background: linear-gradient(to top right, rgb(243,243,236) 0%, rgb(255,169,151) 30%, rgb(251,169,214) 60%, rgb(35, 71, 248) 100%); */
+  background-color: #212328;
   font-size: 22px;
   text-align: center;
 }
@@ -18,25 +18,34 @@ h4,
 p {
   margin: 0;
   padding: 10px;
+  border-bottom: 4px solid grey;
 }
 
 header {
   display: flex;
   width: 100%;
   position: fixed;
-  top: 30px;
   justify-content: center;
 }
 
 nav {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(245,244,241,.33);
-  border-radius: 25px;
-  padding: 25px;
+  background-color: rgba(245, 244, 241, .33);
+  border-radius: 0px 0px 25px 25px;
   backdrop-filter: blur(12px) saturate(100%);
+}
+
+nav img {
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+nav .dropdown {
+  margin-right: 25px;
+  margin-bottom: 5px;
 }
 
 .dropdown {
@@ -48,9 +57,9 @@ nav {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(245,244,241,.33);
+  background-color: rgba(245, 244, 241, .33);
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
   z-index: 1;
   backdrop-filter: blur(12px) saturate(100%);
@@ -64,7 +73,7 @@ nav {
 }
 
 .dropdown-content a:hover {
-  background-color: #fba9d6;
+  background-color: #01eefe;
   border-radius: 25px;
 }
 
@@ -72,44 +81,60 @@ nav {
   display: block;
 }
 
+#myVideo1 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+}
 
-.jubo-containter {
+
+.jumbo-containter {
   display: flex;
   width: 100%;
 }
 
 .jumbotron {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 600px;
   width: 100%;
-  background-size: cover;
-  background-attachment: fixed;
+  flex-flow: row wrap;
+  padding-top: 150px;
 }
 
-.jumbotron .content {
-  background-color: rgb(42, 88, 187); 
-  width: 95%;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
+.jumbotron .content img {
+  width: 100%;
   border-radius: 25px;
+  flex-grow: 5;
 }
+
+.jumbo-container .content {
+  background-color: rgba(245, 244, 241, .33);
+  padding: 25px;
+  border-radius: 25px;
+  margin: 25px;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
 .main {
   padding-top: 35px;
   opacity: 0.9;
 }
 
-#portfolio {
-  min-height: 500px;
-  margin: auto;
-  padding-top: 70px;
-  border: 2px solid chartreuse;
-}
-
-.potion-gallery {
+.case-gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -117,40 +142,66 @@ nav {
   border: 2px solid red;
 }
 
-.potion {
+.case {
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-between;
-  align-items: center;
-  border: 2px solid black;
+  width: 300px;
+  min-height: 300px;
+  justify-content: flex-end;
+  border-radius: 25px;
+  margin: 5px;
+  border: 2px solid blueviolet;
 }
 
-.potion img {
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  padding: 10px;
-  height: auto;
+#product1,
+#product2,
+#product3,
+#product4,
+#product5,
+#product6 {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 25px;
+}
+
+#product1 {
+  background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/hangar.jpg");
+  flex-grow: 1;
+  border: 2px solid black;
+}
+#product2 {
+  background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/hangar.jpg");
+  flex-grow: 5;
+}
+#product3 {
+  background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/hangar.jpg");
+  flex-grow: 1;
+}
+#product4 {
+  background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/hangar.jpg");
+  flex-grow: 5;
+}
+#product5 {
+  background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/hangar.jpg");
+  flex-grow: 1;
+}
+#product6 {
+  background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/hangar.jpg");
   flex-grow: 5;
 }
 
-.potion span {
+.case p {
   padding: 5px;
   min-width: 240px;
   font-weight: bold;
   text-align: center;
-}
-
-.potion-1 {
-background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/hangar.jpg");
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-flex-grow: 1;
+  background-color: rgba(245, 244, 241, .33);
+  border-radius: 0px 0px 25px 25px;
 }
 
 .team {
-  background-image: url("https://content.codecademy.com/PRO/independent-practice-projects/flexbox-business-site/img/blurred-road.jpg");
+  background-color: #212328;
   padding-top: 70px;
   padding-top: 5px;
   display: flex;
@@ -174,7 +225,26 @@ flex-grow: 1;
   height: auto;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myVideo2 {
+  position: relative;
+  z-index: -1;
+}
+
+.first-level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .contact,
 .copyright {
   padding-top: 20px;
 }
+
+@media (max-width: 750px) {}
