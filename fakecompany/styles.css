@@ -26,6 +26,10 @@ a {
   color: #01eefe;
 }
 
+a:hover {
+  text-decoration: line-through;
+}
+
 h2,
 h3,
 h4,
@@ -310,7 +314,6 @@ footer {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid red;
   width: 90%;
   background-color: rgba(245, 244, 241, .33);
   border-radius: 25px;
@@ -323,7 +326,6 @@ footer {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  border: 2px soild blueviolet;
 }
 
 .level-2 {
@@ -332,7 +334,6 @@ footer {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid chartreuse;
   width: 90%;
   background-color: rgba(245, 244, 241, .33);
   border-radius: 25px;
@@ -345,14 +346,12 @@ footer {
   flex-flow: column wrap;
   justify-content: space-between;
   align-items: center;
-  border: 2px soild red;
 }
 
 .level-2 img {
   width: 300px;
   height: 300px;
   border-radius: 25px;
-  border: 2px soild black;
 }
 
 .level-2 h4{
