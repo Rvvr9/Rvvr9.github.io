@@ -98,7 +98,7 @@ a:hover {
   margin-top: 80px;
   margin-left: 2%;
   font-size: 7rem; /* this too */
-  width: 60%; /* remember to change for @media */
+  width: 50%; /* remember to change for @media */
 }
 
 .intro a{
@@ -235,22 +235,6 @@ iframe {
 .academic {
   font-size: 1rem;
 }
-
-
-/* Code academy */
-.coding a{
-  color: #BB86FC;
-}
-
-.coding h3 {
-  color: #BB86FC;
-}
-
-.coding a:hover {
-  text-decoration: line-through;
-  color: #BB86FC;
-}
-
 
 /* Footer */
 footer {
