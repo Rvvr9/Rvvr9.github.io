@@ -1,13 +1,16 @@
-main, body, html {
+main,
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
+  cursor: none;
 }
 
 body {
   background: linear-gradient(to top right, rgb(22, 22, 22) 0%, #1b192e 30%, rgb(22, 22, 22) 60%, #151e00 100%);
   font-family: sans-serif, Courier, monospace;
-  color :white;
+  color: white;
   font-size: 16px;
 }
 
@@ -45,11 +48,11 @@ p {
 
 /* Navigation */
 header {
-  display:flex;
+  display: flex;
   width: 100%;
 }
 
-header .desktop{
+header .desktop {
   position: fixed;
   top: 0;
   z-index: 5;
@@ -61,11 +64,11 @@ header .desktop{
   align-items: center;
 }
 
-header .mobile a{
+header .mobile a {
   display: none;
 }
 
-header h3{
+header h3 {
   display: flex;
   color: white;
   font-size: 1.5rem;
@@ -76,37 +79,39 @@ header h3{
   box-shadow: 0px 0px 10px 5px rgb(24, 24, 24);
 }
 
-header a{
+header a {
   color: white;
   align-items: center;
 }
 
-header img{
+header img {
   height: 70px;
   margin-top: 5px;
 }
 
-
 a:hover {
+  cursor: none;
   text-decoration: line-through;
 }
 
-
 /* Intro */
-.intro h1, .intro a{
+.intro h1,
+.intro a {
   color: white;
   margin-top: 80px;
   margin-left: 2%;
-  font-size: 7rem; /* this too */
-  width: 60%; /* remember to change for @media */
+  font-size: 7rem;
+  /* this too */
+  width: 50%;
+  /* remember to change for @media */
 }
 
-.intro a{
+.intro a {
   color: #BB86FC;
 }
 
 /* Image Gallery */
-.ue5 {
+.proj {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -144,73 +149,24 @@ div.desc {
   background-color: #505050;
 }
 
-/* Video */
-
-.ue5-video {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-iframe {
-  background-color: #323232;
-  padding: 10px 10px 10px 10px;
-  width: 85%;
-  display: flex;
-  justify-content: center;
-  justify-self: center;
-  margin: 10px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 20px 10px black;
-}
-
-.coding .section {
-  margin-left: 2%;
-}
-
-/* Substance section */
-
-.substance {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-
-}
-
-/* Resume */
-.resume h3 {
-  color: white;
-  font-size: 3rem;
-}
-
-.work-background {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  flex-flow: row wrap;
-}
-
-.work-background a{
-  color: #BB86FC;
-}
-
-.job-description {
+/* skills */
+.school-description {
   margin: 2%;
   width: 300px;
 }
 
-.job-description h3 {
+.school-description h3 {
   border-bottom: 2px solid #BB86FC;
 }
 
-.job-description p {
+.school-description p {
   margin-left: 0px;
   border-bottom: 2px solid #BB86FC;
 }
 
 .small-header {
   margin-left: 2%;
-  width:fit-content;
+  width: fit-content;
   border-bottom: 2px solid #BB86FC;
 }
 
@@ -223,7 +179,7 @@ iframe {
   margin-bottom: 15px;
 }
 
-.skills-list{
+.skills-list {
   margin-left: 2%;
 }
 
@@ -235,22 +191,6 @@ iframe {
 .academic {
   font-size: 1rem;
 }
-
-
-/* Code academy */
-.coding a{
-  color: #BB86FC;
-}
-
-.coding h3 {
-  color: #BB86FC;
-}
-
-.coding a:hover {
-  text-decoration: line-through;
-  color: #BB86FC;
-}
-
 
 /* Footer */
 footer {
@@ -264,6 +204,69 @@ footer {
 
 footer p {
   padding-left: 4%;
+}
+
+/* contact  */
+.contact-main {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  background-image: url("resources/images/KalebHogan.png");
+  background-origin: content-box;
+  background-position: 80% 5%;
+  background-size: 300px;
+  background-repeat: no-repeat;
+}
+
+.contact-intro {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.contact-intro h1,
+.contact-intro a {
+  color: white;
+  margin-top: 80px;
+  margin-left: 2%;
+  font-size: 7rem;
+  width: 60%;
+}
+
+.contact-intro a {
+  color: #BB86FC;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  width: 100%;
+}
+
+/* cursor */
+.cursor {
+  width: 6rem;
+  height: 6rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transition-property: background, transform;
+  transform-origin: -15% -15%;
+  z-index: 10;
+}
+
+.link-grow {
+  transform: scale(.25);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 @media only screen and (max-width: 965px) {
@@ -280,25 +283,45 @@ footer p {
     z-index: 5;
   }
 
-  header .mobile a{
+  header .mobile a {
     display: flex;
     width: 10%;
   }
 
-  header .mobile img{
+  header .mobile img {
     display: flex;
     width: 90%;
     height: 90%;
   }
 
-  header .desktop{
+  header .desktop {
     display: none;
   }
 
-  .intro h1, .intro a{
+  /* contact page */
+  .contact-intro {
+    display: flex;
+    flex-direction: column;
+    margin-top: -75px;
+  }
+
+  .contact-intro img {
+    width: 100%;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+  }
+
+  /* end contact page */
+
+  .intro h1,
+  .intro a {
     margin-top: 0px;
     font-size: 3.8rem;
-    width: 70%; 
+    width: 70%;
   }
 
   .responsive {
