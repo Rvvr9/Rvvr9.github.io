@@ -1,4 +1,6 @@
-main, body, html {
+main,
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -7,7 +9,7 @@ main, body, html {
 body {
   background: linear-gradient(to top right, rgb(22, 22, 22) 0%, #1b192e 30%, rgb(22, 22, 22) 60%, #151e00 100%);
   font-family: sans-serif, Courier, monospace;
-  color :white;
+  color: white;
   font-size: 16px;
 }
 
@@ -45,11 +47,11 @@ p {
 
 /* Navigation */
 header {
-  display:flex;
+  display: flex;
   width: 100%;
 }
 
-header .desktop{
+header .desktop {
   position: fixed;
   top: 0;
   z-index: 5;
@@ -61,11 +63,11 @@ header .desktop{
   align-items: center;
 }
 
-header .mobile a{
+header .mobile a {
   display: none;
 }
 
-header h3{
+header h3 {
   display: flex;
   color: white;
   font-size: 1.5rem;
@@ -76,12 +78,12 @@ header h3{
   box-shadow: 0px 0px 10px 5px rgb(24, 24, 24);
 }
 
-header a{
+header a {
   color: white;
   align-items: center;
 }
 
-header img{
+header img {
   height: 70px;
   margin-top: 5px;
 }
@@ -93,20 +95,23 @@ a:hover {
 
 
 /* Intro */
-.intro h1, .intro a{
+.intro h1,
+.intro a {
   color: white;
   margin-top: 80px;
   margin-left: 2%;
-  font-size: 7rem; /* this too */
-  width: 50%; /* remember to change for @media */
+  font-size: 7rem;
+  /* this too */
+  width: 50%;
+  /* remember to change for @media */
 }
 
-.intro a{
+.intro a {
   color: #BB86FC;
 }
 
 /* Image Gallery */
-.ue5 {
+.proj {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -190,7 +195,7 @@ iframe {
   flex-flow: row wrap;
 }
 
-.work-background a{
+.work-background a {
   color: #BB86FC;
 }
 
@@ -210,7 +215,7 @@ iframe {
 
 .small-header {
   margin-left: 2%;
-  width:fit-content;
+  width: fit-content;
   border-bottom: 2px solid #BB86FC;
 }
 
@@ -223,7 +228,7 @@ iframe {
   margin-bottom: 15px;
 }
 
-.skills-list{
+.skills-list {
   margin-left: 2%;
 }
 
@@ -250,6 +255,49 @@ footer p {
   padding-left: 4%;
 }
 
+/* contact  */
+.contact-main {
+  width: 100%;
+  display: flex;
+  border: 2px solid red;
+  flex-direction:column;
+  background-image: url("resources/images/KalebHogan.png");
+  background-origin: content-box;
+  background-position: 80% 5%;
+  background-size: 300px;
+  background-repeat: no-repeat;
+}
+
+.contact-intro {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  border: 2px solid pink;
+}
+
+.contact-intro h1,
+.contact-intro a {
+  color: white;
+  margin-top: 80px;
+  margin-left: 2%;
+  font-size: 7rem;
+  width: 60%;
+  border: 2px solid rgb(255, 0, 200);
+}
+
+.contact-intro a {
+  color: #BB86FC;
+}
+
+.contact-info {
+  border: 2px solid chartreuse;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 965px) {
 
   header .mobile {
@@ -264,25 +312,36 @@ footer p {
     z-index: 5;
   }
 
-  header .mobile a{
+  header .mobile a {
     display: flex;
     width: 10%;
   }
 
-  header .mobile img{
+  header .mobile img {
     display: flex;
     width: 90%;
     height: 90%;
   }
 
-  header .desktop{
+  header .desktop {
     display: none;
   }
 
-  .intro h1, .intro a{
+  /* contact page */
+  .contact-intro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-intro img {
+    width: 100%;
+  }
+
+  .intro h1,
+  .intro a {
     margin-top: 0px;
     font-size: 3.8rem;
-    width: 70%; 
+    width: 70%;
   }
 
   .responsive {
