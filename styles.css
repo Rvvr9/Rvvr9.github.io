@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background: linear-gradient(to top right, rgb(22, 22, 22) 0%, #1b192e 30%, rgb(22, 22, 22) 60%, #151e00 100%);
+  background: linear-gradient(to top right, rgb(22, 22, 22) 0%, #042630 45%, rgb(22, 22, 22) 75%, #192122 120%);
   font-family: sans-serif, Courier, monospace;
   color: white;
   font-size: 16px;
@@ -39,13 +39,21 @@ h3 {
 h2 {
   font-size: 3rem;
   margin-left: 2%;
-  border-bottom: 2px solid #BB86FC;
+  border-bottom: 2px solid #86B9B0;
 }
 
 p {
   margin-left: 2%;
 }
 
+#myVideo1 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+}
 /* Navigation */
 header {
   display: flex;
@@ -74,7 +82,7 @@ header h3 {
   font-size: 1.5rem;
   padding: 10px;
   align-items: center;
-  background-color: #BB86FC;
+  background-color: #86B9B0;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 5px rgb(24, 24, 24);
 }
@@ -107,7 +115,7 @@ a:hover {
 }
 
 .intro a {
-  color: #BB86FC;
+  color: #86B9B0;
 }
 
 /* Image Gallery */
@@ -156,18 +164,18 @@ div.desc {
 }
 
 .school-description h3 {
-  border-bottom: 2px solid #BB86FC;
+  border-bottom: 2px solid #86B9B0;;
 }
 
 .school-description p {
   margin-left: 0px;
-  border-bottom: 2px solid #BB86FC;
+  border-bottom: 2px solid #86B9B0;;
 }
 
 .small-header {
   margin-left: 2%;
   width: fit-content;
-  border-bottom: 2px solid #BB86FC;
+  border-bottom: 2px solid #86B9B0;;
 }
 
 .skills {
