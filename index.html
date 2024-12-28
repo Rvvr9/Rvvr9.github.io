@@ -180,14 +180,14 @@
     playBtn.onclick = function(){
       wavesurfer.playPause();
       if(playBtn.src.includes("play.png")){
-        playBtn.src = "resources\Pause.png"
+        playBtn.src = "resources/Pause.png"
       }else{
-        playBtn.src = "resources\Play.png"
+        playBtn.src = "resources/Play.png"
       }
     }
     
     wavesurfer.on('finish', function(){
-      playBtn.src = "resources\Play.png";
+      playBtn.src = "resources/Play.png";
       wavesurfer.stop();
     })
 
