@@ -85,7 +85,7 @@
                 <h1>Breath Away</h1>
                
                 <div>
-                  <img src = "resources\java-logo.png" id = "playBtn">
+                  <img src = "resources\playButton.png" id = "playBtn">
                   <div id = "waveform"></div>
                 </div>
               </div>
@@ -187,15 +187,15 @@
     playBtn.onclick = function(){
       wavesurfer.playPause();
       if(playBtn.src.includes("Play.png")){
-        playBtn.src = "resources/Pause.png"
+        playBtn.src = "resources/pauseButton.png"
       }
       else{
-        playBtn.src = "resources/Play.png"
+        playBtn.src = "resources/playButton.png"
       }
     }
     
     wavesurfer.on('finish', function(){
-      playBtn.src = "resources/Play.png";
+      playBtn.src = "resources/playButton.png";
       wavesurfer.stop();
     })
 
