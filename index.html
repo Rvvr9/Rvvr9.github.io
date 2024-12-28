@@ -173,16 +173,16 @@
   <script>
     var playBtn = document.getElementById("playBtn");
     
-    const wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    waveColor: '#4F4A85',
-    progressColor: '#383351',
-    barWidth: 4,
-    hieght: 90,
-    barRadius: 4
+    var wavesurfer = WaveSurfer.create({
+      container: '#waveform',
+      waveColor: '#4F4A85',
+      progressColor: '#383351',
+      barWidth: 4,
+      hieght: 90,
+      barRadius: 4
     })
-    wavesurfer.load('resources\BreathAway.wav', type = "audio/wav");
-
+    wavesurfer.load('resources\BreathAway.wav');
+ 
     playBtn.onclick = function(){
       wavesurfer.playPause();
       if(playBtn.src.includes("Play.png")){
