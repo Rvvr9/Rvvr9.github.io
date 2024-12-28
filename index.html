@@ -79,6 +79,17 @@
             <!-- <audio controls>
               <source src = "resources\BreathAway.wav" type = "audio/wav">
             </audio> -->
+            <div class = "hero">
+              <div class = "music">
+                <p>Artist: Rvvr</p>
+                <h1>Breath Away</h1>
+               
+                <div class = "track">
+                  <img src = "resources\Play.png" id = "playBtn">
+                  <div id = "waveform"></div>
+                </div>
+              </div>
+            </div>
           </div>
           
           <div class="desc">
@@ -166,11 +177,12 @@
       container: '#waveform',
       waveColor: '#4F4A85',
       progressColor: '#383351',
+      url: "resources/BreathAway.wav",
       barWidth: 4,
       hieght: 90,
       barRadius: 4
+      
     })
-    wavesurfer.load('resources/BreathAway.wav');
  
     playBtn.onclick = function(){
       wavesurfer.playPause();
