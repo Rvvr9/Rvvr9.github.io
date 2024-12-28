@@ -60,15 +60,6 @@
           target="_blank">Math-CS, ICAM-Music Double Major</a> student at UC San Diego.</h1>
     </div>
 
-    <div class = "hero">
-      <div class = "track">
-        <img src = "resources\Play.png" id = "playBtn">
-         <div id = "waveform">
-            
-         </div>
-      </div>
-    </div>
-    
     <!-- project Section -->
     <div class="section-header">
       <h2>Projects</h2>
@@ -91,9 +82,7 @@
             <div class = "hero">
               <div class = "track">
                 <img src = "resources\Play.png" id = "playBtn">
-                 <div id = "waveform">
-                    
-                 </div>
+                 <div id = "waveform"></div>
               </div>
             </div>
           </div>
@@ -187,7 +176,7 @@
     hieght: 90,
     barRadius: 4
     })
-    wavesurfer.load('resources/BreathAway.wav');
+    wavesurfer.load('resources\BreathAway.wav', type = "audio/wav");
 
     playBtn.onclick = function(){
       wavesurfer.playPause();
