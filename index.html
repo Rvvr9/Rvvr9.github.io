@@ -8,6 +8,7 @@
   <meta name = "theme-color" content = "#323232">
   <title>River Hsu Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/wavesurfer.js@7"></script>
 </head>
 
 <!--
@@ -78,6 +79,14 @@
             <audio controls>
               <source src = "resources\BreathAway.wav" type = "audio/wav">
             </audio>
+            <div class = "hero">
+              <div class = "track">
+                <img src = "resources\Play.png" id = "playBtn">
+                 <div id = "waveform">
+                    
+                 </div>
+              </div>
+            </div>
           </div>
           
           <div class="desc">
@@ -157,6 +166,32 @@
   </footer>
   
   <script src="mouseScript.js"></script>
+
+  <script>
+    var playBtn = document.getElementById("playBtn");
+    const wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: '#4F4A85',
+    progressColor: '#383351',
+    url: '/audio.mp3',
+    })
+    wavesurfer.load();
+
+    playBtn.onclick = function(){
+      wavesurfer.playPause();
+      if(playBtn.src.includes("play.png")){
+        playBtn.src = "resources\Pause.png"
+      }else{
+        playBtn.src = "resources\Play.png"
+      }
+    }
+    
+    wavesurfer.on('finish', function(){
+      playBtn.src = "resources\Play.png";
+      wavesurfer.stop();
+    })
+
+  </script>
 </body>
 
 </html>
