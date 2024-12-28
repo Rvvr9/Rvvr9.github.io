@@ -85,7 +85,7 @@
                 <h1>Breath Away</h1>
                
                 <div>
-                  <img src = "resources\playButton.png" id = "playBtn">
+                  <img src = "resources\playButton.png" width="50" height="50" id = "playBtn">
                   <div id = "waveform"></div>
                 </div>
               </div>
@@ -188,6 +188,8 @@
       wavesurfer.playPause();
       if(playBtn.src.includes("playButton.png")){
         playBtn.src = "resources/pauseButton.png"
+        width="50"
+        height="50"
       }
       else{
         playBtn.src = "resources/playButton.png"
@@ -195,7 +197,9 @@
     }
     
     wavesurfer.on('finish', function(){
-      playBtn.src = "resources/playButton.png";
+      playBtn.src = "resources/playButton.png"; 
+      width="50" 
+      height="50"
       wavesurfer.stop();
     })
 
