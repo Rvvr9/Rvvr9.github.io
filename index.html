@@ -76,9 +76,6 @@
               alt="Fake company website" width="800" height="600">
           </a>
           <div>
-            <!-- <audio controls>
-              <source src = "resources\BreathAway.wav" type = "audio/wav">
-            </audio> -->
             <div>
               <div>
                 <p>Artist: Rvvr</p>
@@ -191,8 +188,6 @@
       wavesurfer.playPause();
       if(playBtn.src.includes("playButton.png")){
         playBtn.src = "resources/pauseButton.png"
-        width="50"
-        height="50"
       }
       else{
         playBtn.src = "resources/playButton.png"
@@ -200,9 +195,7 @@
     }
     
     wavesurfer.on('finish', function(){
-      playBtn.src = "resources/playButton.png"; 
-      width="50" 
-      height="50"
+      playBtn.src = "resources/playButton.png";
       wavesurfer.stop();
     })
 
