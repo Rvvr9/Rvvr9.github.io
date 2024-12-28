@@ -177,7 +177,7 @@
       container: '#waveform',
       waveColor: '#000000',
       progressColor: '#A02222',
-      url: "resources\BreathAway.wav",
+      url: "resources/BreathAway.wav",
       barWidth: 1,
       hieght: 90,
       barRadius: 4
@@ -187,15 +187,15 @@
     playBtn.onclick = function(){
       wavesurfer.playPause();
       if(playBtn.src.includes("Play.png")){
-        playBtn.src = "resources\Pause.png"
+        playBtn.src = "resources/Pause.png"
       }
       else{
-        playBtn.src = "resources\Play.png"
+        playBtn.src = "resources/Play.png"
       }
     }
     
     wavesurfer.on('finish', function(){
-      playBtn.src = "resources\Play.png";
+      playBtn.src = "resources/Play.png";
       wavesurfer.stop();
     })
 
