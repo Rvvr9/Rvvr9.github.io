@@ -207,7 +207,6 @@ div.desc {
   display: flex;
   justify-content: start;
   flex-flow: row wrap;
-  align-items: center;
   width: 100%;
   margin-bottom: 15px;
 }
