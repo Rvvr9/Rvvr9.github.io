@@ -178,6 +178,12 @@ div.desc {
   border-bottom: 2px solid #86B9B0;;
 }
 
+.flexBox {
+  display: flex;
+  align-items: left;
+  width: 100%;
+}
+
 .skills {
   display: flex;
   justify-content: space-around;
@@ -296,12 +302,7 @@ footer p {
 }
 
 @media only screen and (max-width: 965px) {
-  .side {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  
+
   header .mobile {
     position: fixed;
     display: flex;
