@@ -181,6 +181,7 @@ div.desc {
 .flexBox {
   display: flex;
   justify-content: left;
+  align-items: center;
   width: 25%;
   margin-bottom: 15px;
 }
