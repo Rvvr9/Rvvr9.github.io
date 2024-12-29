@@ -112,6 +112,30 @@
               src="resources\image.png"
               alt="Number guesser website" width="600" height="400">
           </a>
+
+          <div>
+            <div>
+              <p>Artist: Rvvr</p>
+              <div>
+                <div class = "playButton">
+                  <a target = "_blank">
+                    <img src = "resources\playButton.png" id = "playBtn">
+                  </a>
+
+                <h1> Rain on The Sun</h1>
+                </div>
+               
+              </div>
+
+              <div>
+                <a target = "_blank">
+                  <div id = "waveformTwo"></div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
           <div class="desc">
             <p>Number Guesser Website, built with HTML, CSS & Javascript</p>
           </div>
@@ -127,6 +151,30 @@
               src="resources\RIV-1.JPG"
               alt="Club website" width="600" height="400">
           </a>
+
+          <div>
+            <div>
+              <p>Artist: Rvvr</p>
+              <div>
+                <div class = "playButton">
+                  <a target = "_blank">
+                    <img src = "resources\playButton.png" id = "playBtn">
+                  </a>
+
+                <h1> Garden Chambers</h1>
+                </div>
+               
+              </div>
+
+              <div>
+                <a target = "_blank">
+                  <div id = "waveformThree"></div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
           <div class="desc">
             <p>Club website, built with HTML & CSS</p>
           </div>
@@ -189,6 +237,68 @@
       
     })
  
+    playBtn.onclick = function(){
+      wavesurfer.playPause();
+      if(playBtn.src.includes("playButton.png")){
+        playBtn.src = "resources/pauseButton.png"
+      }
+      else{
+        playBtn.src = "resources/playButton.png"
+      }
+    }
+    
+    wavesurfer.on('finish', function(){
+      playBtn.src = "resources/playButton.png";
+      wavesurfer.stop();
+    })
+
+  </script>
+
+  <script>
+    var playBtn = document.getElementById("playBtn");
+    
+    var wavesurfer = WaveSurfer.create({
+      container: '#waveformTwo',
+      waveColor: '#000000',
+      progressColor: '#A02222',
+      url: "resources/To Reach Your Soul.wav",
+      barWidth: 1,
+      hieght: 90,
+      barRadius: 4
+      
+    })
+
+    playBtn.onclick = function(){
+      wavesurfer.playPause();
+      if(playBtn.src.includes("playButton.png")){
+        playBtn.src = "resources/pauseButton.png"
+      }
+      else{
+        playBtn.src = "resources/playButton.png"
+      }
+    }
+    
+    wavesurfer.on('finish', function(){
+      playBtn.src = "resources/playButton.png";
+      wavesurfer.stop();
+    })
+
+  </script>
+
+  <script>
+    var playBtn = document.getElementById("playBtn");
+    
+    var wavesurfer = WaveSurfer.create({
+      container: '#waveformThree',
+      waveColor: '#000000',
+      progressColor: '#A02222',
+      url: "resources/Game 1 - orchestra.wav",
+      barWidth: 1,
+      hieght: 90,
+      barRadius: 4
+      
+    })
+
     playBtn.onclick = function(){
       wavesurfer.playPause();
       if(playBtn.src.includes("playButton.png")){
