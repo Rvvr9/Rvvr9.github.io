@@ -345,6 +345,11 @@ footer p {
     max-height: 100px;
   }
 
+  .play img {
+    max-width: 70px;
+    max-height: 70px;
+  }
+
   footer {
     margin-bottom: 110px;
   }
