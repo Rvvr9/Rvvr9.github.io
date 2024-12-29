@@ -206,7 +206,7 @@ div.desc {
 
 .playButton {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-flow: row wrap;
   width: 100%;
