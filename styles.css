@@ -180,7 +180,7 @@ div.desc {
 
 .flexBox {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 25%;
   margin-bottom: 15px;
