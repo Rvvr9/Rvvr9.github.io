@@ -187,6 +187,15 @@ div.desc {
   margin-bottom: 15px;
 }
 
+.skills-list {
+  margin-left: 2%;
+}
+
+.skills img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
 .play {
   display: flex;
   justify-content: space-around;
@@ -196,11 +205,11 @@ div.desc {
   margin-bottom: 15px;
 }
 
-.skills-list {
+.play-list {
   margin-left: 2%;
 }
 
-.skills img {
+.play img {
   max-width: 200px;
   max-height: 200px;
 }
