@@ -180,11 +180,8 @@ div.desc {
 
 .side {
   display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
   align-items: center;
   width: 100%;
-  margin-bottom: 15px;
 }
 
 .skills {
