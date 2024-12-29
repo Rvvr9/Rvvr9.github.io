@@ -207,7 +207,6 @@ div.desc {
 .playButton {
   display: flex;
   justify-content: start;
-  align-items: center;
   flex-flow: row wrap;
   width: 100%;
   margin-bottom: 15px;
