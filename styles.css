@@ -196,7 +196,7 @@ div.desc {
   max-height: 200px;
 }
 
-.play {
+.playButton {
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
@@ -205,11 +205,11 @@ div.desc {
   margin-bottom: 15px;
 }
 
-.play-list {
+.playButton-list {
   margin-left: 2%;
 }
 
-.play img {
+.playButton img {
   max-width: 200px;
   max-height: 200px;
 }
@@ -363,7 +363,7 @@ footer p {
     max-height: 100px;
   }
 
-  .play img {
+  .playButton img {
     max-width: 70px;
     max-height: 70px;
   }
