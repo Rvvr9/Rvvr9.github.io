@@ -119,7 +119,7 @@
               <div>
                 <div class = "playButton">
                   <a target = "_blank">
-                    <img src = "resources\playButton.png" id = "playBtn">
+                    <img src = "resources\playButton.png" id = "playBtnTwo">
                   </a>
 
                 <h1> Rain on The Sun</h1>
@@ -158,7 +158,7 @@
               <div>
                 <div class = "playButton">
                   <a target = "_blank">
-                    <img src = "resources\playButton.png" id = "playBtn">
+                    <img src = "resources\playButton.png" id = "playBtnThree">
                   </a>
 
                 <h1> Garden Chambers</h1>
@@ -255,9 +255,9 @@
   </script>
 
   <script>
-    var playBtn = document.getElementById("playBtn");
+    var playBtnTwo = document.getElementById("playBtn");
     
-    var wavesurfer = WaveSurfer.create({
+    var wavesurferTwo = WaveSurfer.create({
       container: '#waveformTwo',
       waveColor: '#000000',
       progressColor: '#A02222',
@@ -268,27 +268,27 @@
       
     })
 
-    playBtn.onclick = function(){
-      wavesurfer.playPause();
-      if(playBtn.src.includes("playButton.png")){
-        playBtn.src = "resources/pauseButton.png"
+    playBtnTwo.onclick = function(){
+      wavesurferTwo.playPause();
+      if(playBtnTwo.src.includes("playButton.png")){
+        playBtnTwo.src = "resources/pauseButton.png"
       }
       else{
-        playBtn.src = "resources/playButton.png"
+        playBtnTwo.src = "resources/playButton.png"
       }
     }
     
-    wavesurfer.on('finish', function(){
-      playBtn.src = "resources/playButton.png";
+    wavesurferTwo.on('finish', function(){
+      playBtnTwo.src = "resources/playButton.png";
       wavesurfer.stop();
     })
 
   </script>
 
   <script>
-    var playBtn = document.getElementById("playBtn");
+    var playBtnThree = document.getElementById("playBtn");
     
-    var wavesurfer = WaveSurfer.create({
+    var wavesurferThree = WaveSurfer.create({
       container: '#waveformThree',
       waveColor: '#000000',
       progressColor: '#A02222',
@@ -299,19 +299,19 @@
       
     })
 
-    playBtn.onclick = function(){
-      wavesurfer.playPause();
-      if(playBtn.src.includes("playButton.png")){
-        playBtn.src = "resources/pauseButton.png"
+    playBtnThree.onclick = function(){
+      wavesurferThree.playPause();
+      if(playBtnThree.src.includes("playButton.png")){
+        playBtnThree.src = "resources/pauseButton.png"
       }
       else{
-        playBtn.src = "resources/playButton.png"
+        playBtnThree.src = "resources/playButton.png"
       }
     }
     
-    wavesurfer.on('finish', function(){
-      playBtn.src = "resources/playButton.png";
-      wavesurfer.stop();
+    wavesurferThree.on('finish', function(){
+      playBtnThree.src = "resources/playButton.png";
+      wavesurferThree.stop();
     })
 
   </script>
