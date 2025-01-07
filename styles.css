@@ -377,25 +377,25 @@ footer p {
   /* Larger screen sizes */
   @media (min-width: 768px) {
   .playButton {
-    width: 70px; /* Increase size on larger screens */
-    height: 70px;
+    width: 30px; /* Increase size on larger screens */
+    height: 30px;
   }
 
   .playButton img {
-    max-width: 70px; /* Adjust the max size */
-    max-height: 70px;
+    max-width: 30px; /* Adjust the max size */
+    max-height: 30px;
   }
 }
 
   @media (min-width: 1024px) {
   .playButton {
-    width: 80px; /* Increase size on even larger screens */
-    height: 80px;
+    width: 40px; /* Increase size on even larger screens */
+    height: 40px;
   }
 
   .playButton img {
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 40px;
+    max-height: 40px;
   }
 }
 
