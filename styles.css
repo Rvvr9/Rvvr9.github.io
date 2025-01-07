@@ -157,6 +157,59 @@ div.desc {
   background-color: #505050;
 }
 
+
+/* play button */
+/* Base play button container size */
+.playButton {
+  display: inline-block;
+  text-align: center; /* Aligns content in the center */
+  width: 10vw; /* Use viewport width to scale based on screen size */
+  height: 10vw; /* Use viewport width for height as well */
+  max-width: 50px;  /* Limit max width */
+  max-height: 50px; /* Limit max height */
+}
+
+/* Ensure the play button image scales correctly */
+.playButton img {
+  width: 100%; /* Make the image take the full width of its container */
+  height: 100%; /* Maintain aspect ratio */
+  max-width: 50px; /* Set a max width */
+  max-height: 50px; /* Set a max height */
+  object-fit: contain; /* Ensures the aspect ratio is maintained without distortion */
+}
+
+/* Larger screen sizes */
+@media (min-width: 768px) {
+  .playButton {
+    width: 8vw; /* Adjust for larger screens */
+    height: 8vw; /* Adjust for larger screens */
+    max-width: 40px;  /* Set a max size for the button */
+    max-height: 40px; /* Set a max size for the button */
+  }
+
+  .playButton img {
+    max-width: 40px;  /* Set the max width for the image */
+    max-height: 40px; /* Set the max height for the image */
+  }
+}
+
+/* Even larger screen sizes */
+@media (min-width: 1024px) {
+  .playButton {
+    width: 6vw; /* Adjust for even larger screens */
+    height: 6vw; /* Adjust for even larger screens */
+    max-width: 40px;  /* Set a max size for the button */
+    max-height: 40px; /* Set a max size for the button */
+}
+
+  .playButton img {
+    max-width: 40px;  /* Set the max width for the image */
+    max-height: 40px; /* Set the max height for the image */
+  }
+}
+/* play button */
+
+
 /* skills */
 .school-description {
   margin: 2%;
@@ -356,57 +409,6 @@ footer p {
     max-width: 100px;
     max-height: 100px;
   }
-
-  /* Base play button container size */
-  .playButton {
-    display: inline-block;
-    text-align: center; /* Aligns content in the center */
-    width: 10vw; /* Use viewport width to scale based on screen size */
-    height: 10vw; /* Use viewport width for height as well */
-    max-width: 50px;  /* Limit max width */
-    max-height: 50px; /* Limit max height */
-  }
-
-  /* Ensure the play button image scales correctly */
-  .playButton img {
-  width: 100%; /* Make the image take the full width of its container */
-  height: 100%; /* Maintain aspect ratio */
-  max-width: 50px; /* Set a max width */
-  max-height: 50px; /* Set a max height */
-  object-fit: contain; /* Ensures the aspect ratio is maintained without distortion */
-}
-
-  /* Larger screen sizes */
-  @media (min-width: 768px) {
-  .playButton {
-    width: 8vw; /* Adjust for larger screens */
-    height: 8vw; /* Adjust for larger screens */
-    max-width: 40px;  /* Set a max size for the button */
-    max-height: 40px; /* Set a max size for the button */
-  }
-
-  .playButton img {
-    max-width: 40px;  /* Set the max width for the image */
-    max-height: 40px; /* Set the max height for the image */
-  }
-}
-
-  /* Even larger screen sizes */
-  @media (min-width: 1024px) {
-  .playButton {
-    width: 6vw; /* Adjust for even larger screens */
-    height: 6vw; /* Adjust for even larger screens */
-    max-width: 40px;  /* Set a max size for the button */
-    max-height: 40px; /* Set a max size for the button */
-  }
-
-  .playButton img {
-    max-width: 40px;  /* Set the max width for the image */
-    max-height: 40px; /* Set the max height for the image */
-  }
-}
-
-  
 
   footer {
     margin-bottom: 110px;
