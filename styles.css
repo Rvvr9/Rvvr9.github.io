@@ -379,25 +379,30 @@ footer p {
   /* Larger screen sizes */
   @media (min-width: 768px) {
   .playButton {
-    width: 30px; /* Increase size on larger screens */
-    height: 30px;
+    width: 8vw; /* Adjust for larger screens */
+    height: 8vw; /* Adjust for larger screens */
+    max-width: 40px;  /* Set a max size for the button */
+    max-height: 40px; /* Set a max size for the button */
   }
 
   .playButton img {
-    max-width: 30px; /* Adjust the max size */
-    max-height: 30px;
+    max-width: 40px;  /* Set the max width for the image */
+    max-height: 40px; /* Set the max height for the image */
   }
 }
 
+  /* Even larger screen sizes */
   @media (min-width: 1024px) {
   .playButton {
-    width: 40px; /* Increase size on even larger screens */
-    height: 40px;
+    width: 6vw; /* Adjust for even larger screens */
+    height: 6vw; /* Adjust for even larger screens */
+    max-width: 40px;  /* Set a max size for the button */
+    max-height: 40px; /* Set a max size for the button */
   }
 
   .playButton img {
-    max-width: 40px;
-    max-height: 40px;
+    max-width: 40px;  /* Set the max width for the image */
+    max-height: 40px; /* Set the max height for the image */
   }
 }
 
