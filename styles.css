@@ -121,7 +121,7 @@ a:hover {
 @media (max-width: 768px) {
   .intro h1,
   .intro a {
-    font-size: 4rem; /* Smaller font size for mobile devices */
+    font-size: 2rem; /* Smaller font size for mobile devices */
     margin-top: 40px; /* Adjust margin to fit smaller screens */
     width: 80%; /* Expand the width for better readability */
   }
@@ -131,7 +131,7 @@ a:hover {
 @media (max-width: 480px) {
   .intro h1,
   .intro a {
-    font-size: 3rem; /* Even smaller font for very small screens */
+    font-size: 1rem; /* Even smaller font for very small screens */
     margin-top: 20px;
     width: 90%;
   }
