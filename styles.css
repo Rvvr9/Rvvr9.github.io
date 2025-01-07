@@ -357,36 +357,48 @@ footer p {
     max-height: 100px;
   }
 
-  .playbutton {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    gap: 10px;
-  }
+  /* Base play button container size */
+  .playButton {
+  display: inline-block;
+  text-align: center; /* Aligns content in the center */
+  width: 50px; /* Set a reasonable base width */
+  height: 50px;
+}
 
+  /* Ensure the play button image scales correctly */
+  .playButton img {
+  width: 100%; /* Make the image take the full width of its container */
+  height: 100%; /* Maintain aspect ratio */
+  max-width: 50px; /* Set a max width */
+  max-height: 50px; /* Set a max height */
+  object-fit: contain; /* Ensures the aspect ratio is maintained without distortion */
+}
+
+  /* Larger screen sizes */
+  @media (min-width: 768px) {
+  .playButton {
+    width: 70px; /* Increase size on larger screens */
+    height: 70px;
+  }
 
   .playButton img {
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 70px; /* Adjust the max size */
+    max-height: 70px;
   }
-  
+}
 
-  /* Adjust size for larger screens */
-  @media screen and (min-width: 768px) {
+  @media (min-width: 1024px) {
+  .playButton {
+    width: 80px; /* Increase size on even larger screens */
+    height: 80px;
+  }
+
   .playButton img {
-    max-width: 40px;
-    max-height: 40px;
+    max-width: 80px;
+    max-height: 80px;
   }
-  }
+}
 
-  @media screen and (min-width: 1024px) {
-    .playButton img {
-      max-width: 80px; /* Maximum size or slightly smaller */
-      max-height: 80px;
-    }
-  }
   
 
   footer {
