@@ -370,6 +370,13 @@ footer p {
     max-height: 100px;
   }
 
+  .playbutton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+
   .playButton img {
     max-width: 70px;
     max-height: 70px;
