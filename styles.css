@@ -359,17 +359,18 @@ footer p {
 
   .playbutton {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
   }
 
 
   .playButton img {
-    max-width: 70px;
-    max-height: 70px;
-    object-fit: contain;
-    margin-top: 0;
+    width: 10vw; /* Adjust the play button size relative to the viewport width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image maintains its aspect ratio */
   }
+  
 
   /* Adjust size for larger screens */
   @media screen and (min-width: 768px) {
@@ -380,11 +381,12 @@ footer p {
   }
 
   @media screen and (min-width: 1024px) {
-  .playButton img {
-    width: 30px;
-    height: 30px;
+    .playButton img {
+      width: 5vw; /* Smaller size for larger screens */
+      height: auto; /* Keep aspect ratio */
+    }
   }
-  }
+  
 
   footer {
     margin-bottom: 110px;
