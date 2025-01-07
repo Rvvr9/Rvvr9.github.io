@@ -366,23 +366,23 @@ footer p {
 
 
   .playButton img {
-    width: 50px;
-    height: 50px;
+    max-width: 50px;
+    max-height: 50px;
   }
   
 
   /* Adjust size for larger screens */
   @media screen and (min-width: 768px) {
   .playButton img {
-    width: 40px;
-    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
   }
   }
 
   @media screen and (min-width: 1024px) {
     .playButton img {
-      width: 80px; /* Maximum size or slightly smaller */
-      height: 80px;
+      max-width: 80px; /* Maximum size or slightly smaller */
+      max-height: 80px;
     }
   }
   
