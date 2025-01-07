@@ -359,11 +359,13 @@ footer p {
 
   /* Base play button container size */
   .playButton {
-  display: inline-block;
-  text-align: center; /* Aligns content in the center */
-  width: 50px; /* Set a reasonable base width */
-  height: 50px;
-}
+    display: inline-block;
+    text-align: center; /* Aligns content in the center */
+    width: 10vw; /* Use viewport width to scale based on screen size */
+    height: 10vw; /* Use viewport width for height as well */
+    max-width: 50px;  /* Limit max width */
+    max-height: 50px; /* Limit max height */
+  }
 
   /* Ensure the play button image scales correctly */
   .playButton img {
