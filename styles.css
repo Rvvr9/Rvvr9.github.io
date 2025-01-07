@@ -161,12 +161,11 @@ div.desc {
 /* play button */
 /* Base play button container size */
 .playButton {
-  display: inline-block;
-  text-align: center; /* Aligns content in the center */
-  width: 14vw; /* Use viewport width to scale based on screen size */
-  height: 14vw; /* Use viewport width for height as well */
-  max-width: 50px;  /* Limit max width */
-  max-height: 50px; /* Limit max height */
+  display: flex;
+  align-items: center; /* Aligns content in the center */
+  justify-content: center;
+  
+  gap: 10px;
 }
 
 /* Ensure the play button image scales correctly */
