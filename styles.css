@@ -204,21 +204,8 @@ div.desc {
   max-height: 200px;
 }
 
-.playButton {
-  display: flex;
-  justify-content: start;
-  flex-flow: row wrap;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
 .playButton-list {
   margin-left: 2%;
-}
-
-.playButton img {
-  max-width: 50px;
-  max-height: 50px;
 }
 
 .academic {
