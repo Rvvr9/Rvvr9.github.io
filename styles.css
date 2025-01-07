@@ -164,7 +164,6 @@ div.desc {
   display: flex;
   align-items: center; /* Aligns content in the center */
   justify-content: center;
-  
   gap: 10px;
 }
 
@@ -179,13 +178,6 @@ div.desc {
 
 /* Larger screen sizes */
 @media (min-width: 768px) {
-  .playButton {
-    width: 14vw; /* Adjust for larger screens */
-    height: 14vw; /* Adjust for larger screens */
-    max-width: 50;  /* Set a max size for the button */
-    max-height: 50; /* Set a max size for the button */
-  }
-
   .playButton img {
     max-width: 50;  /* Set the max width for the image */
     max-height: 50; /* Set the max height for the image */
@@ -194,12 +186,6 @@ div.desc {
 
 /* Even larger screen sizes */
 @media (min-width: 1024px) {
-  .playButton {
-    width: 14vw; /* Adjust for even larger screens */
-    height: 14vw; /* Adjust for even larger screens */
-    max-width: 50;  /* Set a max size for the button */
-    max-height: 50; /* Set a max size for the button */
-}
 
   .playButton img {
     max-width: 50;  /* Set the max width for the image */
