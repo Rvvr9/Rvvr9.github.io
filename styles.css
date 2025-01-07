@@ -296,6 +296,32 @@ footer p {
   color: #BB86FC;
 }
 
+@media (max-width: 768px) {
+  .contact-intro h1,
+  .contact-intro a {
+    font-size: 4rem; /* Smaller font size for mobile devices */
+    margin-top: 40px; /* Adjust margin to fit smaller screens */
+    width: 80%; /* Expand the width for better readability */
+  }
+}
+
+/* Smaller phones (extra small screens) */
+@media (max-width: 480px) {
+  .contact-intro h1,
+  .contact-intro a {
+    font-size: 3rem; /* Even smaller font for very small screens */
+    margin-top: 20px;
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
 .contact-info {
   display: flex;
   flex-direction: row;
