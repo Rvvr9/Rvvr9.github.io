@@ -366,9 +366,8 @@ footer p {
 
 
   .playButton img {
-    width: 10vw; /* Adjust the play button size relative to the viewport width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the image maintains its aspect ratio */
+    width: 50px;
+    height: 50px;
   }
   
 
@@ -382,8 +381,8 @@ footer p {
 
   @media screen and (min-width: 1024px) {
     .playButton img {
-      width: 5vw; /* Smaller size for larger screens */
-      height: auto; /* Keep aspect ratio */
+      width: 80px; /* Maximum size or slightly smaller */
+      height: 80px;
     }
   }
   
