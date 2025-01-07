@@ -235,7 +235,7 @@
  
     playBtn.onclick = function(){
       wavesurfer.playPause();
-      if(playBtn.src.includes("playButton.png")){
+      if(wavesurfer.isPlaying){
         playBtn.src = "resources/pauseButton.png"
       }
       else{
@@ -245,7 +245,6 @@
     
     wavesurfer.on('finish', function(){
       playBtn.src = "resources/playButton.png";
-      wavesurfer.stop();
     })
 
   </script>
@@ -266,7 +265,7 @@
 
     playBtnTwo.onclick = function(){
       wavesurferTwo.playPause();
-      if(playBtnTwo.src.includes("playButton.png")){
+      if(wavesurferTwo.isPlaying){
         playBtnTwo.src = "resources/pauseButton.png"
       }
       else{
@@ -276,7 +275,6 @@
     
     wavesurferTwo.on('finishTwo', function(){
       playBtnTwo.src = "resources/playButton.png";
-      wavesurferTwo.stop();
     })
 
   </script>
@@ -297,7 +295,7 @@
 
     playBtnThree.onclick = function(){
       wavesurferThree.playPause();
-      if(playBtnThree.src.includes("playButton.png")){
+      if(wavesurferThree.isPlaying){
         playBtnThree.src = "resources/pauseButton.png"
       }
       else{
@@ -307,7 +305,6 @@
     
     wavesurferThree.on('finishThree', function(){
       playBtnThree.src = "resources/playButton.png";
-      wavesurferThree.stop();
     })
 
   </script>
