@@ -13,12 +13,6 @@ html {
   color: white;
   font-size: 16px;
 } */
-
-html, body {
-  height: 100%; /* Ensure the body takes up the full height of the viewport */
-  margin: 0; /* Remove default margins */
-}
-
 body {
   background-image: url("resources/Ink 8.jpg");
   background-size: cover;
