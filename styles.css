@@ -14,6 +14,7 @@ html {
   font-size: 16px;
 } */
 body {
+  position: relative;
   background-image: url("resources/27.jpg");
   background-size: cover;
   background-position: center center;
@@ -24,6 +25,21 @@ body {
   font-size: 16px;
 }
 
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Gradient color (optional) */
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 70%), 
+              url("resources/27.jpg"); /* The gradient and image combined */
+  background-size: cover;
+  background-position: center center;
+  filter: blur(5px); /* Apply blur to the background */
+  z-index: -1; /* Ensure the overlay is behind the content */
+}
 
 /* Remove cursor on mobile devices */
 @media (max-width: 768px) {
