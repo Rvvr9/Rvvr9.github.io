@@ -7,12 +7,29 @@ html {
   cursor: none;
 }
 
-body {
+/* body {
   background: linear-gradient(to top right, rgb(22, 22, 22) 0%, #042630 45%, rgb(22, 22, 22) 75%, #192122 120%);
   font-family: sans-serif, Courier, monospace;
   color: white;
   font-size: 16px;
+} */
+
+html, body {
+  height: 100%; /* Ensure the body takes up the full height of the viewport */
+  margin: 0; /* Remove default margins */
 }
+
+body {
+  background-image: url("resources/Ink 8.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%; /* Full height of the screen */
+  font-family: sans-serif, Courier, monospace;
+  color: white;
+  font-size: 16px;
+}
+
 
 /* Remove cursor on mobile devices */
 @media (max-width: 768px) {
