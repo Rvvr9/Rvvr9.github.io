@@ -401,12 +401,7 @@ footer p {
 
   /* end contact page */
 
-  .intro h1,
-  .intro a {
-    margin-top: 0px;
-    font-size: 3.8rem;
-    width: 70%;
-  }
+  
 
   .responsive {
     width: 100%;
