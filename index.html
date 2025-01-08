@@ -72,7 +72,7 @@
           <a target="_blank">
             <img
               src="resources\Dragon1.png"
-              alt="Fake company website" width="800" height="600">
+              alt="Fantasy Production" width="800" height="600">
           </a>
           <div>
             <div>
@@ -108,7 +108,7 @@
           <a target="_blank">
             <img
               src="resources\RainOnTheSunImg.jpeg"
-              alt="Number guesser website" width="600" height="400">
+              alt="Fantasy Production" width="600" height="400">
           </a>
 
           <div>
@@ -146,7 +146,7 @@
           <a target="_blank">
             <img
               src="resources\ScenicLake2.png"
-              alt="Club website" width="600" height="400">
+              alt="Fantasy Production" width="600" height="400">
           </a>
 
           <div>
@@ -183,11 +183,35 @@
         <div class="gallery">
           <a target="_blank">
             <img
-              src="resources\Profile1.jpg"
-              alt="Tea company website" width="600" height="400">
+              src="resources\OutlandTown.png"
+              alt="Fantasy Production" width="600" height="400">
           </a>
+
+          <div>
+            <div>
+              <p>Artist: Rvvr</p>
+              <div>
+                <div class = "playButton">
+                  <a target = "_blank">
+                    <img src = "resources\playButton.png" id = "playBtnFour">
+                  </a>
+
+                <h1> Echoing Halls</h1>
+                </div>
+               
+              </div>
+
+              <div>
+                <a target = "_blank">
+                  <div id = "waveformFour"></div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
           <div class="desc">
-            <p>River Hsu</p>
+            <p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p>
           </div>
         </div>
       </div>
@@ -307,6 +331,37 @@
     wavesurferThree.on('finish', function(){
       playBtnThree.src = "resources/playButton.png";
     })
+
+  </script>
+
+
+  <script>
+  var playBtnFour = document.getElementById("playBtnFour");
+  
+  var wavesurferFour = WaveSurfer.create({
+    container: '#waveformFour',
+    waveColor: '#000000',
+    progressColor: '#A02222',
+    url: "resources/Game 1 - orchestra.wav",
+    barWidth: 1,
+    height: 90,
+    barRadius: 4
+    
+  })
+
+  playBtnFour.onclick = function(){
+    wavesurferFour.playPause();
+    if(wavesurferFour.isPlaying()){
+      playBtnFour.src = "resources/pauseButton.png"
+    }
+    else{
+      playBtnFour.src = "resources/playButton.png"
+    }
+  }
+  
+  wavesurferFour.on('finish', function(){
+    playBtnFour.src = "resources/playButton.png";
+  })
 
   </script>
 </body>
