@@ -37,7 +37,7 @@ body::before {
               url("resources/27.jpg"); /* The gradient and image combined */
   background-size: cover;
   background-position: center center;
-  filter: blur(5px); /* Apply blur to the background */
+  filter: blur(10px); /* Apply blur to the background */
   z-index: -1; /* Ensure the overlay is behind the content */
 }
 
