@@ -14,6 +14,12 @@ body {
   font-size: 16px;
 }
 
+@media (max-width: 768px){
+  body{
+    cursor: none;
+  }
+}
+
 h4 {
   font-size: .9rem;
   display: flex;
