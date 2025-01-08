@@ -14,11 +14,17 @@ body {
   font-size: 16px;
 }
 
-@media (max-width: 768px){
-  body{
-    cursor: none;
+/* Remove cursor on mobile devices */
+@media (max-width: 768px) {
+  body, html {
+    cursor: none; /* Hides the cursor */
+  }
+
+  .cursor {
+    display: none; /* Hides the custom cursor element */
   }
 }
+
 
 h4 {
   font-size: .9rem;
@@ -329,11 +335,6 @@ footer p {
 .contact-intro a {
   color: #BB86FC;
 }
-
-
-
-
-
 
 
 
