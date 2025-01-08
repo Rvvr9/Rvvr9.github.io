@@ -110,12 +110,21 @@ a:hover {
   margin-left: 2%;
   font-size: 7rem;
   /* this too */
-  width: 50%;
+  width: 100%;
   /* remember to change for @media */
 }
 
 .intro a {
   color: #86B9B0;
+}
+
+@media (max-width: 900px) {
+  .intro h1,
+  .intro a {
+    font-size: 5rem; /* Adjust font size for half-screen */
+    margin-top: 30px; /* Adjust top margin for better spacing */
+    width: 80%; /* Widen or narrow the container if needed */
+  }
 }
 
 @media (max-width: 768px) {
