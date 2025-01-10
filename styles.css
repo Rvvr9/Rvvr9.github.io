@@ -78,7 +78,7 @@ h3 {
 h2 {
   font-size: 3rem;
   margin-left: 2%;
-  border-bottom: 2px solid #FFD700;
+  border-bottom: 2px solid #7c0505;
 }
 
 p {
@@ -121,7 +121,7 @@ header h3 {
   font-size: 1.5rem;
   padding: 10px;
   align-items: center;
-  background-color: #FFD700;
+  background-color: #7c0505;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 5px rgb(24, 24, 24);
 }
@@ -154,7 +154,7 @@ a:hover {
 }
 
 .intro a {
-  color: #FFD700;
+  color: #7c0505;
 }
 
 @media (max-width: 900px) {
@@ -269,18 +269,18 @@ div.desc {
 }
 
 .school-description h3 {
-  border-bottom: 2px solid #FFD700;;
+  border-bottom: 2px solid #7c0505;;
 }
 
 .school-description p {
   margin-left: 0px;
-  border-bottom: 2px solid #FFD700;;
+  border-bottom: 2px solid #7c0505;;
 }
 
 .small-header {
   margin-left: 2%;
   width: fit-content;
-  border-bottom: 2px solid #FFD700;;
+  border-bottom: 2px solid #7c0505;;
 }
 
 .flexBox {
