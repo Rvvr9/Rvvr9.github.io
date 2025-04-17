@@ -215,6 +215,46 @@
           </div>
         </div>
       </div>
+
+      <!-- Image 5 -->
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank">
+            <img
+              src="resources\GoldFog.jpg"
+              alt="Fantasy Production" width="600" height="400">
+          </a>
+
+          <div>
+            <div>
+              <p>Artist: Rvvr</p>
+              <div>
+                <div class = "playButton">
+                  <a target = "_blank">
+                    <img src = "resources\playButton.png" id = "playBtnFive">
+                  </a>
+
+                <h1> Echoing Halls</h1>
+                </div>
+               
+              </div>
+
+              <div>
+                <a target = "_blank">
+                  <div id = "waveformFive"></div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="desc">
+            <p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
     <!--skills-->
@@ -364,6 +404,36 @@
   })
 
   </script>
+
+  <script>
+    var playBtnFive = document.getElementById("playBtnFive");
+    
+    var wavesurferFive = WaveSurfer.create({
+      container: '#waveformFive',
+      waveColor: '#000000',
+      progressColor: '#A02222',
+      url: "resources/Rush in The Rain.wav",
+      barWidth: 1,
+      height: 90,
+      barRadius: 4
+      
+    })
+
+    playBtnFive.onclick = function(){
+      wavesurferFive.playPause();
+      if(wavesurferFive.isPlaying()){
+        playBtnFive.src = "resources/pauseButton.png"
+      }
+      else{
+        playBtnFive.src = "resources/playButton.png"
+      }
+    }
+    
+    wavesurferFive.on('finish', function(){
+      playBtnFive.src = "resources/playButton.png";
+    })
+
+    </script>
 </body>
 
 </html>
