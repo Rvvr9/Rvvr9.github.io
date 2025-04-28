@@ -66,6 +66,43 @@
     </div>
     <div id="proj" class="proj">
 
+
+      <!-- Image 0 -->
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank">
+            <img
+              src="resources\Cliff.png"
+              alt="Fantasy Production" width="800" height="600">
+          </a>
+          <div>
+            <div>
+              <p>Artist: Rvvr</p>
+              <div>
+                <div class = "playButton">
+                  <a target = "_blank">
+                      <img src = "resources\playButton.png" id = "playBtn" alt = "Play Button">
+                  </a>
+                  <h1> Tail of Two</h1>
+                </div>
+               
+              </div>
+
+              <div>
+                <a target = "_blank">
+                  <div id = "waveform"></div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          
+          <div class="desc">
+            <p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Image 1 -->
       <div class="responsive">
         <div class="gallery">
@@ -433,7 +470,36 @@
       playBtnFive.src = "resources/playButton.png";
     })
 
-    </script>
+  </script>
+
+  <script>
+    var playBtn0 = document.getElementById("playBtn0");
+    
+    var wavesurfer0 = WaveSurfer.create({
+      container: '#waveform0',
+      waveColor: '#000000',
+      progressColor: '#A02222',
+      url: "resources/Tail of Two.wav",
+      barWidth: 1,
+      height: 90,
+      barRadius: 4
+      
+    })
+
+    playBtn0.onclick = function(){
+      wavesurfer0.playPause();
+      if(wavesurfer0.isPlaying()){
+        playBtn0.src = "resources/pauseButton.png"
+      }
+      else{
+        playBtn0.src = "resources/playButton.png"
+      }
+    }
+    
+    wavesurfer0.on('finish', function(){
+      playBtn0.src = "resources/playButton.png";
+    })
+  </script>
 </body>
 
 </html>
