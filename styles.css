@@ -48,7 +48,7 @@ body::before {
 }
 
 /* Remove cursor on mobile devices */
-@media (max-width: 412) {
+@media (max-width: 412px) {
   body, html {
     cursor: none; /* Hides the cursor */
   }

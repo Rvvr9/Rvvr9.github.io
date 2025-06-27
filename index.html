@@ -166,7 +166,7 @@
     playButtons.forEach((btn) => {
       const index = btn.dataset.index;
       const src = btn.dataset.src;
-      const waveformId = '#waveform${index}';
+      const waveformId = `#waveform${index}`;
 
       const ws = WaveSurfer.create({
         container: waveformId,
