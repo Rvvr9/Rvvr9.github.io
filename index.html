@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#323232">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#323232" />
   <title>River Hsu Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://unpkg.com/wavesurfer.js@7"></script>
 </head>
 
 <body>
   <header>
     <nav class="desktop">
-      <a href="index.html" class="logo"><img src="resources/riv-logo.png"></a>
+      <a href="index.html" class="logo"><img src="resources/riv-logo.png" /></a>
       <a href="#proj"><h3>Projects</h3></a>
       <a href="#skills"><h3>Skills</h3></a>
     </nav>
@@ -22,7 +22,7 @@
 
   <main>
     <video autoplay muted loop id="myVideo1">
-      <source src="resources/waveform.mp4" type="video/mp4">
+      <source src="resources/waveform.mp4" type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
 
@@ -43,15 +43,69 @@
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
 
     <div class="section-header">
       <h2>Projects</h2>
     </div>
-    <div id="proj" class="proj"></div>
+    <div id="proj" class="proj">
+      <!-- Project 0 -->
+      <div id="track0" class="gallery">
+        <div class="playButton">
+          <img id="playBtn0" src="resources/playButton.png" alt="Play Button" />
+        </div>
+        <div id="waveform0"></div>
+        <div class="desc">Tail of Two</div>
+      </div>
+
+      <!-- Project 1 -->
+      <div id="track1" class="gallery">
+        <div class="playButton">
+          <img id="playBtn" src="resources/playButton.png" alt="Play Button" />
+        </div>
+        <div id="waveform"></div>
+        <div class="desc">Breath Away V3</div>
+      </div>
+
+      <!-- Project 2 -->
+      <div id="track2" class="gallery">
+        <div class="playButton">
+          <img id="playBtnTwo" src="resources/playButton.png" alt="Play Button" />
+        </div>
+        <div id="waveformTwo"></div>
+        <div class="desc">Cinema V2</div>
+      </div>
+
+      <!-- Project 3 -->
+      <div id="track3" class="gallery">
+        <div class="playButton">
+          <img id="playBtnThree" src="resources/playButton.png" alt="Play Button" />
+        </div>
+        <div id="waveformThree"></div>
+        <div class="desc">Green Chambers V2</div>
+      </div>
+
+      <!-- Project 4 -->
+      <div id="track4" class="gallery">
+        <div class="playButton">
+          <img id="playBtnFour" src="resources/playButton.png" alt="Play Button" />
+        </div>
+        <div id="waveformFour"></div>
+        <div class="desc">To Reach Your Soul</div>
+      </div>
+
+      <!-- Project 5 -->
+      <div id="track5" class="gallery">
+        <div class="playButton">
+          <img id="playBtnFive" src="resources/playButton.png" alt="Play Button" />
+        </div>
+        <div id="waveformFive"></div>
+        <div class="desc">Rush in The Rain</div>
+      </div>
+    </div>
 
     <div class="section-header">
       <h2>Skills</h2>
@@ -153,12 +207,12 @@
         container.classList.remove('glow-active');
       });
 
-
       wavesurfers.push(wavesurfer);
     });
   </script>
 </body>
 
 </html>
+
 
 
