@@ -1,18 +1,19 @@
 let mouseCursor = document.querySelector(".cursor");
-let links = document.querySelectorAll("a");
 
-window.addEventListener('mousemove', cursor);
+// Select all <a>, .playBtn images, and .waveform divs
+let hoverables = document.querySelectorAll("a, .playBtn, .waveform");
 
-function cursor(e) {
-    mouseCursor.style.top = e.pageY + 'px';
-    mouseCursor.style.left = e.pageX + 'px';
-}
-
-links.forEach(link => {
-    link.addEventListener('mouseleave', () => {
-        mouseCursor.classList.remove('link-grow');
-    });
-    link.addEventListener('mouseover', () => {
-        mouseCursor.classList.add('link-grow');
-    });
+window.addEventListener('mousemove', e => {
+  mouseCursor.style.top = e.pageY + 'px';
+  mouseCursor.style.left = e.pageX + 'px';
 });
+
+hoverables.forEach(el => {
+  el.addEventListener('mouseover', () => {
+    mouseCursor.classList.add('link-grow');
+  });
+  el.addEventListener('mouseleave', () => {
+    mouseCursor.classList.remove('link-grow');
+  });
+});
+
