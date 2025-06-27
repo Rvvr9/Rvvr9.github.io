@@ -40,6 +40,12 @@ body::before {
   filter: blur(5px); /* Apply blur to the background */
   z-index: -1; /* Ensure the overlay is behind the content */
 }
+@media (max-width: 768px) {
+  .featured-gallery {
+    width: 95%;
+    padding: 10px;
+  }
+}
 
 /* Remove cursor on mobile devices */
 @media (max-width: 412) {
@@ -52,6 +58,34 @@ body::before {
   }
 }
 
+.featured-gallery {
+  width: 90%;
+  margin: 0 auto 50px auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.featured-video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.featured-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
 
 h4 {
   font-size: .9rem;
@@ -202,15 +236,25 @@ a:hover {
 div.gallery {
   padding: 10px;
   margin: 10px;
-  background: #323232;
   border-radius: 20px;
-  box-shadow: 0px 0px 20px 10px black;
+  background: rgba(255, 255, 255, 0.08); /* semi-transparent white */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* soft outer glow */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* subtle inner edge */
+  transition: all 0.3s ease;
 }
+
 
 div.gallery img {
   width: 100%;
   height: auto;
   border-radius: 20px;
+}
+
+div.gallery:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  transform: scale(1.01);
 }
 
 div.desc {
