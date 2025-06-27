@@ -18,11 +18,6 @@
       <a href="#proj"><h3>Projects</h3></a>
       <a href="#skills"><h3>Skills</h3></a>
     </nav>
-    <nav class="mobile">
-      <a href="index.html" class="logo"><img src="resources/riv-logo.png"></a>
-      <a href="#proj"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-window-stack" viewBox="0 0 16 16">...</svg></a>
-      <a href="#skills"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">...</svg></a>
-    </nav>
   </header>
 
   <main>
@@ -30,103 +25,38 @@
       <source src="resources/waveform.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
+
     <div class="cursor"></div>
+
     <div class="intro">
-      <h1>Hi! My name is <a href="">River Hsu.</a> I am A <a href="">Math-CS, ICAM-Music Double Major</a> student at UC San Diego.</h1>
+      <h1>Hi! My name is <a href="">River Hsu.</a> I am A <a href="" target="_blank">Math-CS, ICAM-Music Double Major</a> student at UC San Diego.</h1>
     </div>
 
-    <div class="section-header"><h2>Projects</h2></div>
-    <div id="proj" class="proj">
-
-      <!-- Project Template (Repeat this block with appropriate index and src) -->
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank"><img src="resources/Cliff.png" alt="Fantasy Production"></a>
-          <p>Artist: Rvvr</p>
-          <div class="playButton">
-            <img src="resources/playButton.png" class="playBtn" data-index="0" data-src="resources/Tail of Two.wav">
-            <h1>Tail of Two</h1>
-          </div>
-          <div class="waveform" id="waveform0"></div>
-          <div class="desc"><p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p></div>
-        </div>
-      </div>
-
-      <!-- Repeat this template for each additional track -->
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank"><img src="resources/Dragon1.png" alt="Fantasy Production"></a>
-          <p>Artist: Rvvr</p>
-          <div class="playButton">
-            <img src="resources/playButton.png" class="playBtn" data-index="1" data-src="resources/Breath Away V3.wav">
-            <h1>Breath Away</h1>
-          </div>
-          <div class="waveform" id="waveform1"></div>
-          <div class="desc"><p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p></div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank"><img src="resources/RainOnTheSunImg.jpeg" alt="Fantasy Production"></a>
-          <p>Artist: Rvvr</p>
-          <div class="playButton">
-            <img src="resources/playButton.png" class="playBtn" data-index="2" data-src="resources/Cinema V2.wav">
-            <h1>Rain on The Sun</h1>
-          </div>
-          <div class="waveform" id="waveform2"></div>
-          <div class="desc"><p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p></div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank"><img src="resources/ScenicLake2.png" alt="Fantasy Production"></a>
-          <p>Artist: Rvvr</p>
-          <div class="playButton">
-            <img src="resources/playButton.png" class="playBtn" data-index="3" data-src="resources/Green Chambers V2.wav">
-            <h1>Garden Chambers</h1>
-          </div>
-          <div class="waveform" id="waveform3"></div>
-          <div class="desc"><p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p></div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank"><img src="resources/OutlandTown.png" alt="Fantasy Production"></a>
-          <p>Artist: Rvvr</p>
-          <div class="playButton">
-            <img src="resources/playButton.png" class="playBtn" data-index="4" data-src="resources/To Reach Your Soul.wav">
-            <h1>Echoing Halls</h1>
-          </div>
-          <div class="waveform" id="waveform4"></div>
-          <div class="desc"><p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p></div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank"><img src="resources/GoldFog.jpg" alt="Fantasy Production"></a>
-          <p>Artist: Rvvr</p>
-          <div class="playButton">
-            <img src="resources/playButton.png" class="playBtn" data-index="5" data-src="resources/Rush in The Rain.wav">
-            <h1>Rush In The Rain</h1>
-          </div>
-          <div class="waveform" id="waveform5"></div>
-          <div class="desc"><p>Fantasy Music Project, Composed and Produced in Ableton Live 11</p></div>
-        </div>
-      </div>
-
+    <div class="section-header">
+      <h2>Featured Video</h2>
     </div>
 
-    <div class="section-header"><h2>Skills</h2></div>
-    <div id="skills" class="skills">
-      <img src="resources/Python-logo.png" alt="Python Logo">
-      <img src="resources/java-logo.png" alt="Java Logo">
-      <img src="resources/csharp-logo.png" alt="Csharp Logo">
-      <img src="resources/AbletonLogo.png" alt="Ableton Logo">
+    <div class="featured-gallery">
+      <div class="featured-video-container">
+        <iframe
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
+
+    <div class="section-header">
+      <h2>Projects</h2>
+    </div>
+    <div id="proj" class="proj"></div>
+
+    <div class="section-header">
+      <h2>Skills</h2>
+    </div>
+    <div id="skills" class="skills"></div>
     <div class="small-header"><h3>Academic Background</h3></div>
     <div class="school-description">
       <h3 class="academic">High School Diploma</h3>
@@ -140,37 +70,95 @@
   </footer>
 
   <script src="mouseScript.js"></script>
+
   <script>
-    const playButtons = document.querySelectorAll('.playBtn');
-    const wavesurfers = {};
+    const tracks = [
+      {
+        id: 0,
+        btnId: 'playBtn0',
+        waveformId: 'waveform0',
+        containerId: 'track0',
+        url: 'resources/Tail of Two.wav'
+      },
+      {
+        id: 1,
+        btnId: 'playBtn',
+        waveformId: 'waveform',
+        containerId: 'track1',
+        url: 'resources/Breath Away V3.wav'
+      },
+      {
+        id: 2,
+        btnId: 'playBtnTwo',
+        waveformId: 'waveformTwo',
+        containerId: 'track2',
+        url: 'resources/Cinema V2.wav'
+      },
+      {
+        id: 3,
+        btnId: 'playBtnThree',
+        waveformId: 'waveformThree',
+        containerId: 'track3',
+        url: 'resources/Green Chambers V2.wav'
+      },
+      {
+        id: 4,
+        btnId: 'playBtnFour',
+        waveformId: 'waveformFour',
+        containerId: 'track4',
+        url: 'resources/To Reach Your Soul.wav'
+      },
+      {
+        id: 5,
+        btnId: 'playBtnFive',
+        waveformId: 'waveformFive',
+        containerId: 'track5',
+        url: 'resources/Rush in The Rain.wav'
+      }
+    ];
 
-    playButtons.forEach((btn) => {
-      const index = btn.dataset.index;
-      const src = btn.dataset.src;
-      const waveformId = `#waveform${index}`;
+    const wavesurfers = [];
 
-      const ws = WaveSurfer.create({
-        container: waveformId,
+    tracks.forEach(track => {
+      const button = document.getElementById(track.btnId);
+      const container = document.getElementById(track.containerId);
+
+      const wavesurfer = WaveSurfer.create({
+        container: `#${track.waveformId}`,
         waveColor: '#000000',
         progressColor: '#A02222',
-        url: src,
+        url: track.url,
         barWidth: 1,
         height: 90,
         barRadius: 4
       });
 
-      wavesurfers[index] = ws;
+      button.onclick = () => {
+        wavesurfer.playPause();
+        button.src = wavesurfer.isPlaying()
+          ? 'resources/pauseButton.png'
+          : 'resources/playButton.png';
+      };
 
-      btn.addEventListener('click', () => {
-        ws.playPause();
-        btn.src = ws.isPlaying() ? "resources/pauseButton.png" : "resources/playButton.png";
+      wavesurfer.on('audioprocess', () => {
+        container.classList.add('glow-active');
       });
 
-      ws.on('finish', () => {
-        btn.src = "resources/playButton.png";
+      wavesurfer.on('pause', () => {
+        container.classList.remove('glow-active');
       });
+
+      wavesurfer.on('finish', () => {
+        button.src = 'resources/playButton.png';
+        container.classList.remove('glow-active');
+      });
+
+
+      wavesurfers.push(wavesurfer);
     });
   </script>
 </body>
+
 </html>
+
 
