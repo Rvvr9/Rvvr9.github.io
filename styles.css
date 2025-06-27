@@ -1,465 +1,133 @@
-main,
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  cursor: none;
-}
-
-/* body {
-  background: linear-gradient(to top right, rgb(22, 22, 22) 0%, #042630 45%, rgb(22, 22, 22) 75%, #192122 120%);
-  font-family: sans-serif, Courier, monospace;
-  color: white;
-  font-size: 16px;
-} */
 body {
-  position: relative;
-  background-image: url("resources/GoldParticles.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100%; /* Full height of the screen */
-  font-family: sans-serif, Courier, monospace;
-  color: white;
-  font-size: 16px;
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #000; /* full black */
+  color: #fff;       /* white text */
+  line-height: 1.6;
+  text-align: center; /* center all inline/inline-block text elements */
 }
 
-body::before {
-  content: '';
+header, footer {
+  padding: 2rem 1rem;
+  background: #111;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+/* Hero Video */
+.hero-video {
+  background: #000;
+  padding: 2rem 1rem;
+}
+
+/* Responsive Video Centering */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Gradient color (optional) */
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 70%), 
-              url("resources/GoldParticles.jpg"); /* The gradient and image combined */
-  background-size: cover;
-  background-position: center center;
-  filter: blur(5px); /* Apply blur to the background */
-  z-index: -1; /* Ensure the overlay is behind the content */
-}
-
-/* Remove cursor on mobile devices */
-@media (max-width: 412) {
-  body, html {
-    cursor: none; /* Hides the cursor */
-  }
-
-  .cursor {
-    display: none; /* Hides the custom cursor element */
-  }
-}
-
-
-h4 {
-  font-size: .9rem;
-  display: flex;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  color: white;
-}
-
-h3 {
-  font-size: 2rem;
-  display: flex;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  color: white;
-}
-
-h2 {
-  font-size: 3rem;
-  margin-left: 2%;
-  border-bottom: 2px solid #7c0505;
-}
-
-p {
-  margin-left: 2%;
-}
-
-#myVideo1 {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -2;
-}
-/* Navigation */
-header {
-  display: flex;
   width: 100%;
+  height: 100%;
+  border: none;
 }
 
-header .desktop {
-  position: fixed;
+/* Tagline */
+.tagline {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Audio Section */
+.audio-section {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.audio-section h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.project {
+  margin-bottom: 3rem;
+}
+
+.project h3 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+/* Waveform Container */
+.waveform-container {
+  position: relative;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+/* Waveform and Particles */
+.waveform {
+  position: absolute;
   top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Play Button */
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
   z-index: 5;
-  height: 80px;
-  width: 100%;
-  background-color: #323232;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  position: relative;
 }
 
-header .mobile a {
-  display: none;
+button:hover {
+  background: #444;
 }
 
-header h3 {
-  display: flex;
-  color: white;
-  font-size: 1.5rem;
-  padding: 10px;
-  align-items: center;
-  background-color: #7c0505;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px 5px rgb(24, 24, 24);
-}
-
-header a {
-  color: white;
-  align-items: center;
-}
-
-header img {
-  height: 70px;
-  margin-top: 5px;
-}
-
-a:hover {
-  cursor: none;
-  text-decoration: line-through;
-}
-
-/* Intro */
-.intro h1,
-.intro a {
-  color: white;
-  margin-top: 80px;
-  margin-left: 2%;
-  font-size: 6rem;
-  /* this too */
-  width: 80%;
-  /* remember to change for @media */
-}
-
-.intro a {
-  color: #c43433;
-}
-
-@media (max-width: 900px) {
-  .intro h1,
-  .intro a {
-    font-size: 5rem; /* Adjust font size for half-screen */
-    margin-top: 30px; /* Adjust top margin for better spacing */
-    width: 80%; /* Widen or narrow the container if needed */
-  }
-}
-
-@media (max-width: 768px) {
-  .intro h1,
-  .intro a {
-    font-size: 3rem; /* Smaller font size for mobile devices */
-    margin-top: 40px; /* Adjust margin to fit smaller screens */
-    width: 80%; /* Expand the width for better readability */
-  }
-}
-
-/* Smaller phones (extra small screens) */
-@media (max-width: 480px) {
-  .intro h1,
-  .intro a {
-    font-size: 3rem; /* Even smaller font for very small screens */
-    margin-top: 20px;
-    width: 90%;
-  }
-}
-
-/* Image Gallery */
-.proj {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-
-}
-
-.responsive {
-  display: flex;
-  align-items: center;
-  width: 475px;
-}
-
-div.gallery {
-  padding: 10px;
-  margin: 10px;
-  background: #323232;
-  border-radius: 20px;
-  box-shadow: 0px 0px 20px 10px black;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-}
-
-div.desc {
-  display: flex;
-  padding: 15px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 20px;
-  height: 40px;
-  background-color: #505050;
-}
-
-
-/* play button */
-/* Base play button container size */
-.playButton {
-  display: flex;
-  align-items: center; /* Aligns content in the center */
-  justify-content: start;
-  gap: 10px;
-}
-
-/* Ensure the play button image scales correctly */
-.playButton img {
-  width: 100%; /* Make the image take the full width of its container */
-  height: 100%; /* Maintain aspect ratio */
-  max-width: 50px; /* Set a max width */
-  max-height: 50px; /* Set a max height */
-  object-fit: contain; /* Ensures the aspect ratio is maintained without distortion */
-}
-
-/* Larger screen sizes */
-@media (min-width: 768px) {
-  .playButton img {
-    max-width: 50;  /* Set the max width for the image */
-    max-height: 50; /* Set the max height for the image */
-  }
-}
-
-/* Even larger screen sizes */
-@media (min-width: 1024px) {
-
-  .playButton img {
-    max-width: 50;  /* Set the max width for the image */
-    max-height: 50; /* Set the max height for the image */
-  }
-}
-/* play button */
-
-
-/* skills */
-.school-description {
-  margin: 2%;
-  width: 300px;
-}
-
-.school-description h3 {
-  border-bottom: 2px solid #7c0505;;
-}
-
-.school-description p {
-  margin-left: 0px;
-  border-bottom: 2px solid #7c0505;;
-}
-
-.small-header {
-  margin-left: 2%;
-  width: fit-content;
-  border-bottom: 2px solid #7c0505;;
-}
-
-.flexBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-  margin-bottom: 15px;
-}
-
-.skills {
-  display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.skills-list {
-  margin-left: 2%;
-}
-
-.skills img {
-  max-width: 200px;
-  max-height: 200px;
-}
-
-.playButton-list {
-  margin-left: 2%;
-}
-
-.academic {
+/* About Section */
+.about {
+  padding: 2rem 1rem;
+  max-width: 700px;
+  margin: 0 auto;
   font-size: 1rem;
+  color: #ccc;
 }
 
 /* Footer */
 footer {
-  display: flex;
-  margin: 10px 0px;
-  width: 100%;
-  justify-content: space-around;
-  background: #323232;
-  box-shadow: 0px 0px 20px 10px black;
+  font-size: 0.9rem;
+  color: #888;
 }
 
-footer p {
-  padding-left: 4%;
-}
-
-/* contact  */
-.contact-main {
-  width: 100%;
-  display: flex;
-  flex-direction:column;
-  background-image: url("resources/images/KalebHogan.png");
-  background-origin: content-box;
-  background-position: 80% 5%;
-  background-size: 300px;
-  background-repeat: no-repeat;
-}
-
-.contact-intro {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-}
-
-.contact-intro h1,
-.contact-intro a {
-  color: white;
-  margin-top: 80px;
-  margin-left: 2%;
-  font-size: 7rem;
-  width: 60%;
-}
-
-.contact-intro a {
-  color: #BB86FC;
-}
-
-
-
-.contact-info {
-  display: flex;
-  flex-direction: row;
-  margin-top: 100px;
-  width: 100%;
-}
-
-/* cursor */
-.cursor {
-  width: 6rem;
-  height: 6rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: all 0.3s ease;
-  transition-property: background, transform;
-  transform-origin: -15% -15%;
-  z-index: 10;
-}
-
-.link-grow {
-  transform: scale(.25);
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-@media only screen and (max-width: 965px) {
-
-  header .mobile {
-    position: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: left;
-    width: 100%;
-    height: 80px;
-    bottom: 0px;
-    background-color: #323232;
-    z-index: 5;
-  }
-
-  header .mobile a {
-    display: flex;
-    width: 10%;
-  }
-
-  header .mobile img {
-    display: flex;
-    width: 90%;
-    height: 90%;
-  }
-
-  header .desktop {
-    display: none;
-  }
-
-  /* contact page */
-  .contact-intro {
-    display: flex;
-    flex-direction: column;
-    margin-top: -75px;
-  }
-
-  .contact-intro img {
-    width: 100%;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 100px;
-  }
-
-  /* end contact page */
-
-  
-
-  .responsive {
-    width: 100%;
-  }
-
-  iframe {
-    width: 100%;
-  }
-
-  .skills img {
-    max-width: 100px;
-    max-height: 100px;
-  }
-
-  footer {
-    margin-bottom: 110px;
-  }
-}
