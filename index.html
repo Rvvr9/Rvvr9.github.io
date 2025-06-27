@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -158,6 +158,7 @@
   </footer>
 
   <script src="mouseScript.js"></script>
+  
   <script>
     const playButtons = document.querySelectorAll('.playBtn');
     const wavesurfers = {};
@@ -165,7 +166,7 @@
     playButtons.forEach((btn) => {
       const index = btn.dataset.index;
       const src = btn.dataset.src;
-      const waveformId = `#waveform${index}`;
+      const waveformId = '#waveform${index}';
 
       const ws = WaveSurfer.create({
         container: waveformId,
@@ -191,4 +192,5 @@
   </script>
 </body>
 </html>
+
 
