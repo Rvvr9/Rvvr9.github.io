@@ -160,11 +160,21 @@ h3 {
   color: white;
 }
 
-h2 {
-  font-size: 3rem;
-  margin-left: 2%;
-  border-bottom: 2px solid #7c0505;
+.section-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 20px;
 }
+
+.section-header h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #e8e6e3; /* ivory white to match h1 */
+  border-bottom: 2px solid #a31e2f; /* deep blood red */
+  padding-bottom: 8px;
+}
+
 
 p {
   margin-left: 2%;
