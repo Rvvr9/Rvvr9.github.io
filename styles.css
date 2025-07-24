@@ -7,6 +7,48 @@ html {
   cursor: none;
 }
 
+.intro {
+  padding-top: 140px;
+  padding-left: 2%;
+  padding-right: 2%;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+}
+
+.intro h1 {
+  font-size: 6rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: bold;
+}
+
+.intro .tagline {
+  font-size: 2rem;
+  color: #c43433;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.intro .bio {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .intro h1 {
+    font-size: 3rem;
+  }
+
+  .intro .tagline {
+    font-size: 1.3rem;
+  }
+
+  .intro .bio {
+    font-size: 1rem;
+  }
+}
+
 /* body {
   background: linear-gradient(to top right, rgb(22, 22, 22) 0%, #042630 45%, rgb(22, 22, 22) 75%, #192122 120%);
   font-family: sans-serif, Courier, monospace;
