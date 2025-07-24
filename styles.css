@@ -14,31 +14,34 @@ html {
   justify-content: center;
   padding-top: 180px;
   text-align: center;
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   padding-left: 5%;
   padding-right: 5%;
 }
 
 .intro h1 {
   font-size: 6rem;
-  font-weight: bold;
-  color: white;
+  font-weight: 700;
+  color: #e8e6e3; /* pale ivory white */
+  letter-spacing: 1px;
   margin: 0;
 }
 
 .intro .tagline {
-  font-size: 2rem;
-  color: #c43433;
-  margin-top: 10px;
+  font-size: 1.8rem;
+  margin-top: 15px;
+  color: #a31e2f; /* deep blood red */
+  font-weight: 500;
 }
 
 .intro .bio {
-  font-size: 1.3rem;
-  color: #dddddd;
+  font-size: 1.2rem;
+  color: #c2bfb6; /* slightly faded bone-gray */
   max-width: 800px;
   margin-top: 20px;
   line-height: 1.6;
 }
+
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
