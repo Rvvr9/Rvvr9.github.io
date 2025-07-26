@@ -299,8 +299,8 @@ div.gallery {
   transition: all 0.3s ease;
 }
 
-.waveform {
-  margin-bottom: 8px; /* or any small value you like */
+[id^="waveform"] {
+  margin-bottom: 8px;
 }
 
 div.gallery img {
