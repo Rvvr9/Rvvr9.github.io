@@ -181,14 +181,6 @@ p {
   margin-left: 2%;
 }
 
-#myVideo1 {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -2;
-}
 /* Navigation */
 header {
   display: flex;
@@ -307,6 +299,9 @@ div.gallery {
   transition: all 0.3s ease;
 }
 
+.waveform {
+  margin-bottom: 8px; /* or any small value you like */
+}
 
 div.gallery img {
   width: 100%;
@@ -320,6 +315,7 @@ div.gallery:hover {
 }
 
 div.desc {
+  position: relative; /* needed for ::after absolute positioning */
   display: flex;
   padding: 15px;
   justify-content: center;
@@ -327,9 +323,30 @@ div.desc {
   text-align: center;
   border-radius: 20px;
   background-color: #505050;
+  height: auto;
+  flex-direction: column;
+  overflow: hidden; /* ensures pseudo-element doesn’t overflow rounded corners */
+}
 
-  height: auto; /* Let it grow with content */
-  flex-direction: column; /* Ensures proper stacking if needed */
+div.desc::after {
+  content: "";
+  pointer-events: none; /* so it won’t interfere with clicks */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* match parent border radius */
+  
+  /* noise grain effect */
+  background: repeating-radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.03) 0,
+    rgba(0, 0, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply; /* blends the noise with background */
 }
 
 
