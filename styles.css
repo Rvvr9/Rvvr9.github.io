@@ -14,7 +14,7 @@ html {
   justify-content: center;
   padding-top: 180px;
   text-align: center;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 8px rgb(0, 0, 0);
   padding-left: 5%;
   padding-right: 5%;
 }
