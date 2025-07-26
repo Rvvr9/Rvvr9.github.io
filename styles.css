@@ -91,6 +91,7 @@ body::before {
   filter: blur(5px); /* Apply blur to the background */
   z-index: -1; /* Ensure the overlay is behind the content */
 }
+
 @media (max-width: 768px) {
   .featured-gallery {
     width: 95%;
@@ -325,9 +326,12 @@ div.desc {
   align-items: center;
   text-align: center;
   border-radius: 20px;
-  height: 40px;
   background-color: #505050;
+
+  height: auto; /* Let it grow with content */
+  flex-direction: column; /* Ensures proper stacking if needed */
 }
+
 
 
 /* play button */
@@ -347,25 +351,6 @@ div.desc {
   max-height: 50px; /* Set a max height */
   object-fit: contain; /* Ensures the aspect ratio is maintained without distortion */
 }
-
-/* Larger screen sizes */
-@media (min-width: 768px) {
-  .playButton img {
-    max-width: 50;  /* Set the max width for the image */
-    max-height: 50; /* Set the max height for the image */
-  }
-}
-
-/* Even larger screen sizes */
-@media (min-width: 1024px) {
-
-  .playButton img {
-    max-width: 50;  /* Set the max width for the image */
-    max-height: 50; /* Set the max height for the image */
-  }
-}
-/* play button */
-
 
 /* skills */
 .school-description {
@@ -460,7 +445,7 @@ footer p {
   color: white;
   margin-top: 80px;
   margin-left: 2%;
-  font-size: 7rem;
+  font-size: clamp(2rem, 6vw, 7rem);
   width: 60%;
 }
 
@@ -500,6 +485,15 @@ footer p {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
+
+@keyframes pulseGlow {
+    from {
+      box-shadow: 0 0 5px 2px rgba(255, 80, 80, 0.4);
+    }
+    to {
+      box-shadow: 0 0 30px 8px rgba(255, 80, 80, 0.8);
+    }
+  }
 
 @media only screen and (max-width: 965px) {
 
@@ -552,19 +546,7 @@ footer p {
     animation: pulseGlow 0.4s ease-in-out infinite alternate;
   }
 
-  @keyframes pulseGlow {
-    from {
-      box-shadow: 0 0 5px 2px rgba(255, 80, 80, 0.4);
-    }
-    to {
-      box-shadow: 0 0 30px 8px rgba(255, 80, 80, 0.8);
-    }
-  }
-
-
   /* end contact page */
-
-  
 
   .responsive {
     width: 100%;
