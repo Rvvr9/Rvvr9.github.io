@@ -561,3 +561,60 @@ footer p {
 
   
 }
+
+.explore-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto 80px auto;
+}
+
+.explore-card {
+  flex: 1 1 300px;
+  text-decoration: none;
+  color: #e8e6e3;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.explore-card:hover {
+  background: #a31e2f;
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(163,30,47,0.6);
+}
+
+.explore-card h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.explore-card p {
+  font-size: 1.1rem;
+  color: #c2bfb6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .explore-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .explore-card {
+    padding: 30px 20px;
+  }
+
+  .explore-card h3 {
+    font-size: 1.6rem;
+  }
+}
