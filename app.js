@@ -10,9 +10,10 @@ function media(project, className = "", useHero = false) {
   const imageAlt = useHero && project.heroAlt ? project.heroAlt : project.imageAlt;
   const fitClass = project.imageFit === "contain" ? "fit-contain" : "";
   const position = useHero && project.heroPosition ? project.heroPosition : (project.imagePosition || "center");
+  const mobilePosition = useHero && project.heroPositionMobile ? project.heroPositionMobile : (project.imagePositionMobile || position);
   const fitBackground = project.fitBackground ? `;--fit-background:${project.fitBackground}` : "";
   if (image) {
-    return `<div class="project-media ${fitClass} ${className}" style="--image-position:${position}${fitBackground}"><img src="${image}" alt="${imageAlt}" loading="${useHero ? "eager" : "lazy"}"${useHero ? ' fetchpriority="high"' : ""}></div>`;
+    return `<div class="project-media ${fitClass} ${className}" style="--image-position:${position};--image-position-mobile:${mobilePosition}${fitBackground}"><img src="${image}" alt="${imageAlt}" loading="${useHero ? "eager" : "lazy"}"${useHero ? ' fetchpriority="high"' : ""}></div>`;
   }
   return `<div class="project-media project-media-generated media-${project.mediaStyle || "grid"} ${className}" aria-hidden="true"><span>${project.title}</span><i></i></div>`;
 }
@@ -299,6 +300,10 @@ function renderProjectView(project) {
     <p class="eyebrow">04 / Media</p><h2>Project imagery</h2>
     <div class="project-gallery">${project.gallery.map(item => `<figure class="gallery-${item.fit || "cover"}"><img src="${item.src}" alt="${item.alt}" loading="lazy">${item.caption ? `<figcaption>${item.caption}</figcaption>` : ""}</figure>`).join("")}</div>
   </section>` : "";
+  const conceptGallery = project.conceptGallery?.length ? `<section class="project-media-section">
+    <p class="eyebrow">05 / Concept</p><h2>Concept / World Vision</h2>
+    <div class="project-gallery">${project.conceptGallery.map(item => `<figure class="gallery-${item.fit || "cover"}"><img src="${item.src}" alt="${item.alt}" loading="lazy">${item.caption ? `<figcaption>${item.caption}</figcaption>` : ""}</figure>`).join("")}</div>
+  </section>` : "";
   const video = project.video ? `<section class="project-media-section">
     <p class="eyebrow">05 / Video</p><h2>${project.video.title}</h2>
     <div class="project-video"><iframe src="${project.video.embed}" title="${project.video.title}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
@@ -327,7 +332,7 @@ function renderProjectView(project) {
       </aside>
       <div class="project-detail-main">
         <section class="project-overview"><p class="eyebrow">01 / Overview</p><h2>About the project</h2><p>${project.detail || project.summary}</p></section>
-        ${contributions}${result}${audio}${gallery}${video}${external}
+        ${contributions}${result}${audio}${gallery}${conceptGallery}${video}${external}
       </div>
     </div>`;
   setupAudioPlayers(view);

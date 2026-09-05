@@ -47,7 +47,7 @@ button { color: inherit; font: inherit; }
 .menu-toggle { display: none; border: 0; background: none; }
 
 .hero { position: relative; isolation: isolate; min-height: 100svh; padding: calc(var(--header-height) + 54px) max(40px, calc((100vw - 1640px)/2)) 48px; display: grid; grid-template-columns: minmax(0, 1fr) 400px; grid-template-rows: auto 1fr auto; overflow: hidden; background: #090908; }
-.hero-media { position: absolute; z-index: -3; inset: 0; background-image: linear-gradient(90deg, rgba(7,7,6,.94) 0%, rgba(7,7,6,.52) 42%, rgba(7,7,6,.12)), linear-gradient(0deg, rgba(7,7,6,.92) 0%, transparent 48%), url("resources/project-media/grave-of-gods-hero.webp"); background-size: cover; background-position: center; transform: scale(1.02); }
+.hero-media { position: absolute; z-index: -3; inset: 0; background-image: linear-gradient(90deg, rgba(7,7,6,.94) 0%, rgba(7,7,6,.52) 42%, rgba(7,7,6,.12)), linear-gradient(0deg, rgba(7,7,6,.92) 0%, transparent 48%), url("resources/project-media/grave-of-gods-court-hero.webp"); background-size: cover; background-position: 64% 50%; transform: scale(1.02); }
 .hero-media::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 76% 44%, transparent 0 14%, rgba(4,4,3,.23) 47%, rgba(4,4,3,.78) 100%); }
 .hero-grid { position: absolute; z-index: -2; inset: 0; opacity: .18; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 96px 96px; mask-image: linear-gradient(90deg, #000, transparent 64%); }
 .hero::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,.08) 50%, transparent calc(50% + 1px)); opacity: .45; pointer-events: none; }
@@ -300,6 +300,7 @@ button { color: inherit; font: inherit; }
   .site-nav a { min-height: 50px; display: flex; align-items: center; border-bottom: 1px solid var(--line); font-size: 11px; }
   .site-nav a::after { display: none; }
   .hero { min-height: 850px; padding: calc(var(--header-height) + 30px) 16px 25px; grid-template-columns: 1fr; grid-template-rows: auto 1fr auto auto; }
+  .hero-media { background-position: 68% 50%; }
   .hero-topline span:last-child { display: none; }
   .hero-copy { align-self: end; padding: 70px 0 45px; }
   .hero h1 { font-size: clamp(76px, 26vw, 120px); }
@@ -353,6 +354,7 @@ button { color: inherit; font: inherit; }
   .contact-links { flex-direction: column; margin-top: 40px; }
   .site-footer { min-height: 75px; padding: 0 16px; }
   .project-hero { min-height: 760px; padding: calc(var(--header-height) + 70px) 16px 50px; }
+  .project-media img { object-position: var(--image-position-mobile, var(--image-position, center)); }
   .project-back { top: calc(var(--header-height) + 24px); left: 16px; }
   .project-hero-copy h1 { font-size: clamp(70px, 20vw, 96px); overflow-wrap: anywhere; }
   .project-detail-wrap { grid-template-columns: 1fr; gap: 70px; padding: 80px 0 110px; }

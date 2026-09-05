@@ -6,9 +6,16 @@ export const projects = [
     detail: "Grave of Gods is River’s broadest game-development showcase: a solo project bringing world building, visual direction, gameplay, and technical development into one production.",
     contributions: ["Solo game development", "World and gameplay development", "Technical systems"],
     status: "In development",
-    image: "resources/project-media/grave-of-gods-hero.webp", imageAlt: "An armored figure overlooking a vast burning city and fortress in Grave of Gods",
-    heroImage: "resources/project-media/grave-of-gods-hero.webp", heroAlt: "An armored figure facing the fortress city of Grave of Gods at sunset",
-    imagePosition: "center", heroType: "Concept / world vision"
+    image: "resources/project-media/grave-of-gods-archive.webp", imageAlt: "In-engine development view of a monumental gothic gateway in Grave of Gods",
+    heroImage: "resources/project-media/grave-of-gods-court-hero.webp", heroAlt: "Wide in-engine development view of a monumental gothic gateway and surrounding city in Grave of Gods",
+    imagePosition: "center", imagePositionMobile: "68% 50%", heroPosition: "64% 50%", heroPositionMobile: "68% 50%", heroType: "In-engine development capture",
+    gallery: [
+      {src: "resources/project-media/grave-of-gods-world-overview.webp", alt: "Wide in-engine development overview of the interconnected gothic city in Grave of Gods", caption: "World scale / in-engine development overview"},
+      {src: "resources/project-media/grave-of-gods-monument.webp", alt: "In-engine development view of a central gothic monument in Grave of Gods", caption: "Environment focal point / in-engine development capture"}
+    ],
+    conceptGallery: [
+      {src: "resources/project-media/grave-of-gods-hero.webp", alt: "Generated concept artwork showing an armored figure overlooking a burning fortress city", caption: "Generated concept artwork / world-vision reference — not gameplay or in-engine media"}
+    ]
   },
   {
     id: "02", slug: "spoilage", title: "Spoilage", role: "Audio Lead",
