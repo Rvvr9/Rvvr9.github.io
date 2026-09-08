@@ -18,6 +18,20 @@ function media(project, className = "", useHero = false) {
   return `<div class="project-media project-media-generated media-${project.mediaStyle || "grid"} ${className}" aria-hidden="true"><span>${project.title}</span><i></i></div>`;
 }
 
+function audioControlRow(source, title, preload = "metadata", label = "") {
+  const playbackTitle = label ? `${title} — ${label}` : title;
+  const labelMarkup = label ? `<span class="audio-variation-label meta">${label}</span>` : "";
+  return `<div class="audio-control-row${label ? " has-label" : ""}" data-audio-player data-audio-title="${playbackTitle}">
+    ${labelMarkup}
+    <audio src="${source.src}" preload="${preload}"></audio>
+    <div class="audio-controls">
+      <button class="audio-toggle" type="button" aria-label="Play ${playbackTitle}"><span aria-hidden="true">▶</span><span>Play</span></button>
+      <input class="audio-progress" type="range" min="0" max="${source.duration || 1}" value="0" step="1" aria-label="Seek ${playbackTitle}" disabled>
+      <output class="audio-time" aria-label="Playback time"><span data-current-time>0:00</span> / <span data-duration>${formatTime(source.duration, true)}</span></output>
+    </div>
+  </div>`;
+}
+
 function renderAudioProjects() {
   const container = qs("[data-audio-projects]");
   const rails = [
@@ -32,18 +46,14 @@ function renderAudioProjects() {
   const tile = ({project, sample}, index) => {
     const position = project.imagePosition || "center";
     const fitClass = project.imageFit === "contain" ? " fit-contain" : "";
-    return `<article class="audio-tile" data-audio-player style="${projectStyle(project)}">
+    const sources = sample.variants?.length ? sample.variants : [sample];
+    return `<article class="audio-tile${sample.variants?.length ? " has-variations" : ""}" style="${projectStyle(project)}">
       <div class="audio-tile-art${fitClass}" style="--image-position:${position}" aria-hidden="true"><img src="${project.image}" alt="" loading="lazy"></div>
-      <audio src="${sample.src}" preload="none"></audio>
       <div class="audio-tile-content">
         <p class="audio-tile-label meta">${project.title} / ${sample.category}</p>
         <h3>${sample.title}</h3>
         <p class="audio-tile-role meta">${project.role}</p>
-        <div class="audio-controls">
-          <button class="audio-toggle" type="button" aria-label="Play ${sample.title}"><span aria-hidden="true">▶</span><span>Play</span></button>
-          <input class="audio-progress" type="range" min="0" max="${sample.duration || 1}" value="0" step="1" aria-label="Seek ${sample.title}" disabled>
-          <output class="audio-time" aria-label="Playback time"><span data-current-time>0:00</span> / <span data-duration>${formatTime(sample.duration, true)}</span></output>
-        </div>
+        <div class="audio-tile-variations">${sources.map((source, sourceIndex) => audioControlRow(source, sample.title, "none", sample.variants ? source.label || `Variation ${String(sourceIndex + 1).padStart(2, "0")}` : "")).join("")}</div>
         <a class="audio-tile-link meta" href="?project=${project.slug}" aria-label="View ${project.title} project">View project <span aria-hidden="true">↗</span></a>
       </div>
       <span class="audio-tile-index meta" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
@@ -192,18 +202,13 @@ function renderAudioSection(project) {
   return `<section class="project-audio-section" id="audio-showcase">
     <p class="eyebrow">Audio / Selected samples</p><h2>Audio showcase</h2>
     <div class="audio-sample-list">${project.audioSamples.map((sample, index) => `
-      <article class="audio-player" data-audio-player>
-        <audio src="${sample.src}" preload="metadata"></audio>
+      <article class="audio-player${sample.variants?.length ? " has-variations" : ""}">
         <div class="audio-sample-index meta">${String(index + 1).padStart(2, "0")} / ${sample.category || "Audio"}</div>
         <div class="audio-sample-heading">
           <div><h3>${sample.title}</h3>${sample.description ? `<p>${sample.description}</p>` : ""}</div>
           ${sample.context ? `<span class="audio-context meta">${sample.context}</span>` : ""}
         </div>
-        <div class="audio-controls">
-          <button class="audio-toggle" type="button" aria-label="Play ${sample.title}"><span aria-hidden="true">▶</span><span>Play</span></button>
-          <input class="audio-progress" type="range" min="0" max="1" value="0" step="1" aria-label="Seek ${sample.title}" disabled>
-          <output class="audio-time" aria-label="Playback time"><span data-current-time>0:00</span> / <span data-duration>0:00</span></output>
-        </div>
+        <div class="audio-variation-list">${(sample.variants?.length ? sample.variants : [sample]).map((source, sourceIndex) => audioControlRow(source, sample.title, "metadata", sample.variants ? source.label || `Variation ${String(sourceIndex + 1).padStart(2, "0")}` : "")).join("")}</div>
       </article>`).join("")}</div>
   </section>`;
 }
@@ -218,7 +223,8 @@ function setupAudioPlayers(scope = document) {
     const progress = qs(".audio-progress", player);
     const current = qs("[data-current-time]", player);
     const duration = qs("[data-duration]", player);
-    const title = qs("h3", player).textContent;
+    const title = player.dataset.audioTitle || qs("h3", player)?.textContent || "audio";
+    const container = player.closest(".audio-player, .audio-tile");
 
     const syncDuration = () => {
       if (!Number.isFinite(audio.duration)) return;
@@ -237,6 +243,7 @@ function setupAudioPlayers(scope = document) {
       toggleLabel.textContent = playing ? "Pause" : "Play";
       toggle.setAttribute("aria-label", `${playing ? "Pause" : "Play"} ${title}`);
       player.classList.toggle("is-playing", playing);
+      container?.classList.toggle("is-playing", playing);
     };
 
     audio.addEventListener("loadedmetadata", syncDuration);

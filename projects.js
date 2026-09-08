@@ -6,9 +6,9 @@ export const projects = [
     detail: "Grave of Gods is River’s broadest game-development showcase: a solo project bringing world building, visual direction, gameplay, and technical development into one production.",
     contributions: ["Solo game development", "World and gameplay development", "Technical systems"],
     status: "In development",
-    image: "resources/project-media/grave-of-gods-archive.webp", imageAlt: "In-engine development view of a monumental gothic gateway in Grave of Gods",
-    heroImage: "resources/project-media/grave-of-gods-court-hero.webp", heroAlt: "Wide in-engine development view of a monumental gothic gateway and surrounding city in Grave of Gods",
-    imagePosition: "center", imagePositionMobile: "68% 50%", heroPosition: "64% 50%", heroPositionMobile: "68% 50%", heroType: "In-engine development capture",
+    image: "resources/project-media/a05f90b3-41a1-4bcc-a27d-4dd2b89308e0.png", imageAlt: "A Marshal overlooks a vast army and illuminated citadel at sunset in Grave of Gods",
+    heroImage: "resources/project-media/a05f90b3-41a1-4bcc-a27d-4dd2b89308e0.png", heroAlt: "A silhouetted Marshal overlooks a vast battlefield army and illuminated citadel beneath an orange sunset in Grave of Gods",
+    imagePosition: "center", imagePositionMobile: "44% 50%", heroPosition: "center", heroPositionMobile: "44% 50%", heroType: "Unreal Engine development capture",
     gallery: [
       {src: "resources/project-media/grave-of-gods-world-overview.webp", alt: "Wide in-engine development overview of the interconnected gothic city in Grave of Gods", caption: "World scale / in-engine development overview"},
       {src: "resources/project-media/grave-of-gods-monument.webp", alt: "In-engine development view of a central gothic monument in Grave of Gods", caption: "Environment focal point / in-engine development capture"}
@@ -31,7 +31,7 @@ export const projects = [
     ],
     audioSamples: [
       {src: "resources/audio/spoilage-left-hand.m4a", title: "Left Hand", category: "Music"},
-      {src: "resources/audio/spoilage-cutting-board-sfx.m4a", title: "Cutting Board SFX", category: "Sound Design", featuredRail: "sound", featuredOrder: 5, duration: 4.852}
+      {src: "resources/audio/spoilage-cutting-board-sfx.m4a", title: "Cutting Board SFX", category: "Sound Design"}
     ]
   },
   {
@@ -87,7 +87,14 @@ export const projects = [
     audioSamples: [
       {src: "resources/audio/atira-main-menu.m4a", title: "Main Menu", category: "Music", featuredRail: "music", featuredOrder: 5, duration: 97.816},
       {src: "resources/audio/atira-gameplay.m4a", title: "Gameplay", category: "Music"},
-      {src: "resources/audio/atira-revolver-reload.m4a", title: "Revolver SFX Reload", category: "Sound Design", featuredRail: "sound", featuredOrder: 6, duration: .33}
+      {src: "resources/audio/atira-revolver-reload.m4a", title: "Revolver SFX Reload", category: "Sound Design", featuredRail: "sound", featuredOrder: 9, duration: .33},
+      {
+        title: "Shield Block", category: "Sound Design", featuredRail: "sound", featuredOrder: 10,
+        variants: [
+          {src: "resources/audio/ME - B - 1.wav", label: "Variation 01", duration: 2},
+          {src: "resources/audio/ME - B - 2.wav", label: "Variation 02", duration: 2}
+        ]
+      }
     ],
     video: {title: "Atira early-development showcase", embed: "https://www.youtube-nocookie.com/embed/ezhkpZdxWnw", external: "https://www.youtube.com/watch?v=ezhkpZdxWnw"},
     links: [
@@ -157,7 +164,13 @@ export const projects = [
     }, {
       src: "resources/audio/anomie-bunny-boss.m4a", title: "Bunny Boss", category: "Music"
     }, {
-      src: "resources/audio/anomie-monster-roar-long.m4a", title: "SFX_Monster_Roar_Long", category: "Sound Design"
+      src: "resources/audio/SFX_Player_Death.wav", title: "Player Death", category: "Sound Design", featuredRail: "sound", featuredOrder: 5, duration: 7.634603
+    }, {
+      src: "resources/audio/SFX_Monster_Roar_Long.wav", title: "Monster Roar", category: "Sound Design", featuredRail: "sound", featuredOrder: 6, duration: 3.252041
+    }, {
+      src: "resources/audio/SFX_Spider_Scittering.wav", title: "Spider Scuttling", category: "Sound Design", featuredRail: "sound", featuredOrder: 7, duration: 8.074989
+    }, {
+      src: "resources/audio/SFX_Bunny_Attack_03.wav", title: "Bunny Attack", category: "Sound Design", featuredRail: "sound", featuredOrder: 8, duration: 1.376032
     }],
     links: [{label: "Itch.io", url: "https://sproutdotmoe.itch.io/anomie"}]
   },
@@ -168,9 +181,9 @@ export const projects = [
     contributions: ["Technical audio design", "Creative audio design", "FMOD implementation"], result: "First place — Tinyware Game Jam",
     image: "resources/Mahjong.png", imageAlt: "Mahjong Maestro gameplay artwork",
     audioSamples: [
-      {src: "resources/audio/mahjong-maestro-answer-correct.m4a", title: "SFX_Answer_Correct", category: "UI", featuredRail: "sound", featuredOrder: 2, duration: 2.368},
+      {src: "resources/audio/mahjong-maestro-answer-correct.m4a", title: "SFX_Answer_Correct", category: "UI"},
       {src: "resources/audio/mahjong-maestro-game-over.m4a", title: "SFX_Game_Over", category: "Stinger", featuredRail: "sound", featuredOrder: 1, duration: 7.105},
-      {src: "resources/audio/mahjong-maestro-tile-place-collection.m4a", title: "SFX_Tile_Place_Collection", category: "Sound Design"}
+      {src: "resources/audio/SFX_Tile_Place_Collection.wav", title: "Tile Placement", category: "Sound Design", featuredRail: "sound", featuredOrder: 2, duration: 1.525488}
     ],
     links: [{label: "Itch.io", url: "https://jwashabaugh.itch.io/mahjong-maestro"}]
   },
@@ -196,7 +209,14 @@ export const projects = [
     audioSamples: [
       {src: "resources/audio/way-of-feng-shui-main-menu.m4a", title: "Way of Feng Shui - Main Menu", category: "Music"},
       {src: "resources/audio/way-of-feng-shui-open-curtains.m4a", title: "Way of Feng Shui - Open Curtains", category: "Music"},
-      {src: "resources/audio/way-of-feng-shui-place-potted-plant.m4a", title: "SFX_Place_PottedPlant", category: "Sound Design", featuredRail: "sound", featuredOrder: 7, duration: .61}
+      {src: "resources/audio/way-of-feng-shui-place-potted-plant.m4a", title: "SFX_Place_PottedPlant", category: "Sound Design", featuredRail: "sound", featuredOrder: 11, duration: .61},
+      {
+        title: "Delete", category: "UI", featuredRail: "sound", featuredOrder: 12,
+        variants: [
+          {src: "resources/audio/Delete 1.wav", label: "Variation 01", duration: .192018},
+          {src: "resources/audio/Delete 2.wav", label: "Variation 02", duration: 1}
+        ]
+      }
     ],
     links: [{label: "Itch.io", url: "https://maghaejin.itch.io/way-of-feng-shui"}]
   },
