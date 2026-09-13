@@ -6,9 +6,9 @@ export const projects = [
     detail: "Grave of Gods is River’s broadest game-development showcase: a solo project bringing world building, visual direction, gameplay, and technical development into one production.",
     contributions: ["Solo game development", "World and gameplay development", "Technical systems"],
     status: "In development",
-    image: "resources/project-media/a05f90b3-41a1-4bcc-a27d-4dd2b89308e0.png", imageAlt: "A Marshal overlooks a vast army and illuminated citadel at sunset in Grave of Gods",
-    heroImage: "resources/project-media/a05f90b3-41a1-4bcc-a27d-4dd2b89308e0.png", heroAlt: "A silhouetted Marshal overlooks a vast battlefield army and illuminated citadel beneath an orange sunset in Grave of Gods",
-    imagePosition: "center", imagePositionMobile: "44% 50%", heroPosition: "center", heroPositionMobile: "44% 50%", heroType: "Unreal Engine development capture",
+    image: "resources/project-media/grave-of-gods-cover.png", imageAlt: "An armored warrior overlooks a gothic citadel and vast army at sunset in Grave of Gods",
+    heroImage: "resources/project-media/grave-of-gods-cover.png", heroAlt: "An armored warrior overlooks a gothic citadel and vast army beneath a fiery sunset in Grave of Gods",
+    imagePosition: "center", imagePositionMobile: "50% 50%", heroPosition: "center", heroPositionMobile: "50% 50%", heroType: "Unreal Engine development capture",
     gallery: [
       {src: "resources/project-media/grave-of-gods-world-overview.webp", alt: "Wide in-engine development overview of the interconnected gothic city in Grave of Gods", caption: "World scale / in-engine development overview"},
       {src: "resources/project-media/grave-of-gods-monument.webp", alt: "In-engine development view of a central gothic monument in Grave of Gods", caption: "Environment focal point / in-engine development capture"}
@@ -130,16 +130,120 @@ export const projects = [
     image: "resources/project-media/tell-tale-den-interior.webp", imageAlt: "The lantern-lit gambling den interior from Tell-Tale Den",
     heroImage: "resources/project-media/tell-tale-den-banner.webp", heroAlt: "Tell-Tale Den title artwork over a lantern-lit ghost city",
     gallery: [{src: "resources/project-media/tell-tale-den-interior.webp", alt: "The stage and card tables inside the Tell-Tale Den"}],
+    audioSamples: [
+      {src: "resources/audio/tell-tale-den/catch-the-lie.m4a", title: "Catch the Lie", category: "Music / Composition"},
+      {
+        src: "resources/audio/tell-tale-den/tell-tale-den.m4a", title: "Tell-Tale Den", category: "Music / Composition",
+        description: "Main project theme", featuredRail: "music", featuredOrder: 7, duration: 99
+      },
+      {src: "resources/audio/tell-tale-den/main-menu.m4a", title: "Main Menu", category: "Music / Composition"},
+      {src: "resources/audio/tell-tale-den/all-in.m4a", title: "All-In", category: "Sound Design / SFX"},
+      {src: "resources/audio/tell-tale-den/call.m4a", title: "Call", category: "Sound Design / SFX"},
+      {src: "resources/audio/tell-tale-den/check.m4a", title: "Check", category: "Sound Design / SFX"},
+      {src: "resources/audio/tell-tale-den/raise.m4a", title: "Raise", category: "Sound Design / SFX"},
+      {
+        title: "Fold", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/tell-tale-den/fold-01.m4a", label: "Take 01"},
+          {src: "resources/audio/tell-tale-den/fold-02.m4a", label: "Take 02"}
+        ]
+      },
+      {
+        title: "Card Deal", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/tell-tale-den/card-deal-01.m4a", label: "Take 01"},
+          {src: "resources/audio/tell-tale-den/card-deal-03.m4a", label: "Take 03"}
+        ]
+      },
+      {
+        title: "Card Shuffle", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/tell-tale-den/card-shuffle-03.m4a", label: "Take 03"},
+          {src: "resources/audio/tell-tale-den/card-shuffle-04.m4a", label: "Take 04"},
+          {src: "resources/audio/tell-tale-den/card-shuffle-05.m4a", label: "Take 05"}
+        ]
+      },
+      {
+        title: "Card Flip / Toss", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/tell-tale-den/card-flip-toss-01.m4a", label: "Take 01"},
+          {src: "resources/audio/tell-tale-den/card-flip-toss-02.m4a", label: "Take 02"},
+          {src: "resources/audio/tell-tale-den/card-flip-toss-03.m4a", label: "Take 03"}
+        ]
+      },
+      {
+        title: "Poker Chip Hit", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/tell-tale-den/poker-chip-hit-01.m4a", label: "Take 01"},
+          {src: "resources/audio/tell-tale-den/poker-chip-hit-02.m4a", label: "Take 02"},
+          {src: "resources/audio/tell-tale-den/poker-chip-hit-03.m4a", label: "Take 03"}
+        ]
+      },
+      {
+        title: "Poker Chip Move", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/tell-tale-den/poker-chip-move-01.m4a", label: "Take 01"},
+          {src: "resources/audio/tell-tale-den/poker-chip-move-02.m4a", label: "Take 02"},
+          {src: "resources/audio/tell-tale-den/poker-chip-move-03.m4a", label: "Take 03"},
+          {src: "resources/audio/tell-tale-den/poker-chip-move-04.m4a", label: "Take 04"}
+        ]
+      },
+      {
+        title: "Cough", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/tell-tale-den/cough-01.m4a", label: "Take 01"},
+          {src: "resources/audio/tell-tale-den/cough-02.m4a", label: "Take 02"},
+          {src: "resources/audio/tell-tale-den/cough-03.m4a", label: "Take 03"},
+          {src: "resources/audio/tell-tale-den/cough-04.m4a", label: "Take 04"}
+        ]
+      }
+    ],
     links: [{label: "Itch.io", url: "https://kyuowo.itch.io/tell-tale-den"}]
   },
   {
     id: "08", slug: "sleeping-on-the-job", title: "Sleeping On The Job", role: "Project Contributor",
-    tools: [], categories: [], accent: "#d4aa35",
+    tools: [], categories: ["audio"], accent: "#d4aa35",
     summary: "A work-in-progress puzzle game built for B1T Jam 5, with exploration that shifts into a sleep mode for interacting with evidence.",
     detail: "Sleeping On The Job is a playable work-in-progress puzzle project submitted to B1T Jam 5. Its project page lists River among the project creators but does not specify individual responsibilities.",
     result: "B1T Jam 5 submission / Work in progress",
     image: "resources/project-media/sleeping-on-the-job-character.png", imageAlt: "A tired character checking a phone in Sleeping On The Job",
     imageFit: "contain", imagePosition: "center bottom",
+    audioSamples: [
+      {src: "resources/audio/sleeping-on-the-job/break-room.m4a", title: "Break Room", category: "Music / Composition"},
+      {src: "resources/audio/sleeping-on-the-job/jazz-bar.m4a", title: "Jazz Bar", category: "Music / Composition"},
+      {src: "resources/audio/sleeping-on-the-job/main-menu.m4a", title: "Main Menu", category: "Music / Composition"},
+      {src: "resources/audio/sleeping-on-the-job/minigame.m4a", title: "Minigame", category: "Music / Composition"},
+      {src: "resources/audio/sleeping-on-the-job/sleepwalking.m4a", title: "Sleepwalking", category: "Music / Composition"},
+      {src: "resources/audio/sleeping-on-the-job/motel-ambience.m4a", title: "Motel Ambience", category: "Sound Design / SFX"},
+      {
+        src: "resources/audio/sleeping-on-the-job/window-break.m4a", title: "Window Break", category: "Sound Design / SFX",
+        featuredRail: "sound", featuredOrder: 13, duration: 2.698667
+      },
+      {
+        title: "Door Kick Open", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/sleeping-on-the-job/door-kick-open-01.m4a", label: "Take 01"},
+          {src: "resources/audio/sleeping-on-the-job/door-kick-open-02.m4a", label: "Take 02"}
+        ]
+      },
+      {
+        title: "Player Walking", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/sleeping-on-the-job/player-walking-01.m4a", label: "Take 01"},
+          {src: "resources/audio/sleeping-on-the-job/player-walking-02.m4a", label: "Take 02"},
+          {src: "resources/audio/sleeping-on-the-job/player-walking-03.m4a", label: "Take 03"},
+          {src: "resources/audio/sleeping-on-the-job/player-walking-04.m4a", label: "Take 04"}
+        ]
+      },
+      {
+        title: "UI Click", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/sleeping-on-the-job/ui-click-01.m4a", label: "Take 01"},
+          {src: "resources/audio/sleeping-on-the-job/ui-click-02.m4a", label: "Take 02"},
+          {src: "resources/audio/sleeping-on-the-job/ui-click-03.m4a", label: "Take 03"},
+          {src: "resources/audio/sleeping-on-the-job/ui-click-04.m4a", label: "Take 04"}
+        ]
+      },
+      {
+        title: "UI Hover", category: "Sound Design / SFX", variants: [
+          {src: "resources/audio/sleeping-on-the-job/ui-hover-01.m4a", label: "Take 01"},
+          {src: "resources/audio/sleeping-on-the-job/ui-hover-02.m4a", label: "Take 02"},
+          {src: "resources/audio/sleeping-on-the-job/ui-hover-03.m4a", label: "Take 03"},
+          {src: "resources/audio/sleeping-on-the-job/ui-hover-04.m4a", label: "Take 04"},
+          {src: "resources/audio/sleeping-on-the-job/ui-hover-05.m4a", label: "Take 05"}
+        ]
+      }
+    ],
     links: [{label: "Itch.io", url: "https://kyuowo.itch.io/sleeping-on-the-job"}]
   },
   {
