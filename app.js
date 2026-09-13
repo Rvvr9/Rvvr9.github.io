@@ -32,46 +32,115 @@ function audioControlRow(source, title, preload = "metadata", label = "") {
   </div>`;
 }
 
-function renderAudioProjects() {
-  const container = qs("[data-audio-projects]");
-  const rails = [
-    {id: "music", label: "Music + Composition", index: "01"},
-    {id: "sound", label: "Sound Design + Game Audio", index: "02"}
-  ];
-  const featured = rail => projects.flatMap(project => (project.audioSamples || [])
-    .filter(sample => sample.featuredRail === rail)
-    .map(sample => ({project, sample})))
-    .sort((a, b) => a.sample.featuredOrder - b.sample.featuredOrder);
+const audioKind = sample => /music|composition/i.test(sample.category || "") ? "music" : "sound";
+const sourceCount = sample => sample.variants?.length || (sample.src ? 1 : 0);
+const projectAudioCounts = project => (project.audioSamples || []).reduce((counts, sample) => {
+  counts[audioKind(sample)] += sourceCount(sample);
+  return counts;
+}, {music: 0, sound: 0});
+const audioInventory = project => {
+  const counts = projectAudioCounts(project);
+  return [counts.music ? `${counts.music} MUSIC` : "", counts.sound ? `${counts.sound} SFX` : ""].filter(Boolean).join(" · ");
+};
 
-  const tile = ({project, sample}, index) => {
-    const position = project.imagePosition || "center";
-    const fitClass = project.imageFit === "contain" ? " fit-contain" : "";
-    const sources = sample.variants?.length ? sample.variants : [sample];
-    return `<article class="audio-tile${sample.variants?.length ? " has-variations" : ""}" style="${projectStyle(project)}">
-      <div class="audio-tile-art${fitClass}" style="--image-position:${position}" aria-hidden="true"><img src="${project.image}" alt="" loading="lazy"></div>
-      <div class="audio-tile-content">
-        <p class="audio-tile-label meta">${project.title} / ${sample.category}</p>
-        <h3>${sample.title}</h3>
-        <p class="audio-tile-role meta">${project.role}</p>
-        <div class="audio-tile-variations">${sources.map((source, sourceIndex) => audioControlRow(source, sample.title, "none", sample.variants ? source.label || `Variation ${String(sourceIndex + 1).padStart(2, "0")}` : "")).join("")}</div>
-        <a class="audio-tile-link meta" href="?project=${project.slug}" aria-label="View ${project.title} project">View project <span aria-hidden="true">↗</span></a>
+const homepageAudioCuration = {
+  "tell-tale-den": {
+    music: ["Tell-Tale Den", "Main Menu", "Catch the Lie"],
+    sound: ["Card Shuffle", "Poker Chip Move", "All-In", "Card Deal", "Card Flip / Toss"]
+  },
+  "sleeping-on-the-job": {
+    music: ["Main Menu", "Sleepwalking", "Jazz Bar"],
+    sound: ["Window Break", "Door Kick Open", "Motel Ambience", "UI Click", "Player Walking"]
+  },
+  "anomie": {
+    music: ["Face Behind the Mask", "Bunny Boss"],
+    sound: ["Monster Roar", "Player Death", "Spider Scuttling", "Bunny Attack"]
+  },
+  "atira": {
+    music: ["Main Menu", "Gameplay"],
+    sound: ["Revolver Reload", "Shield Block"]
+  },
+  "disease-brings-death": {
+    music: ["Poor City - Church"],
+    sound: ["Underground Cavern - Ambiance Intro", "New Zone Stinger"]
+  },
+  "mahjong-maestro": {
+    sound: ["Tile Placement", "Game Over", "Answer Correct"]
+  },
+  "project-eve": {
+    music: ["As Night Rises", "Eve", "Broken Pipes"]
+  },
+  "mariposa": {
+    music: ["Drowning Tide"]
+  },
+  "delivery": {
+    music: ["Scene 2–8 Mastered"]
+  },
+  "dungeon-chef": {
+    music: ["Tavern", "Village"]
+  }
+};
+
+function audioBankCard(sample, index, preload = "metadata") {
+  const sources = sample.variants?.length ? sample.variants : [sample];
+  const variationMeta = sample.variants?.length ? `${sample.variants.length} variations` : sample.category;
+  return `<article class="audio-bank-card${sample.variants?.length ? " has-variations" : ""}">
+    <div class="audio-bank-card-top meta"><span>${String(index + 1).padStart(2, "0")}</span><span>${variationMeta}</span></div>
+    <h4>${sample.title}</h4>
+    ${sample.description ? `<p>${sample.description}</p>` : ""}
+    <div class="audio-bank-card-controls">${sources.map((source, sourceIndex) => audioControlRow(source, sample.title, preload, sample.variants ? source.label || `Variation ${String(sourceIndex + 1).padStart(2, "0")}` : "")).join("")}</div>
+  </article>`;
+}
+
+function audioBank(project, kind, samples, idPrefix, preload = "metadata") {
+  if (!samples.length) return "";
+  const label = kind === "music" ? "Music" : "Sound Design";
+  const count = samples.reduce((total, sample) => total + sourceCount(sample), 0);
+  const unit = kind === "music" ? (count === 1 ? "track" : "tracks") : (count === 1 ? "sound" : "sounds");
+  const railId = `${idPrefix}-${kind}`;
+  return `<section class="project-audio-bank audio-bank-${kind}" data-audio-rail-group aria-labelledby="${railId}">
+    <div class="audio-bank-heading">
+      <div><p class="eyebrow" id="${railId}">${label}</p><span class="audio-bank-count meta">${count} ${unit}</span></div>
+      <div class="audio-rail-nav" aria-label="Scroll ${project.title} ${label}">
+        <button type="button" data-rail-direction="-1" aria-label="Previous ${project.title} ${label} samples">←</button>
+        <button type="button" data-rail-direction="1" aria-label="Next ${project.title} ${label} samples">→</button>
       </div>
-      <span class="audio-tile-index meta" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
+    </div>
+    <div class="audio-bank-rail" data-audio-rail tabindex="0" aria-label="${project.title} ${label} samples">
+      ${samples.map((sample, index) => audioBankCard(sample, index, preload)).join("")}
+    </div>
+  </section>`;
+}
+
+function curatedSamples(project, kind) {
+  const titles = homepageAudioCuration[project.slug]?.[kind] || [];
+  return titles.map(title => project.audioSamples.find(sample => sample.title === title)).filter(Boolean);
+}
+
+function renderSelectedProjects() {
+  const container = qs("[data-selected-projects]");
+  const selected = ["tell-tale-den", "sleeping-on-the-job", "disease-brings-death", "anomie", "atira", "mahjong-maestro", "project-eve", "mariposa", "delivery", "dungeon-chef"].map(getProject);
+  container.innerHTML = selected.map(project => {
+    const music = curatedSamples(project, "music");
+    const sound = curatedSamples(project, "sound");
+    return `<article class="selected-project" style="${projectStyle(project)}">
+      <div class="selected-project-intro reveal">
+        <div class="selected-project-copy">
+          <p class="eyebrow">${project.id} / Selected project</p>
+          <p class="selected-project-inventory meta">${audioInventory(project)}</p>
+          <h3>${project.title}</h3>
+          <p class="selected-project-role meta">${project.role}</p>
+          <p>${project.summary}</p>
+          <a class="text-link" href="?project=${project.slug}">View full project and audio library ↗</a>
+        </div>
+        ${media(project, "selected-project-media")}
+      </div>
+      <div class="selected-project-banks">
+        ${audioBank(project, "music", music, `home-${project.slug}`, "none")}
+        ${audioBank(project, "sound", sound, `home-${project.slug}`, "none")}
+      </div>
     </article>`;
-  };
-
-  container.innerHTML = rails.map(rail => `<section class="audio-rail-group" data-audio-rail-group aria-labelledby="audio-rail-${rail.id}">
-    <div class="audio-rail-heading">
-      <p class="eyebrow" id="audio-rail-${rail.id}">${rail.index} / ${rail.label}</p>
-      <div class="audio-rail-nav" aria-label="Scroll ${rail.label}">
-        <button type="button" data-rail-direction="-1" aria-label="Previous ${rail.label} samples">←</button>
-        <button type="button" data-rail-direction="1" aria-label="Next ${rail.label} samples">→</button>
-      </div>
-    </div>
-    <div class="audio-tile-rail" data-audio-rail tabindex="0" aria-label="${rail.label} samples">
-      ${featured(rail.id).map(tile).join("")}
-    </div>
-  </section>`).join("");
+  }).join("");
   setupAudioPlayers(container);
   setupAudioRails(container);
 }
@@ -84,21 +153,6 @@ function setupAudioRails(scope = document) {
       rail.scrollBy({left: Number(button.dataset.railDirection) * rail.clientWidth * .82, behavior: reducedMotion ? "auto" : "smooth"});
     }));
   });
-}
-
-function renderDeliveryCase() {
-  const project = getProject("delivery");
-  qs("[data-delivery-case]").innerHTML = `
-    ${media(project, "case-visual")}
-    <div class="case-copy reveal" style="${projectStyle(project)}">
-      <p class="eyebrow">03 / Featured audio case study</p>
-      <h2 id="delivery-title">${project.title}</h2>
-      <p class="case-role">${project.role}</p>
-      <p class="case-description">${project.detail}</p>
-      <ul class="case-contributions">${project.contributions.map(item => `<li>${item}</li>`).join("")}</ul>
-      <p class="tool-line meta">${tools(project)}</p>
-      <a class="action action-light" href="?project=${project.slug}">Explore case study <span aria-hidden="true">↗</span></a>
-    </div>`;
 }
 
 function renderTechnicalProjects() {
@@ -133,6 +187,7 @@ function renderArchive() {
         <div class="archive-card-top"><span class="meta">${project.id}</span><span aria-hidden="true">↗</span></div>
         <h3>${project.title}</h3>
         <p>${project.role}</p>
+        ${project.audioSamples?.length ? `<span class="archive-audio-meta meta">${audioInventory(project)}</span>` : ""}
         <small>${tools(project) || project.result || "Details available on request"}</small>
       </a>
     </article>`).join("");
@@ -199,17 +254,15 @@ const formatTime = (seconds, showSubsecondDuration = false) => {
 
 function renderAudioSection(project) {
   if (!project.audioSamples?.length) return "";
+  const music = project.audioSamples.filter(sample => audioKind(sample) === "music");
+  const sound = project.audioSamples.filter(sample => audioKind(sample) === "sound");
   return `<section class="project-audio-section" id="audio-showcase">
-    <p class="eyebrow">Audio / Selected samples</p><h2>Audio showcase</h2>
-    <div class="audio-sample-list">${project.audioSamples.map((sample, index) => `
-      <article class="audio-player${sample.variants?.length ? " has-variations" : ""}">
-        <div class="audio-sample-index meta">${String(index + 1).padStart(2, "0")} / ${sample.category || "Audio"}</div>
-        <div class="audio-sample-heading">
-          <div><h3>${sample.title}</h3>${sample.description ? `<p>${sample.description}</p>` : ""}</div>
-          ${sample.context ? `<span class="audio-context meta">${sample.context}</span>` : ""}
-        </div>
-        <div class="audio-variation-list">${(sample.variants?.length ? sample.variants : [sample]).map((source, sourceIndex) => audioControlRow(source, sample.title, "metadata", sample.variants ? source.label || `Variation ${String(sourceIndex + 1).padStart(2, "0")}` : "")).join("")}</div>
-      </article>`).join("")}</div>
+    <p class="eyebrow">Audio / Full library</p><h2>Project audio</h2>
+    <p class="project-audio-inventory meta">${audioInventory(project)}</p>
+    <div class="project-audio-banks">
+      ${audioBank(project, "music", music, `project-${project.slug}`)}
+      ${audioBank(project, "sound", sound, `project-${project.slug}`)}
+    </div>
   </section>`;
 }
 
@@ -224,7 +277,7 @@ function setupAudioPlayers(scope = document) {
     const current = qs("[data-current-time]", player);
     const duration = qs("[data-duration]", player);
     const title = player.dataset.audioTitle || qs("h3", player)?.textContent || "audio";
-    const container = player.closest(".audio-player, .audio-tile");
+    const container = player.closest(".audio-bank-card");
 
     const syncDuration = () => {
       if (!Number.isFinite(audio.duration)) return;
@@ -335,6 +388,7 @@ function renderProjectView(project) {
         ${project.tools.length ? `<div><span>Engine / Tools</span><strong>${tools(project)}</strong></div>` : ""}
         ${project.status ? `<div><span>Status</span><strong>${project.status}</strong></div>` : ""}
         ${project.heroType ? `<div><span>Hero media</span><strong>${project.heroType}</strong></div>` : ""}
+        ${project.audioSamples?.length ? `<div><span>Audio library</span><strong>${audioInventory(project)}</strong></div>` : ""}
         ${project.categories.length ? `<div><span>Disciplines</span><strong>${project.categories.join(" / ")}</strong></div>` : ""}
       </aside>
       <div class="project-detail-main">
@@ -343,6 +397,7 @@ function renderProjectView(project) {
       </div>
     </div>`;
   setupAudioPlayers(view);
+  setupAudioRails(view);
 }
 
 const slug = new URLSearchParams(location.search).get("project");
@@ -353,8 +408,7 @@ if (slug && activeProject) {
   setupNavigation();
 } else {
   if (slug) history.replaceState({}, "", location.pathname);
-  renderAudioProjects();
-  renderDeliveryCase();
+  renderSelectedProjects();
   renderTechnicalProjects();
   renderLeadershipProjects();
   renderArchive();

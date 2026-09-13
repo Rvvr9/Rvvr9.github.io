@@ -50,7 +50,7 @@ export const projects = [
       {src: "resources/project-media/delivery-construction-worker-concepts.webp", alt: "Four construction worker character concepts for Delivery", caption: "Construction worker character concepts"}
     ],
     audioSamples: [
-      {src: "resources/audio/delivery-scene-2-8.m4a", title: "Scene 2–8 Mastered", category: "Music", description: "Source export note: Ducks are temporary.", featuredRail: "music", featuredOrder: 3, duration: 66}
+      {src: "resources/audio/delivery-scene-2-8.m4a", title: "Scene 2–8 Mastered", category: "Music", description: "Scene 2–8 score", featuredRail: "music", featuredOrder: 3, duration: 66}
     ]
   },
   {
@@ -87,7 +87,7 @@ export const projects = [
     audioSamples: [
       {src: "resources/audio/atira-main-menu.m4a", title: "Main Menu", category: "Music", featuredRail: "music", featuredOrder: 5, duration: 97.816},
       {src: "resources/audio/atira-gameplay.m4a", title: "Gameplay", category: "Music"},
-      {src: "resources/audio/atira-revolver-reload.m4a", title: "Revolver SFX Reload", category: "Sound Design", featuredRail: "sound", featuredOrder: 9, duration: .33},
+      {src: "resources/audio/atira-revolver-reload.m4a", title: "Revolver Reload", category: "Sound Design", featuredRail: "sound", featuredOrder: 9, duration: .33},
       {
         title: "Shield Block", category: "Sound Design", featuredRail: "sound", featuredOrder: 10,
         variants: [
@@ -104,7 +104,7 @@ export const projects = [
   },
   {
     id: "06", slug: "disease-brings-death", title: "Disease Brings Death", role: "Studio Lead",
-    tools: ["Jira", "Unity", "C#", "FMOD", "Ableton"], categories: ["development", "leadership"],
+    tools: ["Jira", "Unity", "C#", "FMOD", "Ableton"], categories: ["audio", "development", "leadership"],
     summary: "Studio leadership, management, project organization, and cross-disciplinary production.",
     contributions: ["Studio leadership", "Project organization", "Cross-disciplinary development"],
     image: "resources/project-media/disease-brings-death-environment.webp", imageAlt: "Development environment showing a waterfront city in Disease Brings Death",
@@ -117,7 +117,7 @@ export const projects = [
     audioSamples: [
       {src: "resources/audio/disease-brings-death-poor-city-church.m4a", title: "Poor City - Church", category: "Music"},
       {src: "resources/audio/disease-brings-death-underground-cavern-ambience.m4a", title: "Underground Cavern - Ambiance Intro", category: "Ambience", featuredRail: "sound", featuredOrder: 3, duration: 35.712},
-      {src: "resources/audio/disease-brings-death-new-zone.m4a", title: "SFX_NewZone", category: "Stinger", featuredRail: "sound", featuredOrder: 4, duration: 8}
+      {src: "resources/audio/disease-brings-death-new-zone.m4a", title: "New Zone Stinger", category: "Stinger", featuredRail: "sound", featuredOrder: 4, duration: 8}
     ]
   },
   {
@@ -285,8 +285,8 @@ export const projects = [
     contributions: ["Technical audio design", "Creative audio design", "FMOD implementation"], result: "First place — Tinyware Game Jam",
     image: "resources/Mahjong.png", imageAlt: "Mahjong Maestro gameplay artwork",
     audioSamples: [
-      {src: "resources/audio/mahjong-maestro-answer-correct.m4a", title: "SFX_Answer_Correct", category: "UI"},
-      {src: "resources/audio/mahjong-maestro-game-over.m4a", title: "SFX_Game_Over", category: "Stinger", featuredRail: "sound", featuredOrder: 1, duration: 7.105},
+      {src: "resources/audio/mahjong-maestro-answer-correct.m4a", title: "Answer Correct", category: "UI"},
+      {src: "resources/audio/mahjong-maestro-game-over.m4a", title: "Game Over", category: "Stinger", featuredRail: "sound", featuredOrder: 1, duration: 7.105},
       {src: "resources/audio/SFX_Tile_Place_Collection.wav", title: "Tile Placement", category: "Sound Design", featuredRail: "sound", featuredOrder: 2, duration: 1.525488}
     ],
     links: [{label: "Itch.io", url: "https://jwashabaugh.itch.io/mahjong-maestro"}]
@@ -326,7 +326,7 @@ export const projects = [
   },
   {
     id: "14", slug: "dungeon-chef", title: "Dungeon Chef!", role: "Project Archive",
-    tools: [], categories: [], accent: "#75905f", summary: "Project entry preserved in the complete archive.",
+    tools: [], categories: ["audio"], accent: "#75905f", summary: "Project entry preserved in the complete archive.",
     image: "resources/project-media/dungeon-chef-overview.webp", imageAlt: "Development overview of the forest village environment in Dungeon Chef",
     heroImage: "resources/project-media/dungeon-chef-overview.webp", heroAlt: "Forest village development overview from Dungeon Chef",
     heroType: "Development capture", imagePosition: "center",

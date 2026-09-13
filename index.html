@@ -54,35 +54,32 @@
         <a class="scroll-cue meta" href="#audio"><span></span> Scroll to explore</a>
       </section>
 
-      <section class="section audio-section" id="audio" aria-labelledby="audio-title">
-        <div class="section-heading reveal">
-          <div><p class="eyebrow">02 / Selected discipline</p><h2 id="audio-title">Selected Audio Work</h2></div>
-          <p class="section-intro">Creative direction, implementation, composition, and sound design across game teams and engines.</p>
+      <section class="section reel-section" id="audio" aria-labelledby="reel-title">
+        <div class="reel-placeholder reveal" data-reel-placeholder>
+          <div class="reel-frame" data-reel-media role="img" aria-label="Sound Design Reel placeholder, currently in edit">
+            <span class="reel-mark" aria-hidden="true">R</span>
+            <div class="reel-status"><span></span> Currently in edit</div>
+          </div>
+          <div class="reel-copy">
+            <p class="eyebrow">02 / Sound Design Reel — 2026</p>
+            <h2 id="reel-title">Sound Design Reel</h2>
+            <p>A focused reel covering game audio, creature design, combat, UI, ambience, and interactive sound.</p>
+            <div class="reel-meta meta"><span>Status / Currently in edit</span><span>1:00–1:30 target length</span></div>
+          </div>
         </div>
-        <div class="audio-rail-stack" data-audio-projects aria-label="Playable selected audio"></div>
       </section>
 
-      <section class="case-study" data-delivery-case aria-labelledby="delivery-title"></section>
-
-      <section class="section technical-section" aria-labelledby="technical-title">
+      <section class="section selected-projects-section" id="projects" aria-labelledby="selected-projects-title">
         <div class="section-heading reveal">
-          <div><p class="eyebrow">04 / Under the hood</p><h2 id="technical-title">Technical Audio</h2></div>
-          <p class="section-intro">The systems behind the sound: interactive implementation work across FMOD, Unity, and C#.</p>
+          <div><p class="eyebrow">03 / Listen in context</p><h2 id="selected-projects-title">Selected Projects</h2></div>
+          <p class="section-intro">Curated music and sound design highlights, connected directly to the games they were created for.</p>
         </div>
-        <div class="technical-grid" data-technical-projects></div>
+        <div class="selected-projects" data-selected-projects></div>
       </section>
 
-      <section class="section leadership-section" aria-labelledby="leadership-title">
+      <section class="section archive-section" id="archive" aria-labelledby="archive-title">
         <div class="section-heading reveal">
-          <div><p class="eyebrow">05 / Team systems</p><h2 id="leadership-title">Leadership / Production</h2></div>
-          <p class="section-intro">Audio direction, pipeline ownership, production awareness, and cross-disciplinary coordination.</p>
-        </div>
-        <div class="leadership-list" data-leadership-projects></div>
-      </section>
-
-      <section class="section archive-section" id="projects" aria-labelledby="archive-title">
-        <div class="section-heading reveal">
-          <div><p class="eyebrow">06 / Complete index</p><h2 id="archive-title">Project Archive</h2></div>
+          <div><p class="eyebrow">04 / Complete index</p><h2 id="archive-title">Project Archive</h2></div>
           <p class="section-intro">Sixteen projects spanning audio, development, design, and leadership.</p>
         </div>
         <div class="archive-controls" role="group" aria-label="Filter projects">
@@ -94,6 +91,22 @@
         </div>
         <p class="sr-only" aria-live="polite" data-filter-status></p>
         <div class="archive-grid" data-project-archive></div>
+      </section>
+
+      <section class="section technical-section" aria-labelledby="technical-title">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow">05 / Under the hood</p><h2 id="technical-title">Audio Systems &amp; Implementation</h2></div>
+          <p class="section-intro">Interactive audio systems, event routing, variation, and implementation work across FMOD, Unity, and C#.</p>
+        </div>
+        <div class="technical-grid" data-technical-projects></div>
+      </section>
+
+      <section class="section leadership-section" aria-labelledby="leadership-title">
+        <div class="section-heading reveal">
+          <div><p class="eyebrow">06 / Team systems</p><h2 id="leadership-title">Production / Leadership</h2></div>
+          <p class="section-intro">Audio direction, pipeline ownership, production awareness, and cross-disciplinary coordination.</p>
+        </div>
+        <div class="leadership-list" data-leadership-projects></div>
       </section>
 
       <section class="section about-section" id="about" aria-labelledby="about-title">
@@ -133,6 +146,6 @@
     <a href="#top">Back to top ↑</a>
   </footer>
 
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=20260913-1"></script>
 </body>
 </html>
