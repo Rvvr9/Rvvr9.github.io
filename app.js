@@ -119,7 +119,7 @@ function curatedSamples(project, kind) {
 
 function renderSelectedProjects() {
   const container = qs("[data-selected-projects]");
-  const selected = ["tell-tale-den", "sleeping-on-the-job", "disease-brings-death", "anomie", "atira", "mahjong-maestro", "project-eve", "mariposa", "delivery", "dungeon-chef"].map(getProject);
+  const selected = ["tell-tale-den", "atira", "disease-brings-death", "mahjong-maestro", "anomie", "sleeping-on-the-job"].map(getProject);
   container.innerHTML = selected.map(project => {
     const music = curatedSamples(project, "music");
     const sound = curatedSamples(project, "sound");
@@ -130,6 +130,7 @@ function renderSelectedProjects() {
           <p class="selected-project-inventory meta">${audioInventory(project)}</p>
           <h3>${project.title}</h3>
           <p class="selected-project-role meta">${project.role}</p>
+          ${project.audioFocus ? `<p class="selected-project-focus meta">${project.audioFocus}</p>` : ""}
           <p>${project.summary}</p>
           <a class="text-link" href="?project=${project.slug}">View full project and audio library ↗</a>
         </div>
@@ -152,16 +153,25 @@ function setupAudioRails(scope = document) {
     qsa("[data-rail-direction]", group).forEach(button => button.addEventListener("click", () => {
       rail.scrollBy({left: Number(button.dataset.railDirection) * rail.clientWidth * .82, behavior: reducedMotion ? "auto" : "smooth"});
     }));
+    rail.addEventListener("keydown", event => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const behavior = reducedMotion ? "auto" : "smooth";
+      if (event.key === "Home") rail.scrollTo({left: 0, behavior});
+      else if (event.key === "End") rail.scrollTo({left: rail.scrollWidth, behavior});
+      else rail.scrollBy({left: (event.key === "ArrowLeft" ? -1 : 1) * rail.clientWidth * .82, behavior});
+    });
   });
 }
 
 function renderTechnicalProjects() {
-  const selected = ["tell-tale-den", "mahjong-maestro"].map(getProject);
+  const selected = ["atira", "disease-brings-death", "tell-tale-den", "mahjong-maestro", "anomie", "delivery"].map(getProject);
   qs("[data-technical-projects]").innerHTML = selected.map((project, index) => `
     <a class="technical-card reveal" href="?project=${project.slug}" style="${projectStyle(project)}">
       <div class="technical-top"><span class="meta">0${index + 1} / Implementation</span><span aria-hidden="true">↗</span></div>
       <h3>${project.title}</h3>
-      <p>${project.summary}</p>
+      <p>${project.audioFocus || project.summary}</p>
+      ${project.implementationEvidence?.length ? `<ul class="technical-evidence">${project.implementationEvidence.slice(0, 2).map(item => `<li>${item}</li>`).join("")}</ul>` : ""}
       <div class="technical-tags">${project.tools.map(tool => `<span>${tool}</span>`).join("")}</div>
       ${project.result ? `<strong class="result-tag">${project.result}</strong>` : ""}
     </a>`).join("");
@@ -356,6 +366,10 @@ function renderProjectView(project) {
       <ol class="contribution-list">${project.contributions.map((item, index) => `<li><span>0${index + 1}</span>${item}</li>`).join("")}</ol>
     </section>` : "";
   const result = project.result ? `<section class="project-result"><p class="eyebrow">03 / Result</p><p>${project.result}</p></section>` : "";
+  const implementation = project.implementationEvidence?.length ? `<section class="project-detail-section project-implementation">
+    <p class="eyebrow">03 / Implementation</p><h2>Interactive audio</h2>
+    <ul class="implementation-list">${project.implementationEvidence.map(item => `<li>${item}</li>`).join("")}</ul>
+  </section>` : "";
   const gallery = project.gallery?.length ? `<section class="project-media-section">
     <p class="eyebrow">04 / Media</p><h2>Project imagery</h2>
     <div class="project-gallery">${project.gallery.map(item => `<figure class="gallery-${item.fit || "cover"}"><img src="${item.src}" alt="${item.alt}" loading="lazy">${item.caption ? `<figcaption>${item.caption}</figcaption>` : ""}</figure>`).join("")}</div>
@@ -393,7 +407,7 @@ function renderProjectView(project) {
       </aside>
       <div class="project-detail-main">
         <section class="project-overview"><p class="eyebrow">01 / Overview</p><h2>About the project</h2><p>${project.detail || project.summary}</p></section>
-        ${contributions}${result}${audio}${gallery}${conceptGallery}${video}${external}
+        ${contributions}${implementation}${result}${audio}${gallery}${conceptGallery}${video}${external}
       </div>
     </div>`;
   setupAudioPlayers(view);

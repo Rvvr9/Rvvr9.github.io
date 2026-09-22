@@ -37,9 +37,11 @@ export const projects = [
   {
     id: "03", slug: "delivery", title: "Delivery", role: "Audio Lead",
     tools: ["Wwise", "Unreal Engine", "Ableton"], categories: ["audio", "leadership"], featured: true, accent: "#bd633a",
+    audioFocus: "Audio direction · Sound design · Wwise / Unreal",
     summary: "Audio direction, composition, sound design, implementation, and team management for a professional team project.",
     detail: "Delivery is River’s primary audio case study, bringing creative audio work and technical implementation together with audio leadership in an internship and professional team environment.",
     contributions: ["Audio direction and team management", "Composition and sound design", "Audio implementation"],
+    implementationEvidence: ["Implemented project audio in Wwise and Unreal Engine", "Coordinated audio work with a professional, cross-disciplinary team"],
     result: "Internship / professional team experience",
     image: "resources/project-media/delivery-development-overview.webp", imageAlt: "Development overview of Delivery’s island city in Unreal Engine",
     heroImage: "resources/project-media/delivery-development-overview.webp", heroAlt: "Development overview of the Delivery island city and road network",
@@ -73,11 +75,14 @@ export const projects = [
     ]
   },
   {
-    id: "05", slug: "atira", title: "Atira", role: "Music / Sound",
-    tools: [], categories: ["audio"], accent: "#b44f48",
-    summary: "Music and sound for an early-development third-person action game set in an abandoned city.",
-    detail: "Atira is an early-development third-person action game by Boring Arcade Studios, combining ranged and melee combat in an abandoned city. The studio’s official team page credits River for music and sound.",
-    contributions: ["Music and sound"],
+    id: "05", slug: "atira", title: "Atira", role: "Sound Designer / Technical Audio",
+    tools: ["FMOD", "Unity", "C#", "Ableton Live"], categories: ["audio", "development"], accent: "#b44f48",
+    audioFocus: "Combat sound design · FMOD / Unity implementation",
+    summary: "Combat sound design and FMOD implementation for a third-person action demo.",
+    detail: "Atira is a third-person action game by Boring Arcade Studios. River is credited for music and sound and contributed directly to the current Unity combat demo, connecting FMOD events and music states to weapons, hazards, boss phases, and arena progression.",
+    contributions: ["Combat and weapon sound design", "FMOD event integration in Unity and C#", "Gameplay-state music routing and mix controls"],
+    implementationEvidence: ["Connected weapon, hazard, and boss-state hooks to FMOD events", "Routed scene and arena-state music through an FMOD-backed controller", "Integrated runtime Master, Music, and SFX bus controls"],
+    result: "Playable combat demo build",
     image: "resources/project-media/atira-hero.webp", imageAlt: "Masked gunfighter character artwork from Atira",
     heroImage: "resources/project-media/atira-hero.webp", heroAlt: "Atira character artwork with a masked gunfighter against a dark city backdrop",
     gallery: [
@@ -103,10 +108,13 @@ export const projects = [
     ]
   },
   {
-    id: "06", slug: "disease-brings-death", title: "Disease Brings Death", role: "Studio Lead",
+    id: "06", slug: "disease-brings-death", title: "Disease Brings Death", role: "Studio Lead / Technical Audio",
     tools: ["Jira", "Unity", "C#", "FMOD", "Ableton"], categories: ["audio", "development", "leadership"],
-    summary: "Studio leadership, management, project organization, and cross-disciplinary production.",
-    contributions: ["Studio leadership", "Project organization", "Cross-disciplinary development"],
+    audioFocus: "Ambience · Event-driven audio · FMOD / Unity",
+    summary: "Studio leadership and event-driven audio implementation for a Unity vertical slice.",
+    detail: "Disease Brings Death combines studio leadership with hands-on audio and gameplay development. River built its FMOD-backed audio manager, authored ambience and music, and connected narrative, interaction, and chase events to named gameplay audio hooks.",
+    contributions: ["Studio leadership and cross-disciplinary production", "FMOD-backed audio manager and bus controls", "Gameplay, narrative, and chase audio hooks"],
+    implementationEvidence: ["Built Master, Music, Ambience, and SFX bus controls", "Connected narrative and environmental events to audio requests", "Authored event hooks for chase hazards, interactions, and state changes"],
     image: "resources/project-media/disease-brings-death-environment.webp", imageAlt: "Development environment showing a waterfront city in Disease Brings Death",
     heroImage: "resources/project-media/disease-brings-death-environment.webp", heroAlt: "Waterfront environment development capture from Disease Brings Death",
     heroType: "Development capture",
@@ -123,9 +131,11 @@ export const projects = [
   {
     id: "07", slug: "tell-tale-den", title: "Tell-Tale Den", role: "Technical / Creative Audio Designer",
     tools: ["Ableton Live 12", "FMOD", "Unity", "C#"], categories: ["audio", "development"], featured: true, accent: "#b94939",
+    audioFocus: "Sound design · Variation systems · FMOD implementation",
     summary: "A supernatural poker game set in a gambling den within a ghost city in the afterlife.",
     detail: "Tell-Tale Den is a Texas Hold ’Em game about reading the table and spotting opponents’ tells while memories fade in a ghost city. River is credited for audio on the Brackeys Game Jam 2026.2 submission.",
     contributions: ["Technical audio", "Creative audio design", "FMOD implementation"],
+    implementationEvidence: ["Implemented interactive audio with FMOD and Unity", "Built grouped variation sets for cards, chips, and character sounds", "Separated music and sound-design assets for rapid review"],
     result: "Brackeys Game Jam 2026.2 submission",
     image: "resources/project-media/tell-tale-den-interior.webp", imageAlt: "The lantern-lit gambling den interior from Tell-Tale Den",
     heroImage: "resources/project-media/tell-tale-den-banner.webp", heroAlt: "Tell-Tale Den title artwork over a lantern-lit ghost city",
@@ -196,6 +206,7 @@ export const projects = [
   {
     id: "08", slug: "sleeping-on-the-job", title: "Sleeping On The Job", role: "Project Contributor",
     tools: [], categories: ["audio"], accent: "#d4aa35",
+    audioFocus: "Music · Sound design asset collection",
     summary: "A work-in-progress puzzle game built for B1T Jam 5, with exploration that shifts into a sleep mode for interacting with evidence.",
     detail: "Sleeping On The Job is a playable work-in-progress puzzle project submitted to B1T Jam 5. Its project page lists River among the project creators but does not specify individual responsibilities.",
     result: "B1T Jam 5 submission / Work in progress",
@@ -249,8 +260,10 @@ export const projects = [
   {
     id: "09", slug: "mariposa", title: "Mariposa", role: "Audio Lead",
     tools: ["Unity", "C#", "FMOD", "Ableton"], categories: ["audio", "leadership"], featured: true, accent: "#4f9189",
+    audioFocus: "Audio lead · Interactive audio · FMOD / Unity",
     summary: "Audio leadership for a 2D puzzle platformer split between a solarpunk past and apocalyptic future.",
-    contributions: ["Audio leadership", "Audio testing", "Quality assurance"], image: "resources/Mari.png", imageAlt: "Mariposa game artwork",
+    contributions: ["Audio leadership", "Interactive audio implementation", "Audio testing and quality assurance"],
+    implementationEvidence: ["Designed and implemented interactive audio in FMOD and Unity", "Iterated with designers, programmers, artists, and production leads"], image: "resources/Mari.png", imageAlt: "Mariposa game artwork",
     audioSamples: [{
       src: "resources/audio/mariposa-drowning-tide.m4a", title: "Drowning Tide", category: "Music",
       description: "Tense puzzle-platforming level", context: "Ableton Live 12", featuredRail: "music", featuredOrder: 2, duration: 135.15
@@ -258,9 +271,13 @@ export const projects = [
     links: [{label: "Steam", url: "https://store.steampowered.com/app/3991120/Mariposa/"}]
   },
   {
-    id: "10", slug: "anomie", title: "Anomie", role: "Audio Lead / Game Designer",
-    tools: [], categories: ["audio", "design", "leadership"], accent: "#8e4d46",
+    id: "10", slug: "anomie", title: "Anomie", role: "Sound Designer / Composer",
+    tools: ["FMOD", "Unity", "Ableton Live"], categories: ["audio", "design"], accent: "#8e4d46",
+    audioFocus: "Creature and combat sound · Spatial audio",
     summary: "A horror-themed experience centered on tension, atmosphere, and combat.",
+    detail: "Anomie is an action-horror game built around tension, atmosphere, and combat. River designed creature, death, movement, and combat sounds, composed the score, and implemented 2D and 3D spatial audio with FMOD and Unity.",
+    contributions: ["Creature and combat sound design", "Original music and ambience", "2D and 3D spatial audio implementation"],
+    implementationEvidence: ["Implemented spatial audio in FMOD and Unity", "Designed audio feedback for creatures, combat, and player death"],
     image: "resources/Title.PNG", imageAlt: "Anomie title artwork",
     audioSamples: [{
       src: "resources/audio/anomie-face-behind-the-mask.m4a", title: "Face Behind the Mask", category: "Music",
@@ -281,8 +298,10 @@ export const projects = [
   {
     id: "11", slug: "mahjong-maestro", title: "Mahjong Maestro", role: "Technical / Creative Audio Designer",
     tools: ["Unity", "C#", "Ableton", "FMOD"], categories: ["audio", "development", "design"], featured: true, accent: "#a64a3f",
+    audioFocus: "Sound design · UI feedback · FMOD implementation",
     summary: "A polished two-button game with creative audio and technical implementation work.",
-    contributions: ["Technical audio design", "Creative audio design", "FMOD implementation"], result: "First place — Tinyware Game Jam",
+    contributions: ["Technical audio design", "Creative audio design", "FMOD implementation"],
+    implementationEvidence: ["Implemented interactive sound in FMOD and Unity", "Created tile, answer-feedback, and game-over cues for a two-button game"], result: "First place — Tinyware Game Jam",
     image: "resources/Mahjong.png", imageAlt: "Mahjong Maestro gameplay artwork",
     audioSamples: [
       {src: "resources/audio/mahjong-maestro-answer-correct.m4a", title: "Answer Correct", category: "UI"},
