@@ -32,14 +32,30 @@
   </header>
 
   <main id="main-content">
-    <div data-view="home">
-      <section class="hero" id="top" aria-labelledby="hero-title">
+    <div data-view="home" id="top">
+      <section class="section reel-section" id="audio" aria-labelledby="reel-title">
+        <div class="reel-feature reveal">
+          <div class="reel-frame reel-video-frame">
+            <video controls preload="metadata" playsinline poster="resources/video/sound-design-reel-2026-poster.jpg" aria-label="River Hsu Sound Design Reel 2026">
+              <source src="resources/video/sound-design-reel-2026.mp4" type="video/mp4">
+              Your browser does not support HTML video. <a href="resources/video/sound-design-reel-2026.mp4">Open the reel directly.</a>
+            </video>
+          </div>
+          <div class="reel-copy">
+            <p class="eyebrow">01 / Featured reel</p>
+            <h1 id="reel-title">Sound Design Reel — 2026</h1>
+            <div class="reel-meta meta"><span>Sound redesign</span><span>00:33</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero" id="featured" aria-labelledby="hero-title">
         <div class="hero-media" role="img" aria-label="An armored warrior overlooks a gothic citadel and vast army beneath a fiery sunset in Grave of Gods"></div>
         <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-topline meta"><span>01 / Featured project</span><span>Portfolio / 2026</span></div>
+        <div class="hero-topline meta"><span>02 / Featured project</span><span>Portfolio / 2026</span></div>
         <div class="hero-copy reveal">
           <p class="eyebrow">River Hsu</p>
-          <h1 id="hero-title">Grave<br>of Gods</h1>
+          <h2 id="hero-title">Grave<br>of Gods</h2>
           <p class="hero-role">Solo Developer <span>/</span> Unreal Engine 5.8</p>
           <a class="action action-primary" href="?project=grave-of-gods">
             <span>View project</span><span aria-hidden="true">↗</span>
@@ -51,23 +67,7 @@
           <p>Technical Audio</p>
           <p>Game Developer</p>
         </div>
-        <a class="scroll-cue meta" href="#audio"><span></span> Scroll to explore</a>
-      </section>
-
-      <section class="section reel-section" id="audio" aria-labelledby="reel-title">
-        <div class="reel-placeholder reveal">
-          <div class="reel-frame reel-video-frame">
-            <video controls preload="metadata" playsinline poster="resources/video/sound-design-reel-2026-poster.jpg" aria-label="River Hsu Sound Design Reel 2026">
-              <source src="resources/video/sound-design-reel-2026.mp4" type="video/mp4">
-              Your browser does not support HTML video. <a href="resources/video/sound-design-reel-2026.mp4">Open the reel directly.</a>
-            </video>
-          </div>
-          <div class="reel-copy">
-            <p class="eyebrow">02 / Sound Design Reel — 2026</p>
-            <h2 id="reel-title">Sound Design Reel</h2>
-            <div class="reel-meta meta"><span>Sound redesign</span><span>00:33</span></div>
-          </div>
-        </div>
+        <a class="scroll-cue meta" href="#projects"><span></span> Scroll to explore</a>
       </section>
 
       <section class="section selected-projects-section" id="projects" aria-labelledby="selected-projects-title">

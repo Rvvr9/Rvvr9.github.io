@@ -57,7 +57,7 @@ button { color: inherit; font: inherit; }
 .eyebrow { margin: 0 0 22px; color: var(--ember-bright); font-size: 10px; font-weight: 600; }
 .hero-copy { align-self: center; padding: 7vh 0; }
 .hero-copy .eyebrow::before { content: "+"; padding-right: 11px; }
-.hero h1 { max-width: 900px; margin: 0; font: 400 clamp(92px, 12vw, 210px)/.75 var(--display); letter-spacing: -.025em; text-transform: uppercase; text-shadow: 0 6px 36px rgba(0,0,0,.45); }
+.hero h2 { max-width: 900px; margin: 0; font: 400 clamp(92px, 12vw, 210px)/.75 var(--display); letter-spacing: -.025em; text-transform: uppercase; text-shadow: 0 6px 36px rgba(0,0,0,.45); }
 .hero-role { margin: 38px 0 28px; color: #c5c0b6; font: 11px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .hero-role span { color: var(--ember); padding: 0 12px; }
 .action { min-height: 50px; display: inline-flex; align-items: center; justify-content: space-between; gap: 44px; padding: 0 18px; border: 1px solid var(--line-strong); color: var(--ivory); font: 10px/1 var(--mono); letter-spacing: .15em; text-decoration: none; text-transform: uppercase; transition: color .25s, background .25s, border-color .25s, transform .25s; }
@@ -80,8 +80,8 @@ button { color: inherit; font: inherit; }
 .selected-projects-section .section-heading h2, .technical-section .section-heading h2 { font-size: clamp(54px, 6vw, 96px); }
 .section-intro { margin: 0; color: var(--muted); font-size: clamp(15px, 1.2vw, 18px); line-height: 1.7; }
 
-.reel-section { padding-block: clamp(80px, 8vw, 130px); }
-.reel-placeholder { display: grid; grid-template-columns: minmax(420px, 1.15fr) minmax(340px, .85fr); border-block: 1px solid var(--line-strong); background: #11110f; }
+.reel-section { padding-block: calc(var(--header-height) + clamp(42px, 5vw, 74px)) clamp(80px, 8vw, 130px); }
+.reel-feature { display: grid; grid-template-columns: minmax(420px, 1.15fr) minmax(340px, .85fr); border-block: 1px solid var(--line-strong); background: #11110f; }
 .reel-frame { position: relative; min-height: 430px; overflow: hidden; border-right: 1px solid var(--line); background: radial-gradient(circle at 50% 50%, rgba(201,86,37,.2), transparent 30%), linear-gradient(135deg, #1c1b17, #0b0b0a); }
 .reel-video-frame { min-height: 0; background: #050505; }
 .reel-video-frame::before, .reel-video-frame::after { display: none; }
@@ -92,7 +92,7 @@ button { color: inherit; font: inherit; }
 .reel-status { position: absolute; top: 26px; right: 26px; display: flex; align-items: center; gap: 9px; color: #d6d1c7; font: 9px/1 var(--mono); letter-spacing: .13em; text-transform: uppercase; }
 .reel-status span { width: 7px; aspect-ratio: 1; background: var(--ember); box-shadow: 0 0 12px rgba(201,86,37,.65); }
 .reel-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(38px, 5vw, 80px); }
-.reel-copy h2 { margin: 0; font: 400 clamp(64px, 7vw, 116px)/.78 var(--display); letter-spacing: -.02em; text-transform: uppercase; }
+.reel-copy h1 { margin: 0; font: 400 clamp(58px, 6.2vw, 102px)/.8 var(--display); letter-spacing: -.02em; text-wrap: balance; text-transform: uppercase; }
 .reel-copy > p:not(.eyebrow) { max-width: 600px; margin: 34px 0 42px; color: #b7b3aa; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.7; }
 .reel-meta { display: flex; flex-wrap: wrap; gap: 14px 30px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); }
 
@@ -292,7 +292,7 @@ button { color: inherit; font: inherit; }
   .site-header { grid-template-columns: 170px 1fr; padding: 0 24px; }
   .header-status { display: none; }
   .hero { padding-inline: 24px; grid-template-columns: 1fr 320px; }
-  .reel-placeholder { grid-template-columns: 1fr; }
+  .reel-feature { grid-template-columns: 1fr; }
   .reel-frame { min-height: 360px; border-right: 0; border-bottom: 1px solid var(--line); }
   .selected-project-intro { grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr); gap: 40px; }
   .audio-bank-rail { grid-auto-columns: minmax(290px, calc((100% - 18px)/2)); }
@@ -320,7 +320,7 @@ button { color: inherit; font: inherit; }
   .hero-media::after { background: linear-gradient(90deg, rgba(4,4,3,.24), transparent 38%, rgba(4,4,3,.08)); }
   .hero-topline span:last-child { display: none; }
   .hero-copy { align-self: end; padding: 70px 0 45px; }
-  .hero h1 { font-size: clamp(76px, 26vw, 120px); }
+  .hero h2 { font-size: clamp(76px, 26vw, 120px); }
   .hero-role { margin: 27px 0 22px; }
   .identity-panel { justify-self: stretch; width: 100%; padding: 21px; }
   .identity-panel p { font-size: 13px; line-height: 1.6; }
@@ -328,12 +328,12 @@ button { color: inherit; font: inherit; }
   .section { padding: 95px 0; }
   .section-heading { grid-template-columns: 1fr; gap: 24px; padding-bottom: 25px; margin-bottom: 40px; }
   .section-heading h2, .about-copy h2, .project-detail-main h2 { font-size: clamp(52px, 16vw, 76px); }
-  .reel-section { padding-block: 70px; }
+  .reel-section { padding-block: calc(var(--header-height) + 34px) 70px; }
   .reel-frame { min-height: 250px; }
   .reel-mark { font-size: 220px; }
   .reel-status { top: 16px; right: 16px; }
   .reel-copy { padding: 35px 22px 40px; }
-  .reel-copy h2 { font-size: clamp(60px, 18vw, 82px); }
+  .reel-copy h1 { font-size: clamp(52px, 15vw, 72px); }
   .reel-copy > p:not(.eyebrow) { margin: 25px 0 32px; }
   .selected-project { padding: 72px 0; }
   .selected-project-intro { grid-template-columns: 1fr; gap: 30px; }
