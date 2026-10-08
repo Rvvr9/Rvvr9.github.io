@@ -30,7 +30,7 @@ function renderFeatured() {
   qs("[data-featured-composition]").innerHTML = `
     <div class="featured-art-wrap reveal">
       ${artwork(track, "featured-art")}
-      <span class="featured-index meta">01 / Featured composition</span>
+      <span class="featured-index meta">02 / Featured composition</span>
     </div>
     <div class="featured-copy reveal" style="--composition-accent:${track.accent}">
       <p class="eyebrow">River Hsu / Music composition</p>
@@ -91,9 +91,15 @@ const renderVideoProject = (project, index) => `<article class="composition-card
 </article>`;
 
 function renderSelected() {
-  qs("[data-selected-compositions]").innerHTML = selectedProjects.map((project, index) => project.kind === "video"
-    ? renderVideoProject(project, index)
-    : renderAudioProject(project, index)).join("");
+  const trailerProjects = selectedProjects.filter(project => project.kind === "video");
+  const audioProjects = selectedProjects.filter(project => project.kind !== "video");
+
+  qs("[data-trailer-scores]").innerHTML = trailerProjects
+    .map((project, index) => renderVideoProject(project, index))
+    .join("");
+  qs("[data-selected-compositions]").innerHTML = audioProjects
+    .map((project, index) => renderAudioProject(project, index + trailerProjects.length))
+    .join("");
 }
 
 function renderScoringProjects() {

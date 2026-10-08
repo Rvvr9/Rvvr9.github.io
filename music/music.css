@@ -15,8 +15,10 @@
 .music-portfolio .action-primary:hover { background: var(--score-gold-bright); border-color: var(--score-gold-bright); }
 .music-portfolio .text-link:hover { color: var(--score-gold-bright); border-color: var(--score-gold); }
 
-.music-feature { min-height: 100svh; padding-top: var(--header-height); background: radial-gradient(circle at 74% 38%, rgba(110,141,157,.13), transparent 27%), #090908; }
-.featured-composition { min-height: calc(100svh - var(--header-height)); display: grid; grid-template-columns: minmax(420px, 1.06fr) minmax(420px, .94fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line-strong); }
+.music-trailers { padding-top: calc(var(--header-height) + clamp(70px, 8vw, 120px)); }
+.music-trailers .section-heading h1 { margin: 0; font: 400 clamp(56px, 7vw, 112px)/.86 var(--display); letter-spacing: -.02em; text-transform: uppercase; }
+.music-feature { min-height: 100svh; background: radial-gradient(circle at 74% 38%, rgba(110,141,157,.13), transparent 27%), #090908; }
+.featured-composition { min-height: 100svh; display: grid; grid-template-columns: minmax(420px, 1.06fr) minmax(420px, .94fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line-strong); }
 .featured-art-wrap { position: relative; min-height: 680px; overflow: hidden; border-right: 1px solid var(--line); }
 .composition-art { position: relative; height: 100%; min-height: 280px; overflow: hidden; background: #131310; }
 .composition-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,6,5,.62), transparent 50%), linear-gradient(90deg, rgba(6,6,5,.18), transparent); pointer-events: none; }
@@ -152,7 +154,8 @@
 }
 
 @media (max-width: 760px) {
-  .music-feature { padding-top: var(--header-height); }
+  .music-trailers { padding-top: calc(var(--header-height) + 70px); }
+  .music-trailers .section-heading h1 { font-size: clamp(52px, 16vw, 76px); }
   .featured-composition { min-height: auto; }
   .featured-art-wrap { min-height: 62vh; }
   .featured-index { top: 18px; left: 18px; }
