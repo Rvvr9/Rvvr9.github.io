@@ -39,7 +39,7 @@ function renderFeatured() {
       <p class="featured-credit">${escapeHtml(track.credit)}</p>
       <p class="featured-description">${escapeHtml(track.description)}</p>
       <p class="track-context meta">${escapeHtml(track.context)}</p>
-      ${audioPlayerMarkup(track)}
+      ${audioPlayerMarkup({...track, title: track.displayTitle})}
       <a class="text-link" href="${track.projectUrl}">View ${escapeHtml(track.project)} project ↗</a>
     </div>`;
 }

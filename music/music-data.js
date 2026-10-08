@@ -69,24 +69,33 @@ function makeTrack(projectSlug, title, overrides = {}) {
   return {
     title,
     displayTitle: overrides.displayTitle || title,
-    project: project.title,
+    project: overrides.project || project.title,
     projectSlug,
-    projectUrl: projectPage(projectSlug),
+    provenanceProject: project.title,
+    sourceTitle: title,
+    projectUrl: overrides.projectUrl || projectPage(projectSlug),
     src: rootAsset(sample.src),
     duration: durations[key] || sample.duration || 0,
-    credit: confirmedSoleComposer.has(key) ? "Sole composer — River Hsu" : documentedCredits[key] || project.role,
+    credit: overrides.credit || (confirmedSoleComposer.has(key) ? "Sole composer — River Hsu" : documentedCredits[key] || project.role),
     description: overrides.description || sample.description || "",
     context: overrides.context || sample.context || "",
-    image: rootAsset(project.image),
-    imageAlt: project.imageAlt,
-    imageFit: project.imageFit || "cover",
-    accent: project.accent || "#c95625"
+    image: rootAsset(overrides.image || project.image),
+    imageAlt: overrides.imageAlt || project.imageAlt,
+    imageFit: overrides.imageFit || project.imageFit || "cover",
+    accent: overrides.accent || project.accent || "#c95625"
   };
 }
 
-export const featuredComposition = makeTrack("mariposa", "Drowning Tide", {
-  description: "A tense level cue for Mariposa, a 2D puzzle-platformer moving between a solarpunk past and an apocalyptic future.",
-  context: "Ableton Live 12 · Game score"
+export const featuredComposition = makeTrack("anomie", "Face Behind the Mask", {
+  displayTitle: "Final Boss",
+  project: "Grave of Gods",
+  projectUrl: projectPage("grave-of-gods"),
+  credit: "Composer — River Hsu",
+  description: "Original composition planned for use in Grave of Gods.",
+  context: "Planned use · Not yet implemented or released",
+  image: "resources/project-media/grave-of-gods-cover.png",
+  imageAlt: "An armored warrior overlooking a gothic citadel and vast army beneath a fiery sunset in Grave of Gods",
+  accent: "#c95625"
 });
 
 export const selectedCompositions = [
@@ -103,8 +112,9 @@ export const selectedCompositions = [
     displayTitle: "Scene 2–8",
     description: "A scene score from Delivery, created within River’s audio-lead role on a professional team project."
   }),
-  makeTrack("anomie", "Face Behind the Mask", {
-    description: "A climactic horror boss-fight cue for Anomie."
+  makeTrack("mariposa", "Drowning Tide", {
+    description: "A tense level cue for Mariposa, a 2D puzzle-platformer moving between a solarpunk past and an apocalyptic future.",
+    context: "Ableton Live 12 · Game score"
   }),
   makeTrack("atira", "Main Menu", {
     description: "Main-menu music for an early-development third-person action game."
