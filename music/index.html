@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0a">
+  <meta name="description" content="River Hsu — game music composer and technical audio designer. Selected compositions, game scores, and interactive music work.">
+  <title>River Hsu — Music Composition</title>
+  <link rel="icon" href="../resources/riv-logo.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css?v=20261007-1">
+  <link rel="stylesheet" href="music.css?v=20261007-1">
+</head>
+<body class="music-portfolio">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="wordmark" href="./" aria-label="River Hsu music composition portfolio">
+      <span>RH</span>
+      <small>Music / Composition</small>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Toggle navigation</span>
+      <i></i><i></i>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a class="specialization-link" href="../">Sound Design / Audio</a>
+      <a href="#selected">Selected</a>
+      <a href="#context">Scores</a>
+      <a href="#profile">Profile</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-status" aria-hidden="true"><span></span> Available for work</div>
+  </header>
+
+  <main id="main-content">
+    <section class="music-feature" id="top" aria-label="Featured composition">
+      <div class="featured-composition" data-featured-composition></div>
+    </section>
+
+    <noscript>
+      <section class="section noscript-fallback">
+        <p class="eyebrow">Featured composition</p>
+        <h1>Drowning Tide — Mariposa</h1>
+        <p>Sole composer — River Hsu</p>
+        <audio controls preload="metadata" src="../resources/audio/mariposa-drowning-tide.m4a">Your browser does not support audio playback.</audio>
+        <p>JavaScript is disabled. The featured recording remains playable above; the full curated experience requires JavaScript.</p>
+      </section>
+    </noscript>
+
+    <section class="section music-selected" id="selected" aria-labelledby="selected-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">02 / Focused listening</p><h2 id="selected-title">Selected Compositions</h2></div>
+        <p class="section-intro">Six cues chosen to show music working across project identity, dramatic tone, menus, scenes, and gameplay.</p>
+      </div>
+      <div class="composition-grid" data-selected-compositions></div>
+    </section>
+
+    <section class="section scoring-section" id="context" aria-labelledby="context-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">03 / Music in projects</p><h2 id="context-title">Scoring in Context</h2></div>
+        <p class="section-intro">Across the portfolio, <span data-composition-count>24</span> available compositions are presented with their project context, documented role, and production environment.</p>
+      </div>
+      <div class="scoring-projects" data-scoring-projects></div>
+    </section>
+
+    <section class="section production-section" id="production" aria-labelledby="production-title">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow">04 / Creative and technical</p><h2 id="production-title">Composition &amp; Production</h2></div>
+        <p class="section-intro">Music-making supported by game-audio implementation, engine fluency, and cross-disciplinary production experience.</p>
+      </div>
+      <div class="production-grid" data-production-capabilities></div>
+    </section>
+
+    <section class="section composer-profile" id="profile" aria-labelledby="profile-title">
+      <div class="profile-index meta">05 / Composer profile</div>
+      <div class="profile-copy reveal">
+        <p class="eyebrow">River Hsu</p>
+        <h2 id="profile-title">Music for worlds<br>built to be played.</h2>
+        <p>River Hsu is a game composer and technical audio designer studying ICAM-Music and Mathematics and Computer Science at UC San Diego. His work connects composition, sound, and implementation across original games built with Unity, Unreal Engine, FMOD, and Wwise.</p>
+        <p>His experience includes sole-composer work, audio leadership, interactive music routing, and collaboration with designers, engineers, artists, and production teams.</p>
+        <div class="profile-actions" id="resume">
+          <a class="action action-primary" href="mailto:rihsu@ucsd.edu?subject=Composition%20Resume%20Request">Request resume <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="../">Sound-design portfolio ↗</a>
+        </div>
+      </div>
+      <aside class="profile-facts reveal" aria-label="Composer profile facts">
+        <div><span>Education</span><strong>UC San Diego<br>B.S. Mathematics and Computer Science<br>B.A. ICAM-Music</strong></div>
+        <div><span>Expected graduation</span><strong>June 2027</strong></div>
+        <div><span>Primary DAW</span><strong>Ableton Live 12</strong></div>
+        <div><span>Interactive audio</span><strong>FMOD / Wwise / Unity / Unreal Engine</strong></div>
+      </aside>
+    </section>
+
+    <section class="contact-section music-contact" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">06 / Start a conversation</p>
+      <h2 id="contact-title">Let’s score the<br><em>next world.</em></h2>
+      <div class="contact-links">
+        <a class="action action-primary" href="mailto:rihsu@ucsd.edu">Email River <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/Rvvr9" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>River Hsu / Music Composition / 2026</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script type="module" src="music.js?v=20261007-1"></script>
+</body>
+</html>

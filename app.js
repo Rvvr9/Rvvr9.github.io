@@ -1,4 +1,6 @@
 import { projects, getProject } from "./projects.js";
+import { formatTime, setupAudioPlayers } from "./shared/audio-player.js";
+import { setupNavigation, setupReveals } from "./shared/site-ui.js";
 
 const qs = (selector, scope = document) => scope.querySelector(selector);
 const qsa = (selector, scope = document) => [...scope.querySelectorAll(selector)];
@@ -224,44 +226,6 @@ function setupFilters() {
   }));
 }
 
-function setupNavigation() {
-  const toggle = qs(".menu-toggle");
-  const nav = qs(".site-nav");
-  toggle.addEventListener("click", () => {
-    const open = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!open));
-    nav.classList.toggle("is-open", !open);
-  });
-  qsa("a", nav).forEach(link => link.addEventListener("click", () => {
-    toggle.setAttribute("aria-expanded", "false");
-    nav.classList.remove("is-open");
-  }));
-  const header = qs("[data-header]");
-  window.addEventListener("scroll", () => header.classList.toggle("is-scrolled", scrollY > 24), {passive: true});
-}
-
-function setupReveals() {
-  const elements = qsa(".reveal");
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
-    elements.forEach(item => item.classList.add("is-visible"));
-    return;
-  }
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-      observer.unobserve(entry.target);
-    }
-  }), {rootMargin: "0px 0px -8%", threshold: 0.08});
-  elements.forEach(item => observer.observe(item));
-}
-
-const formatTime = (seconds, showSubsecondDuration = false) => {
-  if (!Number.isFinite(seconds)) return "0:00";
-  const wholeSeconds = showSubsecondDuration && seconds > 0 && seconds < 1 ? 1 : Math.floor(seconds);
-  const minutes = Math.floor(wholeSeconds / 60);
-  return `${minutes}:${String(wholeSeconds % 60).padStart(2, "0")}`;
-};
-
 function renderAudioSection(project) {
   if (!project.audioSamples?.length) return "";
   const music = project.audioSamples.filter(sample => audioKind(sample) === "music");
@@ -274,79 +238,6 @@ function renderAudioSection(project) {
       ${audioBank(project, "sound", sound, `project-${project.slug}`)}
     </div>
   </section>`;
-}
-
-function setupAudioPlayers(scope = document) {
-  const players = qsa("[data-audio-player]", scope);
-  players.forEach(player => {
-    const audio = qs("audio", player);
-    const toggle = qs(".audio-toggle", player);
-    const toggleIcon = qs("span:first-child", toggle);
-    const toggleLabel = qs("span:last-child", toggle);
-    const progress = qs(".audio-progress", player);
-    const current = qs("[data-current-time]", player);
-    const duration = qs("[data-duration]", player);
-    const title = player.dataset.audioTitle || qs("h3", player)?.textContent || "audio";
-    const container = player.closest(".audio-bank-card");
-
-    const syncDuration = () => {
-      if (!Number.isFinite(audio.duration)) return;
-      progress.max = String(audio.duration);
-      progress.disabled = false;
-      duration.textContent = formatTime(audio.duration, true);
-    };
-    const syncTime = () => {
-      progress.value = String(audio.currentTime);
-      const percent = Number.isFinite(audio.duration) && audio.duration > 0 ? (audio.currentTime / audio.duration) * 100 : 0;
-      progress.style.setProperty("--progress", `${percent}%`);
-      current.textContent = formatTime(audio.currentTime);
-    };
-    const syncToggle = playing => {
-      toggleIcon.textContent = playing ? "Ⅱ" : "▶";
-      toggleLabel.textContent = playing ? "Pause" : "Play";
-      toggle.setAttribute("aria-label", `${playing ? "Pause" : "Play"} ${title}`);
-      player.classList.toggle("is-playing", playing);
-      container?.classList.toggle("is-playing", playing);
-    };
-
-    audio.addEventListener("loadedmetadata", syncDuration);
-    audio.addEventListener("durationchange", syncDuration);
-    audio.addEventListener("timeupdate", syncTime);
-    audio.addEventListener("play", () => {
-      players.forEach(otherPlayer => {
-        const otherAudio = qs("audio", otherPlayer);
-        if (otherAudio !== audio && !otherAudio.paused) otherAudio.pause();
-      });
-      syncToggle(true);
-    });
-    audio.addEventListener("pause", () => syncToggle(false));
-    audio.addEventListener("ended", () => {
-      audio.currentTime = 0;
-      syncTime();
-    });
-    const togglePlayback = () => {
-      if (audio.paused) audio.play().catch(() => syncToggle(false));
-      else audio.pause();
-    };
-    toggle.addEventListener("click", togglePlayback);
-    progress.addEventListener("input", () => {
-      audio.currentTime = Number(progress.value);
-      syncTime();
-    });
-    progress.addEventListener("keydown", event => {
-      const seekKeys = ["ArrowLeft", "ArrowDown", "ArrowRight", "ArrowUp", "Home", "End"];
-      if (!seekKeys.includes(event.key) || !Number.isFinite(audio.duration)) return;
-      event.preventDefault();
-      if (event.key === "Home") audio.currentTime = 0;
-      else if (event.key === "End") audio.currentTime = audio.duration;
-      else {
-        const direction = event.key === "ArrowLeft" || event.key === "ArrowDown" ? -1 : 1;
-        audio.currentTime = Math.min(audio.duration, Math.max(0, audio.currentTime + direction * 5));
-      }
-      syncTime();
-    });
-    if (audio.readyState >= 1) syncDuration();
-  });
 }
 
 function renderProjectView(project) {
