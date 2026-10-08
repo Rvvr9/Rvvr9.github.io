@@ -31,6 +31,12 @@ export function audioPlayerMarkup({src, title, duration = 0, preload = "metadata
   </div>`;
 }
 
+export function pauseAllAudio(except = null) {
+  players.forEach(audio => {
+    if (audio !== except && !audio.paused) audio.pause();
+  });
+}
+
 export function setupAudioPlayers(scope = document) {
   scope.querySelectorAll("[data-audio-player]").forEach(player => {
     if (initialized.has(player)) return;
@@ -95,9 +101,7 @@ export function setupAudioPlayers(scope = document) {
     audio.addEventListener("timeupdate", syncTime);
     audio.addEventListener("error", fail);
     audio.addEventListener("play", () => {
-      players.forEach(otherAudio => {
-        if (otherAudio !== audio && !otherAudio.paused) otherAudio.pause();
-      });
+      pauseAllAudio(audio);
       syncToggle(true);
       setStatus("playing", `Playing ${title}`);
     });

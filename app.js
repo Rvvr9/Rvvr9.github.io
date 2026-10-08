@@ -1,6 +1,6 @@
-import { projects, getProject } from "./projects.js";
-import { formatTime, setupAudioPlayers } from "./shared/audio-player.js";
-import { setupNavigation, setupReveals } from "./shared/site-ui.js";
+import { projects, getProject } from "./projects.js?v=20261008-1";
+import { formatTime, setupAudioPlayers } from "./shared/audio-player.js?v=20261008-1";
+import { setupNavigation, setupReveals } from "./shared/site-ui.js?v=20261008-1";
 
 const qs = (selector, scope = document) => scope.querySelector(selector);
 const qsa = (selector, scope = document) => [...scope.querySelectorAll(selector)];

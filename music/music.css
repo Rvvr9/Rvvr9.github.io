@@ -50,18 +50,43 @@
 
 .music-selected { padding-top: clamp(110px, 11vw, 170px); }
 .composition-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.composition-card { min-width: 0; display: grid; grid-template-columns: minmax(170px, .68fr) minmax(0, 1fr); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(145deg, color-mix(in srgb, var(--composition-accent) 5%, transparent), transparent 54%); transition: background .25s, box-shadow .25s; }
+.composition-card { min-width: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(145deg, color-mix(in srgb, var(--composition-accent) 5%, transparent), transparent 54%); transition: background .25s, box-shadow .25s; }
 .composition-card:hover, .composition-card.is-playing { background: color-mix(in srgb, var(--composition-accent) 7%, #11110f); box-shadow: inset 0 0 0 1px var(--composition-accent); }
-.composition-card-art { position: relative; min-height: 410px; border-right: 1px solid var(--line); overflow: hidden; }
+.project-music-card { display: flex; flex-direction: column; }
+.composition-card-art { position: relative; min-height: 310px; aspect-ratio: 16 / 9; border-bottom: 1px solid var(--line); overflow: hidden; }
 .composition-card:hover .composition-art img { transform: scale(1.035); filter: saturate(.9) contrast(1.06); }
 .composition-number { position: absolute; z-index: 2; top: 17px; left: 17px; min-width: 34px; padding: 7px; background: rgba(8,8,7,.78); color: var(--composition-accent); text-align: center; }
-.composition-card-copy { display: flex; flex-direction: column; padding: clamp(26px, 3.2vw, 48px); }
-.composition-card .track-meta { margin: 0; padding: 0 0 15px; }
-.composition-card h3 { margin: 34px 0 18px; font: 400 clamp(48px, 5vw, 78px)/.82 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
-.composition-credit { margin: 0 0 20px; color: var(--composition-accent); }
-.composition-card-copy > p:not(.composition-credit) { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-.composition-card .audio-control-row { margin-top: auto; padding-top: 35px; }
+.composition-card-copy { display: flex; flex: 1; flex-direction: column; padding: clamp(26px, 3.2vw, 48px); }
+.selected-project-meta { display: flex; justify-content: space-between; gap: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.selected-project-meta span:first-child, .selected-project-role { color: var(--composition-accent); }
+.composition-card h3 { margin: 34px 0 18px; font: 400 clamp(54px, 5.4vw, 84px)/.82 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
+.selected-project-description { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.72; }
+.selected-project-tools { margin-top: 20px; color: var(--muted); }
+.selected-track-list { display: grid; gap: 10px; margin: 34px 0 28px; }
+.selected-track { padding: 18px; border: 1px solid var(--line); background: rgba(12,12,10,.72); transition: border-color .25s; }
+.selected-track:has(.is-playing) { border-color: var(--composition-accent); }
+.selected-track-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.selected-track-heading h4 { margin: 0; font: 400 clamp(30px, 2.6vw, 43px)/.9 var(--display); text-transform: uppercase; }
+.selected-track-heading span { color: var(--muted); }
+.composition-card .audio-control-row { margin-top: 0; padding-top: 17px; }
 .composition-card .audio-controls { grid-template-columns: 94px minmax(70px, 1fr) auto; gap: 12px; }
+.project-music-card .text-link { align-self: flex-start; margin-top: auto; }
+
+.video-score-card { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(360px, .65fr); min-height: 620px; }
+.video-score-card:nth-child(2) { grid-template-columns: minmax(360px, .65fr) minmax(0, 1.35fr); }
+.video-score-card:nth-child(2) .video-score-media { grid-column: 2; grid-row: 1; }
+.video-score-card:nth-child(2) .video-score-copy { grid-column: 1; grid-row: 1; }
+.video-score-media { position: relative; display: grid; place-items: center; min-width: 0; overflow: hidden; border-right: 1px solid var(--line); background: #050504; }
+.video-score-card:nth-child(2) .video-score-media { border-right: 0; border-left: 1px solid var(--line); }
+.video-score-media video { display: block; width: 100%; height: 100%; max-height: 78svh; object-fit: contain; background: #050504; }
+.video-score-media .composition-number { color: var(--composition-accent); }
+.video-score-copy { align-self: center; min-width: 0; padding: clamp(36px, 5vw, 76px); }
+.video-score-copy h3 { margin: 24px 0 8px; font-size: clamp(70px, 7.5vw, 120px); }
+.video-score-subtitle { margin: 0; color: #d8d1c5; font: 400 clamp(28px, 2.8vw, 44px)/1 var(--display); text-transform: uppercase; }
+.video-score-meta { display: flex; justify-content: space-between; gap: 18px; margin: 30px 0 0; padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); }
+.video-score-copy .selected-project-description { margin-top: 28px; font-size: 16px; }
+.video-disclosure { margin: 23px 0 0; color: #77736b; line-height: 1.75; text-transform: none; letter-spacing: .06em; }
+.video-score-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
 
 .scoring-section { padding-top: 80px; }
 .scoring-projects { border-top: 1px solid var(--line-strong); }
@@ -116,9 +141,12 @@
 @media (max-width: 1180px) {
   .featured-composition { grid-template-columns: 1fr; }
   .featured-art-wrap { min-height: min(65vw, 700px); border-right: 0; border-bottom: 1px solid var(--line); }
-  .composition-card { grid-template-columns: 1fr; }
-  .composition-card-art { min-height: 310px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .composition-card-art { min-height: 310px; }
   .composition-card .composition-art { min-height: 310px; }
+  .video-score-card, .video-score-card:nth-child(2) { grid-template-columns: 1fr; min-height: 0; }
+  .video-score-card:nth-child(2) .video-score-media, .video-score-card:nth-child(2) .video-score-copy { grid-column: 1; grid-row: auto; }
+  .video-score-media, .video-score-card:nth-child(2) .video-score-media { border-right: 0; border-left: 0; border-bottom: 1px solid var(--line); }
+  .video-score-media video { height: auto; aspect-ratio: 16 / 9; }
   .composer-profile { grid-template-columns: 70px 1fr; }
   .profile-facts { grid-column: 2; }
 }
@@ -136,7 +164,14 @@
   .composition-card-art { min-height: 390px; }
   .composition-card .composition-art { min-height: 390px; }
   .composition-card-copy { min-height: 420px; padding: 28px 20px; }
+  .project-music-card .composition-card-copy { min-height: 0; }
   .composition-card h3 { font-size: clamp(58px, 17vw, 80px); }
+  .selected-track { padding: 16px 13px; }
+  .selected-track-heading h4 { font-size: 32px; }
+  .video-score-copy { padding: 40px 20px 48px; }
+  .video-score-copy h3 { font-size: clamp(68px, 20vw, 94px); }
+  .video-score-subtitle { font-size: 30px; }
+  .video-score-links { align-items: flex-start; flex-direction: column; gap: 18px; }
   .score-project, .score-project:nth-child(even) { grid-template-columns: 1fr; gap: 36px; padding: 72px 0; }
   .score-project:nth-child(even) .score-project-image, .score-project:nth-child(even) .score-project-copy { grid-column: 1; grid-row: auto; }
   .score-project-image { aspect-ratio: 16 / 11; }

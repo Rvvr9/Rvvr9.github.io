@@ -1,12 +1,12 @@
-import { audioPlayerMarkup, formatTime, setupAudioPlayers } from "../shared/audio-player.js";
-import { setupNavigation, setupReveals } from "../shared/site-ui.js";
+import { audioPlayerMarkup, formatTime, pauseAllAudio, setupAudioPlayers } from "../shared/audio-player.js?v=20261008-1";
+import { setupNavigation, setupReveals } from "../shared/site-ui.js?v=20261008-1";
 import {
   compositionInventory,
   featuredComposition,
   productionCapabilities,
   scoringProjects,
-  selectedCompositions
-} from "./music-data.js";
+  selectedProjects
+} from "./music-data.js?v=20261008-1";
 
 const qs = selector => document.querySelector(selector);
 
@@ -44,21 +44,56 @@ function renderFeatured() {
     </div>`;
 }
 
+const selectedTrackMarkup = track => `<section class="selected-track" aria-label="${escapeHtml(track.displayTitle)}">
+  <div class="selected-track-heading">
+    <h4>${escapeHtml(track.displayTitle)}</h4>
+    <span class="meta">${formatTime(track.duration, true)}</span>
+  </div>
+  ${audioPlayerMarkup({...track, title: track.displayTitle, className: "composition-player"})}
+</section>`;
+
+const renderAudioProject = (project, index) => `<article class="composition-card project-music-card reveal" style="--composition-accent:${project.accent}">
+  <div class="composition-card-art">
+    ${artwork(project)}
+    <span class="composition-number meta">${String(index + 1).padStart(2, "0")}</span>
+  </div>
+  <div class="composition-card-copy">
+    <div class="selected-project-meta meta"><span>${escapeHtml(project.role)}</span><span>${project.tracks.length} ${project.tracks.length === 1 ? "track" : "tracks"}</span></div>
+    <h3>${escapeHtml(project.title)}</h3>
+    <p class="selected-project-description">${escapeHtml(project.description)}</p>
+    ${project.tools.length ? `<div class="selected-project-tools meta">${project.tools.map(escapeHtml).join(" / ")}</div>` : ""}
+    <div class="selected-track-list">${project.tracks.map(selectedTrackMarkup).join("")}</div>
+    <a class="text-link" href="${project.projectUrl}">Open full project ↗</a>
+  </div>
+</article>`;
+
+const renderVideoProject = (project, index) => `<article class="composition-card video-score-card reveal" style="--composition-accent:${project.accent}">
+  <div class="video-score-media">
+    <video controls playsinline preload="metadata" poster="${project.poster}" aria-label="Play ${escapeHtml(project.title)} ${escapeHtml(project.subtitle)}" data-score-video>
+      <source src="${project.videoSrc}" type="video/mp4">
+      Your browser does not support video playback. <a href="${project.videoSrc}">Open the video file</a>.
+    </video>
+    <p class="sr-only">${escapeHtml(project.posterAlt)}</p>
+    <span class="composition-number meta">${String(index + 1).padStart(2, "0")} / Cinematic score</span>
+  </div>
+  <div class="video-score-copy">
+    <p class="selected-project-role meta">${escapeHtml(project.role)}</p>
+    <h3>${escapeHtml(project.title)}</h3>
+    <p class="video-score-subtitle">${escapeHtml(project.subtitle)}</p>
+    <div class="video-score-meta meta"><span>${escapeHtml(project.mediaLabel)}</span><span>${formatTime(project.duration, true)}</span></div>
+    <p class="selected-project-description">${escapeHtml(project.description)}</p>
+    <p class="video-disclosure meta">${escapeHtml(project.disclosure)}</p>
+    <div class="video-score-links">
+      ${project.projectUrl ? `<a class="text-link" href="${project.projectUrl}">Open full project ↗</a>` : ""}
+      ${project.referenceUrl ? `<a class="text-link" href="${project.referenceUrl}" target="_blank" rel="noreferrer">${escapeHtml(project.referenceLabel)}</a>` : ""}
+    </div>
+  </div>
+</article>`;
+
 function renderSelected() {
-  qs("[data-selected-compositions]").innerHTML = selectedCompositions.map((track, index) => `
-    <article class="composition-card reveal" style="--composition-accent:${track.accent}">
-      <div class="composition-card-art">
-        ${artwork(track)}
-        <span class="composition-number meta">${String(index + 1).padStart(2, "0")}</span>
-      </div>
-      <div class="composition-card-copy">
-        ${trackMeta(track)}
-        <h3>${escapeHtml(track.displayTitle)}</h3>
-        <p class="composition-credit meta">${escapeHtml(track.credit)}</p>
-        <p>${escapeHtml(track.description)}</p>
-        ${audioPlayerMarkup({...track, className: "composition-player"})}
-      </div>
-    </article>`).join("");
+  qs("[data-selected-compositions]").innerHTML = selectedProjects.map((project, index) => project.kind === "video"
+    ? renderVideoProject(project, index)
+    : renderAudioProject(project, index)).join("");
 }
 
 function renderScoringProjects() {
@@ -76,15 +111,31 @@ function renderScoringProjects() {
         <div class="score-track-list">
           ${project.tracks.map(track => `<section class="score-track" aria-label="${escapeHtml(track.displayTitle)}">
             <div class="score-track-heading">
-              <div><h4>${escapeHtml(track.displayTitle)}</h4><p class="meta">${escapeHtml(track.credit)}</p></div>
+              <h4>${escapeHtml(track.displayTitle)}</h4>
               <span class="meta">${formatTime(track.duration, true)}</span>
             </div>
-            ${audioPlayerMarkup({...track, className: "score-player", preload: "none"})}
+            ${audioPlayerMarkup({...track, title: track.displayTitle, className: "score-player", preload: "none"})}
           </section>`).join("")}
         </div>
         <a class="text-link" href="${project.projectUrl}">Open full project ↗</a>
       </div>
     </article>`).join("");
+}
+
+function setupMediaExclusivity() {
+  const videos = [...document.querySelectorAll("[data-score-video]")];
+  videos.forEach(video => video.addEventListener("play", () => {
+    pauseAllAudio();
+    videos.forEach(otherVideo => {
+      if (otherVideo !== video && !otherVideo.paused) otherVideo.pause();
+    });
+  }));
+  document.addEventListener("play", event => {
+    if (!(event.target instanceof HTMLAudioElement)) return;
+    videos.forEach(video => {
+      if (!video.paused) video.pause();
+    });
+  }, true);
 }
 
 function renderCapabilities() {
@@ -103,5 +154,6 @@ renderScoringProjects();
 renderCapabilities();
 qs("[data-composition-count]").textContent = String(compositionInventory.length);
 setupAudioPlayers();
+setupMediaExclusivity();
 setupNavigation();
 setupReveals();

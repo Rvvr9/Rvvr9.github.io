@@ -1,4 +1,4 @@
-import { getProject } from "../projects.js";
+import { getProject } from "../projects.js?v=20261008-1";
 
 const rootAsset = path => new URL(`../${path}`, import.meta.url).href;
 const projectPage = slug => new URL(`../?project=${slug}`, import.meta.url).href;
@@ -6,6 +6,8 @@ const projectPage = slug => new URL(`../?project=${slug}`, import.meta.url).href
 const durations = {
   "spoilage|Left Hand": 67.825488,
   "delivery|Scene 2–8 Mastered": 66.060771,
+  "project-eve|Until Sunrise": 103.255828,
+  "project-eve|Bud Town": 85,
   "project-eve|Eve": 35.503311,
   "project-eve|As Night Rises": 76.416871,
   "project-eve|Broken Pipes": 43.467755,
@@ -51,13 +53,30 @@ const confirmedSoleComposer = new Set([
 ]);
 
 const documentedCredits = {
-  "tail-of-two|Tail of Two": "Audio Lead",
-  "delivery|Scene 2–8 Mastered": "Audio Lead / Composition",
+  "project-eve|Until Sunrise": "Composer",
+  "project-eve|Bud Town": "Composer",
+  "tail-of-two|Tail of Two": "Audio Lead / Composer",
+  "delivery|Scene 2–8 Mastered": "Audio Lead / Composer",
   "anomie|Face Behind the Mask": "Composer",
   "anomie|Bunny Boss": "Composer",
   "atira|Main Menu": "Music and sound credit",
   "atira|Gameplay": "Music and sound credit",
   "disease-brings-death|Poor City - Church": "Studio Lead / Technical Audio"
+};
+
+const projectRoles = {
+  "project-eve": "Composer / Audio Designer",
+  "delivery": "Audio Lead / Composer",
+  "tell-tale-den": "Composer / Technical Audio Designer",
+  "atira": "Composer / Sound Designer",
+  "sleeping-on-the-job": "Composer",
+  "mariposa": "Audio Lead / Composer",
+  "tail-of-two": "Audio Lead / Composer",
+  "disease-brings-death": "Studio Lead / Technical Audio",
+  "anomie": "Composer / Sound Designer",
+  "spoilage": "Audio Lead / Composer",
+  "harmonious-home-designer": "Composer",
+  "dungeon-chef": "Composer"
 };
 
 function makeTrack(projectSlug, title, overrides = {}) {
@@ -86,6 +105,41 @@ function makeTrack(projectSlug, title, overrides = {}) {
   };
 }
 
+const projectDescriptions = {
+  "project-eve": "Additional compositions from River’s Project Eve music collection.",
+  "tell-tale-den": "The project theme for a supernatural poker game set in a gambling den within a ghost city.",
+  "sleeping-on-the-job": "Additional music from a five-track score for a puzzle game that shifts between exploration and a sleep mode.",
+  "mariposa": "A level cue for a puzzle-platformer moving between a solarpunk past and an apocalyptic future.",
+  "tail-of-two": "The project score for a 2D puzzle-platformer following a spirit cat.",
+  "disease-brings-death": "Music within a Unity vertical slice supported by an FMOD-backed audio manager and gameplay event hooks.",
+  "anomie": "Horror-focused music supporting tension, atmosphere, and combat.",
+  "spoilage": "A composition from a collaborative audio-production project with leadership, pipeline, and implementation responsibilities.",
+  "harmonious-home-designer": "Two compositions for an in-development Unity game.",
+  "dungeon-chef": "Tavern and village compositions from the project’s existing music collection."
+};
+
+function makeProject(projectSlug, trackSpecs, overrides = {}) {
+  const project = getProject(projectSlug);
+  if (!project) throw new Error(`Unknown project: ${projectSlug}`);
+  const tracks = trackSpecs.map(spec => typeof spec === "string"
+    ? makeTrack(projectSlug, spec)
+    : makeTrack(projectSlug, spec.title, spec.overrides));
+  return {
+    kind: "audio",
+    slug: projectSlug,
+    title: overrides.title || project.title,
+    role: overrides.role || projectRoles[projectSlug] || "Composer",
+    description: overrides.description || projectDescriptions[projectSlug] || project.summary,
+    image: rootAsset(overrides.image || project.image),
+    imageAlt: overrides.imageAlt || project.imageAlt,
+    imageFit: overrides.imageFit || project.imageFit || "cover",
+    accent: overrides.accent || project.accent || "#c95625",
+    tools: overrides.tools || project.tools || [],
+    projectUrl: overrides.projectUrl || projectPage(projectSlug),
+    tracks
+  };
+}
+
 export const featuredComposition = makeTrack("anomie", "Face Behind the Mask", {
   displayTitle: "Grave Of Gods",
   project: "Grave of Gods",
@@ -98,64 +152,71 @@ export const featuredComposition = makeTrack("anomie", "Face Behind the Mask", {
   accent: "#c95625"
 });
 
-export const selectedCompositions = [
-  makeTrack("project-eve", "As Night Rises", {
-    description: "A featured composition from River’s three-track Project Eve collection."
+const mariposa = getProject("mariposa");
+
+export const selectedProjects = [
+  {
+    kind: "video",
+    slug: "elden-ring-shadow-of-the-erdtree-rescore",
+    title: "Elden Ring",
+    subtitle: "Shadow of the Erdtree — Trailer Rescore",
+    role: "Composer / Unofficial Rescore",
+    description: "A personal cinematic scoring and sound-redesign exercise created against the Shadow of the Erdtree story trailer.",
+    disclosure: "Unofficial personal work. ELDEN RING and Shadow of the Erdtree are properties of FromSoftware and Bandai Namco Entertainment; this rescore is not affiliated with, endorsed by, or commissioned by the rights holders.",
+    videoSrc: rootAsset("resources/video/elden-ring-shadow-of-the-erdtree-unofficial-rescore.mp4"),
+    poster: rootAsset("resources/project-media/elden-ring-rescore-poster.webp"),
+    posterAlt: "A cinematic frame from the ELDEN RING Shadow of the Erdtree trailer rescore",
+    duration: 62.020499,
+    mediaLabel: "Finished local rescore",
+    referenceUrl: "https://www.youtube.com/watch?v=UY8rXCdv5lA",
+    referenceLabel: "Original trailer reference ↗",
+    accent: "#b45b38"
+  },
+  {
+    kind: "video",
+    slug: "mariposa-trailer-score",
+    title: "Mariposa",
+    subtitle: "Trailer Score",
+    role: "Audio Lead / Composer",
+    description: "River’s original trailer score for Mariposa, shaped around the game’s movement between a solarpunk past and an apocalyptic future.",
+    disclosure: "Original trailer score and production by River Hsu.",
+    videoSrc: rootAsset(mariposa.musicVideo.src),
+    poster: rootAsset("resources/project-media/mariposa-trailer-score-poster.webp"),
+    posterAlt: "Mariposa characters and solar-powered technology in the game trailer",
+    duration: mariposa.musicVideo.duration,
+    mediaLabel: "Original trailer score",
+    projectUrl: projectPage("mariposa"),
+    accent: mariposa.accent || "#4f9189"
+  },
+  makeProject("project-eve", ["Until Sunrise", "Bud Town", "Broken Pipes"], {
+    description: "Three contrasting compositions from River’s Project Eve music collection."
   }),
-  makeTrack("tail-of-two", "Tail of Two", {
-    description: "The project score for a 2D puzzle-platformer following a spirit cat."
+  makeProject("delivery", [{
+    title: "Scene 2–8 Mastered",
+    overrides: {displayTitle: "Cinematic Trailer Score"}
+  }], {
+    description: "A cinematic score created within River’s audio-lead role on the professional team project Delivery."
   }),
-  makeTrack("tell-tale-den", "Tell-Tale Den", {
-    description: "The main project theme for a supernatural poker game set in a ghost city."
+  makeProject("tell-tale-den", ["Catch the Lie", "Main Menu"], {
+    description: "Two compositions for a supernatural poker game set in a gambling den within a ghost city."
   }),
-  makeTrack("delivery", "Scene 2–8 Mastered", {
-    displayTitle: "Scene 2–8",
-    description: "A scene score from Delivery, created within River’s audio-lead role on a professional team project."
+  makeProject("atira", ["Main Menu", {
+    title: "Gameplay",
+    overrides: {displayTitle: "Rush"}
+  }], {
+    description: "Main-menu and gameplay compositions for a third-person action demo with FMOD-backed music-state routing."
   }),
-  makeTrack("mariposa", "Drowning Tide", {
-    description: "A tense level cue for Mariposa, a 2D puzzle-platformer moving between a solarpunk past and an apocalyptic future.",
-    context: "Ableton Live 12 · Game score"
-  }),
-  makeTrack("atira", "Main Menu", {
-    description: "Main-menu music for an early-development third-person action game."
+  makeProject("sleeping-on-the-job", ["Jazz Bar", "Main Menu"], {
+    description: "Two selections from River’s five-track score for a puzzle game built around exploration and sleep-state investigation."
   })
 ];
 
-const projectDescriptions = {
-  "project-eve": "Three standalone game-music pieces presented as a compact composition study.",
-  "tell-tale-den": "Themes and gameplay music for a supernatural poker game set in a gambling den within a ghost city.",
-  "sleeping-on-the-job": "Five compositions for a puzzle game that shifts between exploration and a sleep mode used to investigate evidence.",
-  "atira": "Music for a third-person action demo whose current Unity build also uses FMOD-backed music-state routing.",
-  "disease-brings-death": "Music within a Unity vertical slice supported by an FMOD-backed audio manager and gameplay event hooks.",
-  "anomie": "Horror-focused music supporting tension, atmosphere, and combat.",
-  "spoilage": "A composition from a collaborative audio-production project with leadership, pipeline, and implementation responsibilities.",
-  "harmonious-home-designer": "Two compositions for an in-development Unity game.",
-  "dungeon-chef": "Tavern and village compositions from the project’s existing music collection."
-};
-
-function makeProject(projectSlug, trackTitles) {
-  const project = getProject(projectSlug);
-  const tracks = trackTitles.map(title => makeTrack(projectSlug, title));
-  return {
-    slug: projectSlug,
-    title: project.title,
-    role: tracks.every(track => track.credit.startsWith("Sole composer")) ? "Sole Composer" : project.role,
-    description: projectDescriptions[projectSlug] || project.summary,
-    image: rootAsset(project.image),
-    imageAlt: project.imageAlt,
-    imageFit: project.imageFit || "cover",
-    accent: project.accent || "#c95625",
-    tools: project.tools,
-    projectUrl: projectPage(projectSlug),
-    tracks
-  };
-}
-
 export const scoringProjects = [
-  makeProject("project-eve", ["Eve", "Broken Pipes"]),
-  makeProject("tell-tale-den", ["Catch the Lie", "Main Menu"]),
-  makeProject("sleeping-on-the-job", ["Break Room", "Jazz Bar", "Main Menu", "Minigame", "Sleepwalking"]),
-  makeProject("atira", ["Gameplay"]),
+  makeProject("project-eve", ["Eve", "As Night Rises"]),
+  makeProject("tell-tale-den", ["Tell-Tale Den"]),
+  makeProject("sleeping-on-the-job", ["Break Room", "Minigame", "Sleepwalking"]),
+  makeProject("tail-of-two", ["Tail of Two"]),
+  makeProject("mariposa", ["Drowning Tide"]),
   makeProject("disease-brings-death", ["Poor City - Church"]),
   makeProject("anomie", ["Bunny Boss"]),
   makeProject("spoilage", ["Left Hand"]),
@@ -190,4 +251,6 @@ export const productionCapabilities = [
   }
 ];
 
-export const compositionInventory = [featuredComposition, ...selectedCompositions, ...scoringProjects.flatMap(project => project.tracks)];
+export const videoInventory = selectedProjects.filter(project => project.kind === "video");
+const selectedTracks = selectedProjects.flatMap(project => project.tracks || []);
+export const compositionInventory = [featuredComposition, ...selectedTracks, ...scoringProjects.flatMap(project => project.tracks)];

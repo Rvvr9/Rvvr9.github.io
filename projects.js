@@ -69,6 +69,8 @@ export const projects = [
       {src: "resources/project-media/project-eve-reversal.gif", alt: "Animated reversal move from Project Eve", caption: "Reversal animation", fit: "contain"}
     ],
     audioSamples: [
+      {src: "resources/audio/project-eve-until-sunrise.m4a", title: "Until Sunrise", category: "Music", duration: 103.255828},
+      {src: "resources/audio/project-eve-bud-town.m4a", title: "Bud Town", category: "Music", duration: 85},
       {src: "resources/audio/project-eve-eve.m4a", title: "Eve", category: "Music"},
       {src: "resources/audio/project-eve-as-night-rises.m4a", title: "As Night Rises", category: "Music", featuredRail: "music", featuredOrder: 1, duration: 76.363},
       {src: "resources/audio/project-eve-broken-pipes.m4a", title: "Broken Pipes", category: "Music"}
@@ -264,6 +266,7 @@ export const projects = [
     summary: "Audio leadership for a 2D puzzle platformer split between a solarpunk past and apocalyptic future.",
     contributions: ["Audio leadership", "Interactive audio implementation", "Audio testing and quality assurance"],
     implementationEvidence: ["Designed and implemented interactive audio in FMOD and Unity", "Iterated with designers, programmers, artists, and production leads"], image: "resources/Mari.png", imageAlt: "Mariposa game artwork",
+    musicVideo: {src: "resources/video/mariposa-trailer-score.mp4", title: "Mariposa Trailer Score", duration: 100.394667},
     audioSamples: [{
       src: "resources/audio/mariposa-drowning-tide.m4a", title: "Drowning Tide", category: "Music",
       description: "Tense puzzle-platforming level", context: "Ableton Live 12", featuredRail: "music", featuredOrder: 2, duration: 135.15
