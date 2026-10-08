@@ -91,8 +91,8 @@ export const featuredComposition = makeTrack("anomie", "Face Behind the Mask", {
   project: "Grave of Gods",
   projectUrl: projectPage("grave-of-gods"),
   credit: "Composer — River Hsu",
-  description: "Original composition planned for use in Grave of Gods.",
-  context: "Planned use · Not yet implemented or released",
+  description: "Original main menu theme for Grave of Gods.",
+  context: "Main menu theme · Original composition",
   image: "resources/project-media/grave-of-gods-cover.png",
   imageAlt: "An armored warrior overlooking a gothic citadel and vast army beneath a fiery sunset in Grave of Gods",
   accent: "#c95625"
