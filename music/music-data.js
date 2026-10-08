@@ -78,7 +78,7 @@ function makeTrack(projectSlug, title, overrides = {}) {
     duration: durations[key] || sample.duration || 0,
     credit: overrides.credit || (confirmedSoleComposer.has(key) ? "Sole composer — River Hsu" : documentedCredits[key] || project.role),
     description: overrides.description || sample.description || "",
-    context: overrides.context || sample.context || "",
+    context: overrides.context ?? sample.context ?? "",
     image: rootAsset(overrides.image || project.image),
     imageAlt: overrides.imageAlt || project.imageAlt,
     imageFit: overrides.imageFit || project.imageFit || "cover",
@@ -91,9 +91,9 @@ export const featuredComposition = makeTrack("anomie", "Face Behind the Mask", {
   project: "Grave of Gods",
   projectUrl: projectPage("grave-of-gods"),
   credit: "Composer — River Hsu",
-  description: "Original main menu theme for Grave of Gods.",
-  context: "Main menu theme · Original composition",
-  image: "resources/project-media/grave-of-gods-cover.png",
+  description: "Main Menu theme for Grave of Gods",
+  context: "",
+  image: "resources/project-media/grave-of-gods-music-hero.webp",
   imageAlt: "An armored warrior overlooking a gothic citadel and vast army beneath a fiery sunset in Grave of Gods",
   accent: "#c95625"
 });
