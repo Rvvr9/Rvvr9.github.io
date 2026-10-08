@@ -87,7 +87,7 @@ function makeTrack(projectSlug, title, overrides = {}) {
 }
 
 export const featuredComposition = makeTrack("anomie", "Face Behind the Mask", {
-  displayTitle: "Final Boss",
+  displayTitle: "Grave Of Gods",
   project: "Grave of Gods",
   projectUrl: projectPage("grave-of-gods"),
   credit: "Composer — River Hsu",
